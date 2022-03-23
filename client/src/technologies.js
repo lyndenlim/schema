@@ -4,6 +4,34 @@ const technologies = [
         image: "https://cdn2.unrealengine.com/ue-logo-1400x788-1400x788-8f185e1e3635.jpg"
     },
     {
+        name: "javascript",
+        image: "https://www.freepnglogos.com/uploads/javascript-png/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png"
+    },
+    {
+        name: "ruby",
+        image: "https://w7.pngwing.com/pngs/535/618/png-transparent-ruby-on-rails-computer-programming-programming-language-ruby-angle-rectangle-logo.png"
+    },
+    {
+        name: "python",
+        image: "https://www.pngitem.com/pimgs/m/31-312064_programming-icon-png-python-logo-512-transparent-png.png"
+    },
+    {
+        name: "react",
+        image: "https://w7.pngwing.com/pngs/235/872/png-transparent-react-computer-icons-redux-javascript-others-logo-symmetry-nodejs-thumbnail.png"
+    },
+    {
+        name: "sql",
+        image: "https://www.vhv.rs/dpng/d/256-2563210_sql-programming-language-logo-hd-png-download.png"
+    },
+    {
+        name: "golang",
+        image: "https://mpng.subpng.com/20180430/clw/kisspng-go-programming-language-computer-programming-progr-programming-language-5ae6e800efbb03.589382971525082112982.jpg"
+    },
+    {
+        name: "java",
+        image: "https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png"
+    },
+    {
         name: "unity",
         image: "https://unity3d.com/files/images/ogimg.jpg"
     },
@@ -20,28 +48,12 @@ const technologies = [
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png"
     },
     {
-        name: "java",
-        image: "https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png"
-    },
-    {
-        name: "javascript",
-        image: "https://www.freepnglogos.com/uploads/javascript-png/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png"
-    },
-    {
         name: "typescript",
         image: "https://iconape.com/wp-content/png_logo_vector/typescript.png"
     },
     {
-        name: "ruby",
-        image: "https://w7.pngwing.com/pngs/535/618/png-transparent-ruby-on-rails-computer-programming-programming-language-ruby-angle-rectangle-logo.png"
-    },
-    {
         name: "ruby on rails",
         image: 'https://www.kindpng.com/picc/m/12-120961_logo-ruby-on-rails-hd-png-download.png'
-    },
-    {
-        name: "react",
-        image: "https://w7.pngwing.com/pngs/235/872/png-transparent-react-computer-icons-redux-javascript-others-logo-symmetry-nodejs-thumbnail.png"
     },
     {
         name: "vue",
@@ -50,14 +62,6 @@ const technologies = [
     {
         name: "angular",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/640px-Angular_full_color_logo.svg.png"
-    },
-    {
-        name: "python",
-        image: "https://www.pngitem.com/pimgs/m/31-312064_programming-icon-png-python-logo-512-transparent-png.png"
-    },
-    {
-        name: "golang",
-        image: "https://mpng.subpng.com/20180430/clw/kisspng-go-programming-language-computer-programming-progr-programming-language-5ae6e800efbb03.589382971525082112982.jpg"
     },
     {
         name: "node",
@@ -74,10 +78,6 @@ const technologies = [
     {
         name: "css",
         image: "https://w7.pngwing.com/pngs/454/464/png-transparent-css3-cascading-style-sheets-logo-html-markup-language-others-miscellaneous-blue-angle-thumbnail.png"
-    },
-    {
-        name: "sql",
-        image: "https://www.vhv.rs/dpng/d/256-2563210_sql-programming-language-logo-hd-png-download.png"
     },
     {
         name: "swift",
