@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Homepage from "./Homepage";
+import AccountPage from "./AccountPage"
+import FavoritePage from "./FavoritePage"
+import ExplorePage from "./ExplorePage"
 
 function App() {
   return (
@@ -12,8 +14,17 @@ function App() {
           <Route path="/testing">
             <h1>Test Route</h1>
           </Route>
-          <Route path="/">
-            <Homepage/>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
+          <Route path="/explore">
+            <ExplorePage />
+          </Route>
+          <Route path="/favorites">
+            <FavoritePage />
+          </Route>
+          <Route path="/profile">
+            <AccountPage />
           </Route>
         </Switch>
       </div>
