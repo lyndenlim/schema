@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import axios from "axios"
 import Stream from "./Stream"
+import TechnologyCard from "./TechnologyCard"
+import technologies from "./technologies"
 
 function Homepage() {
   const [scienceTechStreams, setScienceTechStreams] = useState([])
@@ -20,12 +22,16 @@ function Homepage() {
     axios.all([axiosInstance.get(scienceAndTechURL), axiosInstance.get(softwareAndDevelopmentURL)])
       .then(res => {
         setScienceTechStreams(res[0].data.data)
-        setSoftDevStreams(res[1].data.data)           
+        setSoftDevStreams(res[1].data.data)
       })
   }, [])
 
+
   return (
-    <div>{[...scienceTechStreams, softDevStreams].flat().map(stream => <Stream key={stream.id} stream={stream} />)}</div>
+    <>
+      <div>{[...scienceTechStreams, softDevStreams].flat().map(stream => <Stream key={stream.id} stream={stream} />)}</div>
+      <div>{technologies.map(tech => <TechnologyCard key={tech.name} tech={tech} />)}</div>
+    </>
   )
 }
 
