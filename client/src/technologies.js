@@ -71,7 +71,7 @@ const technologies = [
     },
     {
         id: 15,
-        name: "VueJS",
+        name: "Vue",
         image: "https://icon2.cleanpng.com/20180718/zqt/kisspng-vue-js-javascript-library-angularjs-react-vue-js-5b4ebe1b93c716.7614705815318871316053.jpg"
     },
     {
@@ -81,7 +81,7 @@ const technologies = [
     },
     {
         id: 17,
-        name: "NodeJS",
+        name: "Node",
         image: "https://www.pngfind.com/pngs/m/683-6833893_node-js-logo-png-transparent-png.png"
     },
     {

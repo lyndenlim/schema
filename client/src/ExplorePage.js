@@ -2,11 +2,12 @@ import React from 'react'
 import TechnologyCard from "./TechnologyCard"
 import technologies from "./technologies"
 
-function ExplorePage({ streams }) {
+function ExplorePage({ streams, setCategoryStreams  }) {
+
   return (
-    <>
-      {technologies.map(tech => <TechnologyCard key={tech.name} tech={tech} streams={streams} />)}
-    </>
+    <div>
+      {technologies.map(tech => <TechnologyCard key={tech.name} tech={tech} streams={streams} setCategoryStreams={setCategoryStreams} />)}
+    </div>
   )
 }
 

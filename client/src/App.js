@@ -12,6 +12,11 @@ import CategoryVideo from "./CategoryVideo"
 function App() {
   const [streams, setStreams] = useState([])
   const [categoryStreams, setCategoryStreams] = useState([])
+  // useState(sessionStorage.getItem("sessionStorageKey") || [])
+
+  // useEffect(() => {
+  //   sessionStorage.setItem("sessionStorageKey", categoryStreams)
+  // }, [categoryStreams])
 
   useEffect(async () => {
     const axiosInstance = axios.create({
@@ -22,7 +27,7 @@ function App() {
     });
 
     const scienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=1"
-    const softwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=7"
+    const softwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=18"
 
     await axios.all([axiosInstance.get(scienceAndTechURL), axiosInstance.get(softwareAndDevelopmentURL)])
       .then(res => {
@@ -42,7 +47,7 @@ function App() {
             <Homepage streams={streams} setCategoryStreams={setCategoryStreams} />
           </Route>
           <Route path="/explore">
-            <ExplorePage streams={streams} />
+            <ExplorePage streams={streams} setCategoryStreams={setCategoryStreams} />
           </Route>
           <Route path="/favorites">
             <FavoritePage />

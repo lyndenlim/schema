@@ -5,12 +5,11 @@ function TechnologyCard({ tech, streams, setCategoryStreams }) {
 
     function handleClick() {
         const filteredStreams = streams.filter(stream => {
-            const streamTitle = stream.title.toLowerCase().split(" ")
+            const streamTitle = stream.title.toLowerCase().split(/[ !js]/)
             return streamTitle.includes(tech.name.toLowerCase()) || streamTitle.includes("unreal") || streamTitle.includes("engine")
         })
         setCategoryStreams(filteredStreams)
     }
-
 
     return (
         <div>
