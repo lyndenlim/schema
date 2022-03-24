@@ -1,9 +1,10 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import NavBar from "./NavBar";
-import Homepage from "./Homepage";
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import NavBar from "./NavBar"
+import Homepage from "./Homepage"
 import AccountPage from "./AccountPage"
 import FavoritePage from "./FavoritePage"
 import ExplorePage from "./ExplorePage"
+import Stream from "./Stream"
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/profile">
             <AccountPage />
+          </Route>
+          <Route path="/streams/:id">
+            <Stream />
           </Route>
         </Switch>
       </div>
