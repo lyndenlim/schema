@@ -1,7 +1,7 @@
 import React from 'react'
 import Thumbnail from './Thumbnail'
 
-function CategoryVideo({ categoryStreams }) {
+function CategoryStream({ categoryStreams }) {
 
 //FIX ISSUE ON REFRESH: on refresh nothing gets rendered...
 
@@ -12,4 +12,4 @@ function CategoryVideo({ categoryStreams }) {
   )
 }
 
-export default CategoryVideo
+export default CategoryStream

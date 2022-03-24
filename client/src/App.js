@@ -7,7 +7,8 @@ import AccountPage from "./AccountPage"
 import FavoritePage from "./FavoritePage"
 import ExplorePage from "./ExplorePage"
 import Stream from "./Stream"
-import CategoryVideo from "./CategoryVideo"
+import CategoryStream from "./CategoryStream"
+import Video from './Video'
 
 function App() {
   const [streams, setStreams] = useState([])
@@ -59,7 +60,10 @@ function App() {
             <Stream />
           </Route>
           <Route path="/category/:name">
-            <CategoryVideo categoryStreams={categoryStreams} />
+            <CategoryStream categoryStreams={categoryStreams} />
+          </Route>
+          <Route path="/video/:id">
+            <Video />
           </Route>
         </Switch>
       </div>
