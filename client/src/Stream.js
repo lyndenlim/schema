@@ -2,10 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom"
 import axios from "axios"
 
-function Stream() {
+function Stream({}) {
   const [streams, setStreams] = useState([])
   const {id} = useParams()
-  const [render, setRender] = useState(false)
 
   useEffect(async () => {
     const axiosInstance = axios.create({
