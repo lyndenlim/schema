@@ -2,7 +2,7 @@ import Navbar from "react-bootstrap/Navbar"
 import Container from "react-bootstrap/Container"
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import Searchbar from "./Searchbar"
+import SearchBar from "./SearchBar"
 
 function NavBar() {
   return (
@@ -20,7 +20,7 @@ function NavBar() {
           </NavLink>
         </div>
         <div>
-          <Searchbar />
+          <SearchBar />
         </div>
         <NavLink to="/profile">
           <div>

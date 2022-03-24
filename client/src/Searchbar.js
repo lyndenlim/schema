@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Searchbar() {
+function SearchBar() {
     return (
         <div>
             <input placeholder="Search for a video" />
@@ -8,4 +8,4 @@ function Searchbar() {
     )
 }
 
-export default Searchbar
+export default SearchBar
