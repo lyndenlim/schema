@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 
-function Thumbnail({ stream }) {
+function TwitchThumbnail({ stream }) {
     const [thumbnail, setThumbnail] = useState()
 
     useEffect(() => {
@@ -24,4 +24,4 @@ function Thumbnail({ stream }) {
     )
 }
 
-export default Thumbnail
+export default TwitchThumbnail
