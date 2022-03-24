@@ -1,18 +1,20 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom"
 
-function TechnologyCard({ tech, streams }) {
-    // const [filteredStreams, setFilteredStreams] = useState([])
+function TechnologyCard({ tech, streams , setCategoryStreams}) {
 
-    // useEffect(() => {
-    //     setFilteredStreams(streams.filter(stream => stream.title.toLowerCase().split(" ").includes(tech.name)))
-    // }, [])
+    function handleClick() {
+        const filteredStreams = streams.filter(stream => { 
+            const streamTitle = stream.title.toLowerCase().split(" ")
+            return streamTitle.includes(tech.name.toLowerCase()) || streamTitle.includes("unreal") || streamTitle.includes("engine")
+        })
+        setCategoryStreams(filteredStreams)
+    }
 
-    // const filteredStreams = streams.filter(stream => stream.title.toLowerCase().split(" ").includes(tech.name.toLowerCase()))
 
     return (
         <div>
-            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            <Link to={`/category/${tech.name}`} style={{ textDecoration: "none", color: "black"}} onClick={handleClick}>
                 <img style={{ width: "225px", height: "225px" }} src={tech.image} />
                 {tech.name}
             </Link>
