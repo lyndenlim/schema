@@ -1,14 +1,14 @@
-import React from 'react'
-import Thumbnail from './Thumbnail'
+import React, { useState } from 'react'
+import TwitchThumbnail from './TwitchThumbnail'
+import YouTubeThumbnail from './YouTubeThumbnail'
 
 function CategoryContent({ categoryStreams, categoryVideos }) {
 
-//FIX ISSUE ON REFRESH: on refresh nothing gets rendered...
-
+  //FIX ISSUE ON REFRESH: on refresh nothing gets rendered...
   return (
     <>
-      {categoryStreams.map(stream => <Thumbnail key={stream.id} stream={stream} />)}
-      {categoryVideos.map(video=> <Thumbnail key={video.id} video={video} />)}
+      {categoryStreams.map(stream => <TwitchThumbnail key={stream.id} stream={stream} />)}
+      {categoryVideos.map(video => <YouTubeThumbnail key={video.id} video={video} />)}
     </>
   )
 }
