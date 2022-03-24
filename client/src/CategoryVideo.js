@@ -1,13 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Thumbnail from './Thumbnail'
 
-function CategoryVideo({categoryStreams}) {
-
-  console.log(categoryStreams)
+function CategoryVideo({ categoryStreams }) {
   return (
-    <div>
-      {categoryStreams.map(stream => <Thumbnail key={stream.id} stream={stream}/>)}
-    </div>
+    <>
+      {categoryStreams.map(stream => <Thumbnail key={stream.id} stream={stream} />)}
+    </>
   )
 }
 

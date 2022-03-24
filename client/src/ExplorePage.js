@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import TechnologyCard from "./TechnologyCard"
 import technologies from "./technologies"
 
-function ExplorePage({streams}) {
+function ExplorePage({ streams }) {
   return (
-    <div>
-      {technologies.map(tech => <TechnologyCard key={tech.name} tech={tech} streams={streams}/>)}
-    </div>
+    <>
+      {technologies.map(tech => <TechnologyCard key={tech.name} tech={tech} streams={streams} />)}
+    </>
   )
 }
 

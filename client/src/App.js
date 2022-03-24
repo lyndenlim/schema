@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import axios from "axios"
 import NavBar from "./NavBar"
@@ -42,7 +42,7 @@ function App() {
             <Homepage streams={streams} setCategoryStreams={setCategoryStreams} />
           </Route>
           <Route path="/explore">
-            <ExplorePage streams={streams}/>
+            <ExplorePage streams={streams} />
           </Route>
           <Route path="/favorites">
             <FavoritePage />
