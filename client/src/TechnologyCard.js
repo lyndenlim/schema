@@ -8,7 +8,7 @@ function TechnologyCard({ tech, streams }) {
     //     setFilteredStreams(streams.filter(stream => stream.title.toLowerCase().split(" ").includes(tech.name)))
     // }, [])
 
-    const filteredStreams = streams.filter(stream => stream.title.toLowerCase().split(" ").includes(tech.name))
+    // const filteredStreams = streams.filter(stream => stream.title.toLowerCase().split(" ").includes(tech.name.toLowerCase()))
 
     return (
         <Link to="/">

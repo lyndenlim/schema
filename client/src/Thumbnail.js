@@ -12,10 +12,9 @@ function Thumbnail({ stream }) {
     return (
         <div style={{width: "300px", height: "280px"}}>
             <img width="290px" height="160px" src={thumbnail} />
-            <p><strong>{stream.title}</strong></p>
+            <p><strong>{stream.title.length < 25 ? stream.title : `${stream.title.slice(0,30)}...`}</strong></p>
             <p>{stream.user_name}</p>
             <p>{stream.game_name}</p>
-
             <p>{stream.language}</p>
         </div>
     )
