@@ -59,7 +59,7 @@ function App() {
           <Route path="/category/:name">
             <CategoryContent categoryStreams={categoryStreams} categoryVideos={categoryVideos} />
           </Route>
-          <Route path="/video/:id">
+          <Route path="/videos/:id">
             <Video />
           </Route>
         </Switch>
