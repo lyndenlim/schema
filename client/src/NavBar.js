@@ -22,11 +22,18 @@ function NavBar({onSearch, setSearchedVideos}) {
         <div>
           <SearchBar onSearch={onSearch} setSearchedVideos={setSearchedVideos}/>
         </div>
-        <NavLink to="/profile">
-          <div>
-            Account icon
-          </div>
+        <div>
+        <NavLink to="signup">
+          Sign Up
         </NavLink>
+        <NavLink to="login">
+          Log In
+        </NavLink>
+        <NavLink to="/profile">
+            Account icon
+        </NavLink>
+        </div>
+
       </Container>
     </Navbar>
   )

@@ -4,6 +4,8 @@ import axios from "axios"
 import NavBar from "./NavBar"
 import Homepage from "./Homepage"
 import AccountPage from "./AccountPage"
+import SignUpPage from './SignUpPage'
+import LoginPage from './LoginPage'
 import FavoritePage from "./FavoritePage"
 import ExplorePage from "./ExplorePage"
 import Stream from "./Stream"
@@ -66,6 +68,12 @@ function App() {
           </Route>
           <Route path="/profile">
             <AccountPage />
+          </Route>
+          <Route path="/signup">
+            <SignUpPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
           </Route>
           <Route path="/results">
             <SearchResults searchedStreams={searchedStreams} searchedVideos={searchedVideos}/>
