@@ -23,10 +23,10 @@ function App() {
       }
     });
 
-    const scienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=5"
-    const softwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=5"
+    const scienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=25"
+    const softwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=25"
 
-    await axios.all([axiosInstance.get(scienceAndTechURL), axiosInstance.get(softwareAndDevelopmentURL)])
+    await axios.all([axiosInstance.get(softwareAndDevelopmentURL), axiosInstance.get(scienceAndTechURL)])
       .then(res => {
         setStreams([...res[0].data.data, res[1].data.data].flat())
       })

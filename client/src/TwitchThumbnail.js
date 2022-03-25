@@ -13,7 +13,7 @@ function TwitchThumbnail({ stream }) {
     return (
         <div>
             <Link to={`/streams/${stream.user_id}`} style={{ textDecoration: "none", color: "black" }}>
-                <img width="290px" height="160px" src={thumbnail} />
+                <img width="290px" height="160px" src={thumbnail} alt="twitch-thumbnail" />
                 <p><strong>{stream.title.length < 25 ? stream.title : `${stream.title.slice(0, 30)}...`}</strong></p>
                 <p>{stream.user_name}</p>
                 <p>{stream.game_name}</p>
