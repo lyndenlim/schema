@@ -16,7 +16,7 @@ function TechnologyCard({ tech, streams, setCategoryVideos }) {
     return (
         <div>
             <Link to={`/category/${tech.name}`} style={{ textDecoration: "none", color: "black" }} onClick={handleClick}>
-                <img style={{ width: "225px", height: "225px" }} src={tech.image} />
+                <img width="225px" height="225px" src={tech.image} />
                 {tech.name}
             </Link>
         </div>

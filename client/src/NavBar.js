@@ -9,13 +9,13 @@ function NavBar() {
     <Navbar>
       <Container>
         <div>
-          <NavLink to="/">
-            Schema (logo)
+          <NavLink to="/" className="navbar-link">
+            Schema
           </NavLink>
-          <NavLink to="/favorites">
+          <NavLink to="/favorites" className="navbar-link">
             Following
           </NavLink>
-          <NavLink to="/explore">
+          <NavLink to="/explore" className="navbar-link">
             Explore
           </NavLink>
         </div>

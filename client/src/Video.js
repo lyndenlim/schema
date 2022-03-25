@@ -7,8 +7,8 @@ function Video() {
     <>
       <iframe
         src={`https://www.youtube.com/embed/${id}?enablejsapi=1`}
-        height="600px"
         width="1150px"
+        height="600px"
         frameborder="0"
         style={{ border: "solid 4px #37474F" }}
       ></iframe>
