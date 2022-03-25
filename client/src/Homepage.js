@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import TwitchThumbnail from "./TwitchThumbnail"
 import TechnologyCard from "./TechnologyCard"
 import technologies from "./technologies"
