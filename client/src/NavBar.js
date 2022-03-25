@@ -4,7 +4,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import SearchBar from "./SearchBar"
 
-function NavBar() {
+function NavBar({onSearch, setSearchedVideos}) {
   return (
     <Navbar>
       <Container>
@@ -20,7 +20,7 @@ function NavBar() {
           </NavLink>
         </div>
         <div>
-          <SearchBar />
+          <SearchBar onSearch={onSearch} setSearchedVideos={setSearchedVideos}/>
         </div>
         <NavLink to="/profile">
           <div>
