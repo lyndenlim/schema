@@ -8,13 +8,18 @@ function SearchBar({onSearch, setSearchedVideos}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        onSearch(search)
-        history.push({
-            pathname: "/results",
-        })
-        //NOTE: or the get request below, the maxResults have to be limited to 1 just in case it burns through the quota
-        // axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}+programming&maxResults=1&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
-        // .then(res => setSearchedVideos(res.data.items))
+        if (search.length === 0) {
+            return null
+        } else {
+            onSearch(search)
+            history.push({
+                pathname: "/results",
+            })
+            //NOTE: or the get request below, the maxResults have to be limited to 1 just in case it burns through the quota
+            // axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}+programming&maxResults=1&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
+            // .then(res => setSearchedVideos(res.data.items))
+        }
+
     }
 
     return (
