@@ -1,8 +1,13 @@
 import React from 'react'
-
+import AccountProfile from './AccountProfile'
+import AccountSettings
+ from './AccountSettings'
 function AccountPage() {
   return (
-    <>AccountPage</>
+    <div>
+      <AccountProfile />
+      <AccountSettings />
+    </div>
   )
 }
 
