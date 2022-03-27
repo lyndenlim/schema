@@ -1,8 +1,7 @@
-import React, {useState} from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 
-function SearchBar({onSearch, setSearchedVideos}) {
+function SearchBar({ onSearch, setSearchedVideos }) {
     const [search, setSearch] = useState("")
     const history = useHistory()
 
@@ -24,10 +23,10 @@ function SearchBar({onSearch, setSearchedVideos}) {
 
     return (
         <>
-        <form onSubmit={handleSubmit}>
-            <input placeholder="Search for a stream/video" value={search} onChange={e => setSearch(e.target.value)}/>
-            <input type="submit" />
-        </form>
+            <form onSubmit={handleSubmit}>
+                <input placeholder="Search for a stream/video" value={search} onChange={e => setSearch(e.target.value)} />
+                <input type="submit" />
+            </form>
 
         </>
     )
