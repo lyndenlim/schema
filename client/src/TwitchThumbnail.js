@@ -36,6 +36,9 @@ function TwitchThumbnail({ stream }) {
             case "da":
                 setLanguage("Danish")
                 break;
+            case "it":
+                setLanguage("Italian")
+                break;
             default:
                 setLanguage(stream.language)
         }
