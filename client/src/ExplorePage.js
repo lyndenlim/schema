@@ -4,7 +4,7 @@ import technologies from "./technologies"
 
 function ExplorePage() {
   return (
-    <>
+    <div className="explore-category-container">
       {technologies.map(tech => {
         return (
           <TechnologyCard
@@ -12,7 +12,7 @@ function ExplorePage() {
             tech={tech} />
         )
       })}
-    </>
+    </div>
   )
 }
 

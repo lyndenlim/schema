@@ -18,13 +18,13 @@ function NavBar({ onSearch, user, setUser }) {
     <Navbar>
       <Container>
         <div>
-          <NavLink to="/" className="navbar-link">
+          <NavLink to="/" className="navbar-link text-white">
             Schema
           </NavLink>
-          <NavLink to="/favorites" className="navbar-link">
+          <NavLink to="/favorites" className="navbar-link text-white">
             Following
           </NavLink>
-          <NavLink to="/explore" className="navbar-link">
+          <NavLink to="/explore" className="navbar-link text-white">
             Explore
           </NavLink>
         </div>
@@ -39,8 +39,8 @@ function NavBar({ onSearch, user, setUser }) {
             </>
           ) : (
             <>
-              <NavLink to="/signup" className="navbar-link">Signup</NavLink>
-              <NavLink to="/login" className="navbar-link">Login</NavLink>
+              <NavLink to="/signup" className="navbar-link text-white">Signup</NavLink>
+              <NavLink to="/login" className="navbar-link text-white">Login</NavLink>
             </>
           )}
 

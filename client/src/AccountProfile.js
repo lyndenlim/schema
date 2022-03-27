@@ -8,7 +8,7 @@ function AccountProfile() {
   const handleShow = () => setShow(true);
 
   return (
-    <div>
+    <div className="text-white">
       <h3>Account Profile</h3>
       <div>
         <h5>Profile Picture</h5>

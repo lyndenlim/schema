@@ -9,7 +9,8 @@ function Homepage({ streams }) {
       <div className="homepage-container">
         {streams.map(stream => <TwitchThumbnail key={stream.id} stream={stream} />)}
       </div>
-      <div>
+      <br />
+      <div className="homepage-category-container">
         {technologies.map(tech => {
           return (
             <TechnologyCard

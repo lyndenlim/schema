@@ -14,7 +14,7 @@ function AccountSettings() {
   const handlePasswordShow = () => setPasswordShow(true)
 
   return (
-    <div>
+    <div className="text-white">
       <div>
         <h3>Account Settings</h3>
         <h5>Username</h5>
