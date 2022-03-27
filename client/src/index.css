@@ -57,7 +57,7 @@ code {
   height: 110px;
   width: 110px;
   margin-top: 10%;
-  margin-left: 79%;
+  margin-left: 80%;
   border-radius: 50%;
   background: #6C7073;
 }
@@ -67,7 +67,7 @@ code {
   height: 110px;
   width: 110px;
   margin-top: 28%;
-  margin-left: 79%;
+  margin-left: 80%;
   border-radius: 50%;
   background: #6C7073;
 }
@@ -178,6 +178,38 @@ canvas {
 
 .signup, .login {
   z-index: 1;
-  transform: translate(15%, 900%)
+  padding-top: 125px;
+  padding-left: 140px;
 }
 
+.form-input {
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  display: block;
+  height: 30px;
+  padding: 8px 15px;
+  transform: translate(120px);
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.form-content {
+  border-radius: 20px;
+  border: 2px solid black;
+  padding-top: 30px;
+  width: 450px;
+  height: 350px;
+  background-color: white;
+  text-align: center;
+}
+
+.form-button {
+  border-radius: 20px;
+  border-color: #7795a3;
+  height: 50px;
+  width: 185px;
+  background-color: #7795a3;
+  color: white;
+  margin: 8px
+}

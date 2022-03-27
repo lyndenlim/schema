@@ -58,7 +58,7 @@ function App() {
             <h1>Test Route</h1>
           </Route>
           <Route exact path="/">
-            <Homepage streams={streams} setCategoryStreams={setCategoryStreams} setCategoryVideos={setCategoryVideos} />
+            <Homepage streams={streams} />
           </Route>
           <Route path="/explore">
             <ExplorePage streams={streams} setCategoryStreams={setCategoryStreams} setCategoryVideos={setCategoryVideos} />
@@ -82,7 +82,7 @@ function App() {
             <Stream />
           </Route>
           <Route path="/category/:name">
-            <CategoryContent categoryStreams={categoryStreams} categoryVideos={categoryVideos} />
+            <CategoryContent />
           </Route>
           <Route path="/videos/:id">
             <Video />
