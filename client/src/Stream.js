@@ -26,15 +26,21 @@ function Stream() {
     if (!streams[0]) return null
 
     return (
-        <>
+        <div className="twitch-content">
             <iframe
                 title={id}
                 src={`https://player.twitch.tv/?channel=${streams[0].user_name}&parent=localhost&autoplay=false`}
-                width="1150px"
+                width="1120px"
                 height="600px"
-                allowfullscreen>
+                allow="fullscreen">
             </iframe>
-        </>
+
+            <iframe
+                src={`https://www.twitch.tv/embed/${streams[0].user_name}/chat?parent=localhost`}
+                height="600px"
+                width="300px">
+            </iframe>
+        </div>
     )
 }
 
