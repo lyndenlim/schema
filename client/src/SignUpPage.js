@@ -1,7 +1,32 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
-function SignUpPage() {
+function SignUpPage({ setUser }) {
+  const [email, setEmail] = useState("")
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        username,
+        password,
+        password_confirmation: passwordConfirmation,
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user))
+      }
+    })
+  }
+
   useEffect(async () => {
     let play = false;
     let ii = null;
@@ -69,15 +94,17 @@ function SignUpPage() {
           </div>
           <div className="screen-border-2"></div>
           <canvas id="tv-screen" />
-          <form className="signup">
+          <form className="signup" onSubmit={handleSubmit}>
             <div className="form-content">
               <h3>Sign Up</h3>
               <br />
-              <input className="form-input" placeholder="Email" />
+              <input className="form-input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
               <br />
-              <input className="form-input" placeholder="Username" />
+              <input className="form-input" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
               <br />
-              <input className="form-input" type="password" placeholder="Password" />
+              <input className="form-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password"/>
+              <br />
+              <input className="form-input" type="password" placeholder="Password Confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} autoComplete="current-password"/>
               <br />
               <input className="form-button" type="submit" />
             </div>
