@@ -30,6 +30,9 @@ function TwitchThumbnail({ stream }) {
             case "ru":
                 setLanguage("Russian")
                 break;
+            case "tr":
+                setLanguage("Turkish")
+                break;
             default:
                 setLanguage(stream.language)
         }
@@ -39,10 +42,10 @@ function TwitchThumbnail({ stream }) {
         <div className="twitch-thumbnail" style={{ height: "310px", width: "290px" }}>
             <Link to={`/streams/${stream.user_id}`} style={{ textDecoration: "none", color: "black" }}>
                 <img width="290px" height="160px" src={thumbnail} alt="twitch-thumbnail" />
-                <p><strong>{stream.title.length < 25 ? stream.title : `${stream.title.slice(0, 30)}...`}</strong></p>
-                <p>{stream.user_name}</p>
-                <p>{stream.game_name}</p>
-                <p>{language}</p>
+                <p className="text-white"><strong>{stream.title.length < 25 ? stream.title : `${stream.title.slice(0, 30)}...`}</strong></p>
+                <p className="text-white">{stream.user_name}</p>
+                <p className="text-white">{stream.game_name}</p>
+                <p className="text-white">{language}</p>
             </Link>
         </div>
 

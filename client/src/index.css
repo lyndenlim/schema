@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #202124 !important;
 }
 
 code {
@@ -14,6 +15,7 @@ code {
 
 .navbar-link {
   margin: 5px;
+  text-decoration: none;
 }
 
 .tv-border {
@@ -225,11 +227,28 @@ canvas {
 }
 
 .homepage-container {
+  padding-top: 30px;
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto auto; 
 }
 
-.twitch-thumbnail {
+.explore-category-container {
+  padding-top: 30px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto; 
+} 
+
+.homepage-category-container {
+  justify-content: center;
+  display: flex 
+}
+
+.twitch-thumbnail, .technology-card {
   margin: 3px;
+}
+
+.text-white {
+  color: white;
 }
