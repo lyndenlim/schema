@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import TwitchThumbnail from './TwitchThumbnail'
@@ -34,16 +34,23 @@ function CategoryContent() {
   })
 
   useEffect(() => {
-        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
-            .then(res => setAllVideos(res.data.items))
-  },[])
+    axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
+      .then(res => setAllVideos(res.data.items))
+  }, [])
 
   return (
     <>
-      <strong>{filteredStreams.length > 0 ? "Streams" : ""}</strong>
-      {filteredStreams.map(stream => <TwitchThumbnail key={stream.id} stream={stream} />)}
-      <strong>Videos</strong>
-      {allVideos.map(video => <YouTubeThumbnail key={video.etag} video={video} />)}
+      <div className="homepage-container">
+        <strong className="text-white">{filteredStreams.length > 0 ? "Streams" : "No one is streaming at the moment"}</strong>
+        {filteredStreams.map(stream => <TwitchThumbnail key={stream.id} stream={stream} />)}
+      </div>
+      <br />
+      <div className="centered">
+        <strong className="text-white">Videos</strong>
+      </div>
+      <div className="homepage-container">
+        {allVideos.map(video => <YouTubeThumbnail key={video.etag} video={video} />)}
+      </div>
     </>
   )
 }
