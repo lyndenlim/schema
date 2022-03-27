@@ -8,7 +8,7 @@ function Video() {
       <iframe
         title={id}
         src={`https://www.youtube.com/embed/${id}?enablejsapi=1`}
-        width="1150px"
+        width="1120px"
         height="600px"
         allow="fullscreen"
         frameborder="0"
