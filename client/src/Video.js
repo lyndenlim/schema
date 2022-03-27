@@ -6,6 +6,7 @@ function Video() {
   return (
     <>
       <iframe
+        title={id}
         src={`https://www.youtube.com/embed/${id}?enablejsapi=1`}
         width="1150px"
         height="600px"

@@ -28,6 +28,7 @@ function Stream() {
     return (
         <>
             <iframe
+                title={id}
                 src={`https://player.twitch.tv/?channel=${streams[0].user_name}&parent=localhost&autoplay=false`}
                 width="1150px"
                 height="600px"

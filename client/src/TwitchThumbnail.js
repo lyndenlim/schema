@@ -2,12 +2,37 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 
 function TwitchThumbnail({ stream }) {
-    const [thumbnail, setThumbnail] = useState()
+    const [thumbnail, setThumbnail] = useState("")
+    const [language, setLanguage] = useState("")
 
     useEffect(() => {
         let resizedThumbnail = stream.thumbnail_url.split(/[{}]/)
         resizedThumbnail = resizedThumbnail[0] + "290" + resizedThumbnail[2] + "160" + resizedThumbnail[4]
         setThumbnail(resizedThumbnail)
+
+        let fullLanguage = stream.language
+        switch (fullLanguage) {
+            case "en":
+                setLanguage("English")
+                break;
+            case "es":
+                setLanguage("Spanish")
+                break;
+            case "pt":
+                setLanguage("Portuguese")
+                break;
+            case "fr":
+                setLanguage("French")
+                break;
+            case "de":
+                setLanguage("German")
+                break;
+            case "ru":
+                setLanguage("Russian")
+                break;
+            default:
+                setLanguage(stream.language)
+        }
     }, [])
 
     return (
@@ -17,7 +42,7 @@ function TwitchThumbnail({ stream }) {
                 <p><strong>{stream.title.length < 25 ? stream.title : `${stream.title.slice(0, 30)}...`}</strong></p>
                 <p>{stream.user_name}</p>
                 <p>{stream.game_name}</p>
-                <p>{stream.language}</p>
+                <p>{language}</p>
             </Link>
         </div>
 
