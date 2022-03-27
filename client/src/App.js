@@ -18,8 +18,16 @@ function App() {
   const [allStreams, setAllStreams] = useState([])
   const [searchedStreams, setSearchedStreams] = useState([])
   const [searchedVideos, setSearchedVideos] = useState([])
-  const [categoryStreams, setCategoryStreams] = useState([])
-  const [categoryVideos, setCategoryVideos] = useState([])
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, [])
 
   useEffect(async () => {
     const axiosInstance = axios.create({
@@ -52,7 +60,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <NavBar onSearch={handleSearch} setSearchedVideos={setSearchedVideos}/>
+        <NavBar onSearch={handleSearch} setSearchedVideos={setSearchedVideos} user={user} setUser={setUser}/>
         <Switch>
           <Route path="/testing">
             <h1>Test Route</h1>
@@ -61,7 +69,7 @@ function App() {
             <Homepage streams={streams} />
           </Route>
           <Route path="/explore">
-            <ExplorePage streams={streams} setCategoryStreams={setCategoryStreams} setCategoryVideos={setCategoryVideos} />
+            <ExplorePage />
           </Route>
           <Route path="/favorites">
             <FavoritePage />
@@ -70,10 +78,10 @@ function App() {
             <AccountPage />
           </Route>
           <Route path="/signup">
-            <SignUpPage />
+            <SignUpPage setUser={setUser}/>
           </Route>
           <Route path="/login">
-            <LoginPage />
+            <LoginPage setUser={setUser}/>
           </Route>
           <Route path="/results">
             <SearchResults searchedStreams={searchedStreams} searchedVideos={searchedVideos}/>

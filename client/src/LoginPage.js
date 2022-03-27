@@ -1,7 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 
-function LoginPage() {
+function LoginPage({ setUser }) {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    })
+  }
+
   useEffect(async () => {
     let play = false;
     let ii = null;
@@ -69,13 +87,13 @@ function LoginPage() {
           </div>
           <div className="screen-border-2"></div>
           <canvas id="tv-screen" />
-          <form className="login">
+          <form className="login" onSubmit={handleSubmit}>
             <div className="form-content">
               <h3>Log in</h3>
               <br />
-              <input className="form-input" placeholder="Email" />
+              <input className="form-input" placeholder="Email" value={email}  onChange={(e) => setEmail(e.target.value)}/>
               <br />
-              <input className="form-input" type="password" placeholder="Password" />
+              <input className="form-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password"/>
               <br />
               <input className="form-button"type="submit" />
             </div>
