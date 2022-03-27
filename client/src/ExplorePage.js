@@ -4,7 +4,7 @@ import technologies from "./technologies"
 
 function ExplorePage() {
   return (
-    <div className="explore-category-container">
+    <div className="explore-category-container bold">
       {technologies.map(tech => {
         return (
           <TechnologyCard

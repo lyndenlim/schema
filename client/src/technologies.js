@@ -2,17 +2,17 @@ const technologies = [
     {
         id: 1,
         name: "Unreal Engine",
-        image: "https://cdn2.unrealengine.com/ue-logo-1400x788-1400x788-8f185e1e3635.jpg"
+        image: "https://destatic.blob.core.windows.net/images/unrealengine-logo.png"
     },
     {
         id: 2,
         name: "JavaScript",
-        image: "https://www.freepnglogos.com/uploads/javascript-png/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/480px-JavaScript-logo.png"
     },
     {
         id: 3,
         name: "Ruby",
-        image: "https://w7.pngwing.com/pngs/535/618/png-transparent-ruby-on-rails-computer-programming-programming-language-ruby-angle-rectangle-logo.png"
+        image: "https://www.pngitem.com/pimgs/m/12-120179_best-free-ruby-png-ruby-programming-language-logo.png"
     },
     {
         id: 4,
@@ -22,27 +22,27 @@ const technologies = [
     {
         id: 5,
         name: "React",
-        image: "https://w7.pngwing.com/pngs/235/872/png-transparent-react-computer-icons-redux-javascript-others-logo-symmetry-nodejs-thumbnail.png"
+        image: "https://www.pngitem.com/pimgs/m/664-6644509_icon-react-js-logo-hd-png-download.png"
     },
     {
         id: 6,
         name: "SQL",
-        image: "https://www.vhv.rs/dpng/d/256-2563210_sql-programming-language-logo-hd-png-download.png"
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYJTlIjSzW9LC4Uij-nG1yrOUl45IiAHr3r9lL_APELYZve3j31rYko5Xl4x8dwUY3pZA&usqp=CAU"
     },
     {
         id: 7,
         name: "Golang",
-        image: "https://mpng.subpng.com/20180430/clw/kisspng-go-programming-language-computer-programming-progr-programming-language-5ae6e800efbb03.589382971525082112982.jpg"
+        image: "https://www.nicepng.com/png/detail/370-3707528_65159967-golang-logo.png"
     },
     {
         id: 8,
         name: "Java",
-        image: "https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png"
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlWkibXFdfUB7h7FmKLmgwxe-__BdMPGNGDA&usqp=CAU"
     },
     {
         id: 9,
         name: "Unity",
-        image: "https://unity3d.com/files/images/ogimg.jpg"
+        image: "https://www.seekpng.com/png/detail/127-1274498_unity3d-unity-game-engine-logo.png"
     },
     {
         id: 10,
@@ -52,7 +52,7 @@ const technologies = [
     {
         id: 11,
         name: "C#",
-        image: "https://e7.pngegg.com/pngimages/328/221/png-clipart-c-programming-language-logo-microsoft-visual-studio-net-framework-javascript-icon-purple-logo.png"
+        image: "https://cis.msjc.edu/Tutorials/Programming/Languages/Csharp/images/Csharp_logo.png"
     },
     {
         id: 12,
@@ -72,7 +72,7 @@ const technologies = [
     {
         id: 15,
         name: "Vue",
-        image: "https://icon2.cleanpng.com/20180718/zqt/kisspng-vue-js-javascript-library-angularjs-react-vue-js-5b4ebe1b93c716.7614705815318871316053.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png"
     },
     {
         id: 16,
@@ -82,32 +82,32 @@ const technologies = [
     {
         id: 17,
         name: "Node",
-        image: "https://www.pngfind.com/pngs/m/683-6833893_node-js-logo-png-transparent-png.png"
+        image: "https://cdn.iconscout.com/icon/free/png-256/node-js-1174925.png"
     },
     {
         id: 18,
         name: "Express",
-        image: "https://rithmapp.s3-us-west-2.amazonaws.com/assets/express-logo.png"
+        image: "https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.png"
     },
     {
         id: 19,
         name: "HTML",
-        image: "https://images.vexels.com/media/users/3/166383/isolated/preview/6024bc5746d7436c727825dc4fc23c22-html-programming-language-icon.png"
+        image: "http://assets.stickpng.com/thumbs/5847f5bdcef1014c0b5e489c.png"
     },
     {
         id: 20,
         name: "CSS",
-        image: "https://w7.pngwing.com/pngs/454/464/png-transparent-css3-cascading-style-sheets-logo-html-markup-language-others-miscellaneous-blue-angle-thumbnail.png"
+        image: "https://cdn.freebiesupply.com/logos/large/2x/css3-logo-png-transparent.png"
     },
     {
         id: 21,
         name: "Swift",
-        image: "https://w7.pngwing.com/pngs/831/596/png-transparent-swift-apple-logo-objective-c-apple-logo-computer-programming-fruit-nut.png"
+        image: "http://assets.stickpng.com/thumbs/58482ce4cef1014c0b5e4a4c.png"
     },
     {
         id: 22,
         name: "Kotlin",
-        image: "https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png"
+        image: "https://cdn.freebiesupply.com/logos/thumbs/2x/kotlin-1-logo.png"
     }
 ]
 

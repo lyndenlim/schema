@@ -234,19 +234,24 @@ canvas {
 }
 
 .explore-category-container {
+  text-align: center;
   padding-top: 30px;
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto auto auto; 
+  padding-bottom: 15px;
 } 
 
 .homepage-category-container {
+  text-align: center;
   justify-content: center;
-  display: flex 
+  display: flex;
+  padding-bottom: 15px;
 }
 
-.twitch-thumbnail, .technology-card {
-  margin: 3px;
+.twitch-thumbnail, .youtube-thumbnail {
+  margin: 7px;
+  margin-bottom: 10px;
 }
 
 .text-white {
@@ -255,4 +260,24 @@ canvas {
 
 .centered {
   text-align: center;
+  padding-top: 20px;
+}
+
+.technology-card {
+  height: 225px;
+  width: 225px;
+  margin: 6px;
+  margin-bottom: 44px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.rounded-img {
+  border-radius: 15%; 
+}
+
+.video-container {
+  margin: 5px;
 }

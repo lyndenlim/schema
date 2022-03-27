@@ -5,7 +5,7 @@ function TechnologyCard({ tech }) {
     return (
         <div className="technology-card">
             <Link to={`/category/${tech.name}`} style={{ textDecoration: "none", color: "black" }} onClick={null}>
-                <img width="225px" height="225px" src={tech.image} alt="technology" />
+                <img className="rounded-img" width="225px" height="225px" src={tech.image} alt="technology" />
                 <br />
                 <span className="text-white">{tech.name}</span>
             </Link>
