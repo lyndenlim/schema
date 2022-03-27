@@ -4,10 +4,9 @@ import { useParams } from "react-router-dom"
 import TwitchThumbnail from './TwitchThumbnail'
 import YouTubeThumbnail from './YouTubeThumbnail'
 
-function CategoryContent({ categoryStreams, categoryVideos }) {
+function CategoryContent() {
   const [allStreams, setAllStreams] = useState([])
   const [allVideos, setAllVideos] = useState([])
-  //FIX ISSUE ON REFRESH: on refresh nothing gets rendered...
   const { name } = useParams()
 
   useEffect(async () => {
@@ -19,10 +18,11 @@ function CategoryContent({ categoryStreams, categoryVideos }) {
     });
 
     //NOTE: the bottom two urls fetches a 100 (max queries) of the streams each so they can be filtered to the search terms
-    const AllScienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=100"
-    const AllSoftwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=100"
+    // ISSUE: every category having the same couple of videos
+    const allScienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=100"
+    const allSoftwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=100"
 
-    await axios.all([axiosInstance.get(AllScienceAndTechURL), axiosInstance.get(AllSoftwareAndDevelopmentURL)])
+    await axios.all([axiosInstance.get(allScienceAndTechURL), axiosInstance.get(allSoftwareAndDevelopmentURL)])
       .then(res => {
         setAllStreams([...res[0].data.data, res[1].data.data].flat())
       })
@@ -32,6 +32,7 @@ function CategoryContent({ categoryStreams, categoryVideos }) {
     const streamTitle = stream.title.toLowerCase().split(/[ !js\[\]()]/)
     return streamTitle.includes(name.toLowerCase()) || streamTitle.includes("unreal") || streamTitle.includes("engine")
   })
+
   useEffect(() => {
         axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
             .then(res => setAllVideos(res.data.items))

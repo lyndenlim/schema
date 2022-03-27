@@ -70,10 +70,17 @@ function SignUpPage() {
           <div className="screen-border-2"></div>
           <canvas id="tv-screen" />
           <form className="signup">
-            <input placeholder="Email" />
-            <input placeholder="Username" />
-            <input type="password" placeholder="Password" />
-            <input type="submit" />
+            <div className="form-content">
+              <h3>Sign Up</h3>
+              <br />
+              <input className="form-input" placeholder="Email" />
+              <br />
+              <input className="form-input" placeholder="Username" />
+              <br />
+              <input className="form-input" type="password" placeholder="Password" />
+              <br />
+              <input className="form-button" type="submit" />
+            </div>
           </form>
         </div>
       </div>
