@@ -223,3 +223,13 @@ canvas {
 .searchbar {
   width: 195px;
 }
+
+.homepage-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto; 
+}
+
+.twitch-thumbnail {
+  margin: 3px;
+}

@@ -6,7 +6,9 @@ import technologies from "./technologies"
 function Homepage({ streams }) {
   return (
     <>
-      <div>{streams.map(stream => <TwitchThumbnail key={stream.id} stream={stream} />)}</div>
+      <div className="homepage-container">
+        {streams.map(stream => <TwitchThumbnail key={stream.id} stream={stream} />)}
+      </div>
       <div>
         {technologies.map(tech => {
           return (
