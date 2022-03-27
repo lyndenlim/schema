@@ -4,7 +4,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import SearchBar from "./SearchBar"
 
-function NavBar({onSearch, setSearchedVideos, user, setUser}) {
+function NavBar({ onSearch, user, setUser }) {
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -13,7 +13,7 @@ function NavBar({onSearch, setSearchedVideos, user, setUser}) {
       }
     });
   }
-  
+
   return (
     <Navbar>
       <Container>
@@ -29,20 +29,20 @@ function NavBar({onSearch, setSearchedVideos, user, setUser}) {
           </NavLink>
         </div>
         <div>
-          <SearchBar onSearch={onSearch} setSearchedVideos={setSearchedVideos}/>
+          <SearchBar onSearch={onSearch} />
         </div>
         <div>
-        {user ? (
-          <>
-          <button onClick={handleLogoutClick}>Logout</button>
-          <NavLink to="/profile">Account icon</NavLink>
-          </>
-        ) : (
-          <>
-            <NavLink to="/signup">Signup</NavLink>
-            <NavLink to="/login">Login</NavLink>
-          </>
-        )}
+          {user ? (
+            <>
+              <button onClick={handleLogoutClick}>Logout</button>
+              <NavLink to="/profile">Account icon</NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink to="/signup" className="navbar-link">Signup</NavLink>
+              <NavLink to="/login" className="navbar-link">Login</NavLink>
+            </>
+          )}
 
         </div>
 

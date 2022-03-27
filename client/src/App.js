@@ -60,7 +60,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <NavBar onSearch={handleSearch} setSearchedVideos={setSearchedVideos} user={user} setUser={setUser}/>
+        <NavBar onSearch={handleSearch} user={user} setUser={setUser} />
         <Switch>
           <Route path="/testing">
             <h1>Test Route</h1>
@@ -78,13 +78,13 @@ function App() {
             <AccountPage />
           </Route>
           <Route path="/signup">
-            <SignUpPage setUser={setUser}/>
+            <SignUpPage setUser={setUser} />
           </Route>
           <Route path="/login">
-            <LoginPage setUser={setUser}/>
+            <LoginPage setUser={setUser} />
           </Route>
           <Route path="/results">
-            <SearchResults searchedStreams={searchedStreams} searchedVideos={searchedVideos}/>
+            <SearchResults searchedStreams={searchedStreams} searchedVideos={searchedVideos} />
           </Route>
           <Route path="/streams/:id">
             <Stream />

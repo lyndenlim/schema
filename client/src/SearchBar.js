@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 
-function SearchBar({ onSearch, setSearchedVideos }) {
+function SearchBar({ onSearch }) {
     const [search, setSearch] = useState("")
     const history = useHistory()
 
@@ -24,7 +24,7 @@ function SearchBar({ onSearch, setSearchedVideos }) {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input placeholder="Search for a stream/video" value={search} onChange={e => setSearch(e.target.value)} />
+                <input className="searchbar" placeholder="Search for a stream/video" value={search} onChange={e => setSearch(e.target.value)} />
                 <input type="submit" />
             </form>
 

@@ -6,9 +6,11 @@ function ExplorePage() {
   return (
     <>
       {technologies.map(tech => {
-        return (<TechnologyCard
-          key={tech.name}
-          tech={tech} />)
+        return (
+          <TechnologyCard
+            key={tech.name}
+            tech={tech} />
+        )
       })}
     </>
   )
