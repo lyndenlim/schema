@@ -88,7 +88,7 @@ function LoginPage({ setUser }) {
           <div className="screen-border-2"></div>
           <canvas id="tv-screen" />
           <form className="login" onSubmit={handleSubmit}>
-            <div className="form-content">
+            <div className="login-form-content">
               <h3>Log in</h3>
               <br />
               <input className="form-input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />

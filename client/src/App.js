@@ -40,11 +40,11 @@ function App() {
     const scienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=25"
     const softwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=25"
     //NOTE: the bottom two urls fetches a 100 (max queries) of the streams each so they can be filtered to the search terms
-    const AllScienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=100"
-    const AllSoftwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=100"
+    const allScienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=100"
+    const allSoftwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=100"
 
     await axios.all([axiosInstance.get(softwareAndDevelopmentURL), axiosInstance.get(scienceAndTechURL),
-    axiosInstance.get(AllScienceAndTechURL), axiosInstance.get(AllSoftwareAndDevelopmentURL)])
+    axiosInstance.get(allScienceAndTechURL), axiosInstance.get(allSoftwareAndDevelopmentURL)])
       .then(res => {
         setStreams([...res[0].data.data, res[1].data.data].flat())
         setAllStreams([...res[2].data.data, res[3].data.data].flat())

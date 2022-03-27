@@ -95,7 +95,7 @@ function SignUpPage({ setUser }) {
           <div className="screen-border-2"></div>
           <canvas id="tv-screen" />
           <form className="signup" onSubmit={handleSubmit}>
-            <div className="form-content">
+            <div className="signup-form-content">
               <h3>Sign Up</h3>
               <br />
               <input className="form-input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />

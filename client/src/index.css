@@ -157,6 +157,7 @@ canvas {
 
 .television {
   padding-left: 300px;
+  padding-top:15px
 }
 
 .sockets {
@@ -178,9 +179,15 @@ canvas {
   text-align: center;
 }
 
-.signup, .login {
+.signup {
   z-index: 1;
-  padding-top: 125px;
+  padding-top: 100px;
+  padding-left: 135px;
+}
+
+.login {
+  z-index: 1;
+  padding-top: 120px;
   padding-left: 140px;
 }
 
@@ -196,10 +203,20 @@ canvas {
   font-size: 16px;
 }
 
-.form-content {
+.signup-form-content {
   border-radius: 20px;
   border: 2px solid black;
-  padding-top: 30px;
+  padding-top: 25px;
+  width: 450px;
+  height: 400px;
+  background-color: white;
+  text-align: center;
+}
+
+.login-form-content {
+  border-radius: 20px;
+  border: 2px solid black;
+  padding-top: 40px;
   width: 450px;
   height: 350px;
   background-color: white;
