@@ -281,3 +281,8 @@ canvas {
 .video-container {
   margin: 5px;
 }
+
+.video-player {
+  text-align: center;
+  padding-top: 20px;
+}
