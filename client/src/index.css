@@ -213,3 +213,13 @@ canvas {
   color: white;
   margin: 8px
 }
+
+.profile-picture {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px
+}
+
+.searchbar {
+  width: 195px;
+}

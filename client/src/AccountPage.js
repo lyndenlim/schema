@@ -1,7 +1,7 @@
 import React from 'react'
 import AccountProfile from './AccountProfile'
-import AccountSettings
- from './AccountSettings'
+import AccountSettings from './AccountSettings'
+
 function AccountPage() {
   return (
     <div>

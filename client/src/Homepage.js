@@ -9,9 +9,11 @@ function Homepage({ streams }) {
       <div>{streams.map(stream => <TwitchThumbnail key={stream.id} stream={stream} />)}</div>
       <div>
         {technologies.map(tech => {
-          return (<TechnologyCard
-            key={tech.name}
-            tech={tech} />)
+          return (
+            <TechnologyCard
+              key={tech.name}
+              tech={tech} />
+          )
         })}
       </div>
     </>

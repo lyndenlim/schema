@@ -91,11 +91,11 @@ function LoginPage({ setUser }) {
             <div className="form-content">
               <h3>Log in</h3>
               <br />
-              <input className="form-input" placeholder="Email" value={email}  onChange={(e) => setEmail(e.target.value)}/>
+              <input className="form-input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
               <br />
-              <input className="form-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password"/>
+              <input className="form-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" />
               <br />
-              <input className="form-button"type="submit" />
+              <input className="form-button" type="submit" />
             </div>
           </form>
         </div>

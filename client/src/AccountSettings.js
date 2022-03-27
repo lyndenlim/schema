@@ -1,17 +1,17 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import Modal from "react-bootstrap/Modal"
 
 function AccountSettings() {
-    const [usernameShow, setUsernameShow] = useState(false)
-    const [emailShow, setEmailShow] = useState(false)
-    const [passwordShow, setPasswordShow] = useState(false)
+  const [usernameShow, setUsernameShow] = useState(false)
+  const [emailShow, setEmailShow] = useState(false)
+  const [passwordShow, setPasswordShow] = useState(false)
 
-    const handleUsernameClose = () => setUsernameShow(false)
-    const handleUsernameShow = () => setUsernameShow(true)
-    const handleEmailClose = () => setEmailShow(false)
-    const handleEmailShow = () => setEmailShow(true)
-    const handlePasswordClose = () => setPasswordShow(false)
-    const handlePasswordShow = () => setPasswordShow(true)
+  const handleUsernameClose = () => setUsernameShow(false)
+  const handleUsernameShow = () => setUsernameShow(true)
+  const handleEmailClose = () => setEmailShow(false)
+  const handleEmailShow = () => setEmailShow(true)
+  const handlePasswordClose = () => setPasswordShow(false)
+  const handlePasswordShow = () => setPasswordShow(true)
 
   return (
     <div>
@@ -31,7 +31,7 @@ function AccountSettings() {
           <Modal.Title>Change username</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <input/>
+          <input />
         </Modal.Body>
         <Modal.Footer>
           <button onClick={handleUsernameClose}>
@@ -48,7 +48,7 @@ function AccountSettings() {
           <Modal.Title>Change email</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <input/>
+          <input />
         </Modal.Body>
         <Modal.Footer>
           <button onClick={handleEmailClose}>
@@ -65,12 +65,12 @@ function AccountSettings() {
           <Modal.Title>Change username</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <label>Old password</label>
-            <input type="password"/><br/>
-            <label>New password</label>
-            <input type="password"/><br/>
-            <label>Confirm new password</label>
-            <input type="password"/>
+          <label>Old password</label>
+          <input type="password" /><br />
+          <label>New password</label>
+          <input type="password" /><br />
+          <label>Confirm new password</label>
+          <input type="password" />
         </Modal.Body>
         <Modal.Footer>
           <button onClick={handlePasswordClose}>
