@@ -72,7 +72,7 @@ function App() {
             <ExplorePage />
           </Route>
           <Route path="/favorites">
-            <FavoritePage streams={streams}/>
+            <FavoritePage />
           </Route>
           <Route path="/profile">
             <AccountPage />
@@ -90,7 +90,7 @@ function App() {
             <Stream />
           </Route>
           <Route path="/category/:name">
-            <CategoryContent allStreams={allStreams}/>
+            <CategoryContent allStreams={allStreams} />
           </Route>
           <Route path="/videos/:id">
             <Video />
