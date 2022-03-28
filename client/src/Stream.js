@@ -29,10 +29,11 @@ function Stream() {
         <div className="twitch-content">
             <iframe
                 title={id}
-                src={`https://player.twitch.tv/?channel=${streams[0].user_name}&parent=localhost&autoplay=false`}
+                src={`https://player.twitch.tv/?channel=${streams[0].user_name}&parent=localhost`}
                 width="1120px"
                 height="600px"
-                allow="fullscreen">
+                allow="fullscreen; autoplay"
+                >
             </iframe>
             <iframe
                 src={`https://www.twitch.tv/embed/${streams[0].user_name}/chat?parent=localhost`}
