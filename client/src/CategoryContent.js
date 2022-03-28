@@ -18,7 +18,6 @@ function CategoryContent() {
     });
 
     //NOTE: the bottom two urls fetches a 100 (max queries) of the streams each so they can be filtered to the search terms
-    // ISSUE: every category having the same couple of videos
     const allScienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=100"
     const allSoftwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=100"
 
@@ -30,7 +29,9 @@ function CategoryContent() {
 
   const filteredStreams = allStreams.filter(stream => {
     const streamTitle = stream.title.toLowerCase().split(/[ !js\[\]()-]/)
-    return streamTitle.includes(name.toLowerCase()) || (streamTitle.includes("unreal") && streamTitle.includes("engine"))
+    // Revisit this filter, returns unreal/engine for every search
+    return streamTitle.includes(name.toLowerCase()) 
+    // || (streamTitle.includes("unreal") && streamTitle.includes("engine"))
   })
 
   useEffect(() => {

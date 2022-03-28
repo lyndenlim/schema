@@ -36,6 +36,7 @@ function Stream() {
                 >
             </iframe>
             <iframe
+                title={id}
                 src={`https://www.twitch.tv/embed/${streams[0].user_name}/chat?parent=localhost`}
                 height="600px"
                 width="300px">
