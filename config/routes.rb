@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :favorites
+  resources :streams
+  resources :technologies
   resources :users
   get '/hello', to: 'application#hello_world'
 
