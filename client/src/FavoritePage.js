@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import TwitchThumbnail from "./TwitchThumbnail"
+import TwitchFavThumbnail from "./TwitchFavThumbnail"
+import YoutubeFavThumbnail from "./YoutubeFavThumbnail"
 
-function FavoritePage({ streams }) {
+function FavoritePage() {
   const [favorites, setFavorites] = useState([])
   const [userID, setUserID] = useState(null)
   const [displayName, setDisplayName] = useState("")
@@ -19,10 +20,9 @@ function FavoritePage({ streams }) {
       .then(res => setUserID(res.data.id))
   }, [])
 
-  useEffect(() => {
+  useEffect(async () => {
     const filteredFavorites = favorites.filter(favorite => favorite.user_id === userID)
     filteredFavorites.map(favorite => {
-      console.log(favorite)
       if (favorite.twitch_streamer !== null && favorite.video_id === null && favorite.stream_id === null) {
         axios.get(`https://api.twitch.tv/helix/search/channels?query=${favorite.twitch_streamer}`, {
           headers: {
@@ -35,23 +35,24 @@ function FavoritePage({ streams }) {
             setStreamerProfile(res.data.data[0].thumbnail_url)
           })
       } else if (favorite.twitch_streamer === null && favorite.video_id !== null && favorite.stream_id === null) {
-        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=KGbHtuP03r0&maxResults=1&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${favorite.video_id}&maxResults=1&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
           .then(res => {
             setYoutubeTitle(res.data.items[0].snippet.localized.title)
             setChannelTitle(res.data.items[0].snippet.channelTitle)
-            setVideoThumbnail(res.data.items[0].snippet.thumbnails.high)
+            setVideoThumbnail(res.data.items[0].snippet.thumbnails.high.url)
           })
-      } 
+      }
       // else {
       //   axios.get(`muxstream`)
       // }
     })
-  },[])
+  }, [])
 
   return (
-    <div>
-      {/* <TwitchThumbnail /> */}
-    </div>
+    <>
+      <TwitchFavThumbnail displayName={displayName} streamerProfile={streamerProfile} />
+      <YoutubeFavThumbnail youtubeTitle={youtubeTitle} channelTitle={channelTitle} videoThumbnail={videoThumbnail} />
+    </>
   )
 }
 
