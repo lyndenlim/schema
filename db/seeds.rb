@@ -11,7 +11,7 @@ Stream.destroy_all
 Technology.destroy_all
 
 Favorite.create(technology_id: 1, user_id: 1, stream_id: 1)
-Favorite.create(technology_id: 1, user_id: 1, twitch_stream_id: 40944942733)
+Favorite.create(technology_id: 1, user_id: 1, twitch_streamer: "a_seagull")
 Favorite.create(technology_id: 3, user_id: 2, video_id: "27axs9dO7AE")
 
 Stream.create(user_id: 1, mux_id: "ZEBrNTpHC02iUah025KM3te6ylM7W4S4silsrFtUkn3Ag" , stream_key: "831b5bde-cd8a-5bc4-115d-4ba34b19f481")

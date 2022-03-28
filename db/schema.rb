@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_03_28_184822) do
     t.integer "technology_id"
     t.bigint "user_id", null: false
     t.string "video_id"
-    t.bigint "twitch_stream_id"
+    t.string "twitch_streamer"
     t.integer "stream_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -72,7 +72,7 @@ function App() {
             <ExplorePage />
           </Route>
           <Route path="/favorites">
-            <FavoritePage />
+            <FavoritePage streams={streams}/>
           </Route>
           <Route path="/profile">
             <AccountPage />
