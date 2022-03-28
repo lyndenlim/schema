@@ -92,7 +92,7 @@ const technologies = [
     {
         id: 19,
         name: "HTML",
-        image: "http://assets.stickpng.com/thumbs/5847f5bdcef1014c0b5e489c.png"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png"
     },
     {
         id: 20,
@@ -102,7 +102,7 @@ const technologies = [
     {
         id: 21,
         name: "Swift",
-        image: "http://assets.stickpng.com/thumbs/58482ce4cef1014c0b5e4a4c.png"
+        image: "https://cdn4.iconfinder.com/data/icons/logos-3/504/Swift-2-512.png"
     },
     {
         id: 22,
