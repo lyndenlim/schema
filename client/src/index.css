@@ -261,11 +261,9 @@ canvas {
 
 .homepage-category-container {
   text-align: center;
-  justify-content: center;
   display: flex;
   padding-bottom: 15px;
   overflow-x: scroll;
-  width: 200vh;
 }
 
 .twitch-thumbnail, .youtube-thumbnail {

@@ -4,33 +4,14 @@ import { useParams } from "react-router-dom"
 import TwitchThumbnail from './TwitchThumbnail'
 import YouTubeThumbnail from './YouTubeThumbnail'
 
-function CategoryContent() {
-  const [allStreams, setAllStreams] = useState([])
+function CategoryContent({allStreams}) {
   const [allVideos, setAllVideos] = useState([])
   const { name } = useParams()
-
-  useEffect(async () => {
-    const axiosInstance = axios.create({
-      headers: {
-        Authorization: "Bearer 6gc86wnfd4e2z6wymi3rzgeczq0ppl",
-        "Client-Id": "yj62jo4k7wcs8xjg6xder4torg8m41"
-      }
-    });
-
-    //NOTE: the bottom two urls fetches a 100 (max queries) of the streams each so they can be filtered to the search terms
-    const allScienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=100"
-    const allSoftwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=100"
-
-    await axios.all([axiosInstance.get(allScienceAndTechURL), axiosInstance.get(allSoftwareAndDevelopmentURL)])
-      .then(res => {
-        setAllStreams([...res[0].data.data, res[1].data.data].flat())
-      })
-  }, [])
 
   const filteredStreams = allStreams.filter(stream => {
     const streamTitle = stream.title.toLowerCase().split(/[ !js\[\]()-]/)
     // Revisit this filter, returns unreal/engine for every search
-    return streamTitle.includes(name.toLowerCase()) 
+    return streamTitle.includes(name.toLowerCase()) || streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
     // || (streamTitle.includes("unreal") && streamTitle.includes("engine"))
   })
 
