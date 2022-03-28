@@ -90,7 +90,7 @@ function App() {
             <Stream />
           </Route>
           <Route path="/category/:name">
-            <CategoryContent />
+            <CategoryContent allStreams={allStreams}/>
           </Route>
           <Route path="/videos/:id">
             <Video />
