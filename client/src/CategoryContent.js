@@ -10,13 +10,19 @@ function CategoryContent({allStreams}) {
 
   const filteredStreams = allStreams.filter(stream => {
     const streamTitle = stream.title.toLowerCase().split(/[ !js\[\]()-]/)
-    return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
+    // console.log("javascript".includes(name.split(" ")[0].toLowerCase()))
+    // return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase() || streamTitle.includes(name.split(" ")[1] ? name.split(" ")[1].toLowerCase() : ""))
+    if (name.split(" ")[1]) {
+      return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase()) || (streamTitle.includes(name.split(" ")[0].toLowerCase()) && streamTitle.includes(name.split(" ")[1].toLowerCase()))
+    } else {
+      return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase()) 
+    }
   })
 
-  useEffect(() => {
-    axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
-      .then(res => setAllVideos(res.data.items))
-  }, [])
+  // useEffect(() => {
+  //   axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
+  //     .then(res => setAllVideos(res.data.items))
+  // }, [])
 
   return (
     <>
