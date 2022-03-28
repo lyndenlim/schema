@@ -1,32 +1,26 @@
-import React, { useEffect, useRef } from "react";
-import '@mux-elements/mux-video'
+import React, {useState, useEffect} from "react"
+import axios from "axios"
 
 function FavoritePage() {
-  // const videoEl = useRef(null);
+  const [favorites, setFavorites] = useState([])
+  const [userID, setUserID] = useState(null)
 
-  // const attemptPlay = () => {
-  //   videoEl &&
-  //     videoEl.current &&
-  //     videoEl.current.play().catch(error => {
-  //       console.error("Error attempting to play", error);
-  //     });
-  // };
+  useEffect(() => {
+      axios.get("/favorites")
+      .then(res => setFavorites(res.data))
 
-  // useEffect(() => {
-  //   attemptPlay();
-  // }, []);
+      axios.get("/me")
+      .then(res => setUserID(res.data.id))
+  }, [])
+
+  const filteredFavorites = favorites.filter(favorite => favorite.id === userID)
+  console.log(filteredFavorites)
 
   return (
-    <mux-video
-      controls
-      playback-id="z5Jz02Str4dXCV8hhjXjjWSFAUfxDBvhULy00L0073ydCc"
-      width="1120px"
-      height="600px"
-      // playsInline
-      // ref={videoEl}
-    />
-
-  );
+   <div>
+   </div>
+  )
 }
+
 
 export default FavoritePage

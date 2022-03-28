@@ -1,8 +1,8 @@
 class Favorite < ApplicationRecord
-    belongs_to :user
-    belongs_to :technology
+    belongs_to :user, required: false
+    belongs_to :technology, required: false
 
-    validates :video_id, uniqueness: true
-    validates :twitch_stream_id, uniqueness: true
-    validates :stream_id, uniqueness: true
+    # validates :video_id, uniqueness: {scope: :user_id}
+    # validates :twitch_stream_id, uniqueness: {scope: :user_id}
+    # validates :stream_id, uniqueness: {scope: :user_id}
 end
