@@ -21,9 +21,7 @@ function NavBar({ onSearch, user, setUser }) {
           <NavLink to="/" className="navbar-link text-white">
             Schema
           </NavLink>
-          <NavLink to="/favorites" className="navbar-link text-white">
-            Following
-          </NavLink>
+          {user ? <NavLink to="/favorites" className="navbar-link text-white">Favorites</NavLink> : null}
           <NavLink to="/explore" className="navbar-link text-white">
             Explore
           </NavLink>

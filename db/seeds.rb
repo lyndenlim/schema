@@ -6,3 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Favorite.destroy_all
+Stream.destroy_all
+Technology.destroy_all
+
+Favorite.create(technology_id: 1, user_id: 1, stream_id: 1)
+Favorite.create(technology_id: 1, user_id: 1, twitch_stream_id: 40944942733)
+Favorite.create(technology_id: 3, user_id: 2, video_id: "27axs9dO7AE")
+
+Stream.create(user_id: 1, mux_id: "ZEBrNTpHC02iUah025KM3te6ylM7W4S4silsrFtUkn3Ag" , stream_key: "831b5bde-cd8a-5bc4-115d-4ba34b19f481")
+Stream.create(user_id: 1, mux_id: "eHiP9j8iOKnOWDlme900xqN8j01rkhv7Zoe1ZtmOcDZRo", stream_key: "30aa2737-f4b2-d17f-5eb6-6af011f2af33")
+Stream.create(user_id: 2, mux_id: "UpeSCQxUpDoqiOypwte2ASs4uBizHTfr8QWtaMot40200", stream_key: "3a297829-abb4-ca1f-0ed4-f8b0d9f6964b")
+
+Technology.create(name: "unreal engine")
+Technology.create(name: "javascript")
+Technology.create(name: "ruby")
+Technology.create(name: "python")
