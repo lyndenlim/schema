@@ -10,9 +10,7 @@ function CategoryContent({allStreams}) {
 
   const filteredStreams = allStreams.filter(stream => {
     const streamTitle = stream.title.toLowerCase().split(/[ !js\[\]()-]/)
-    // Revisit this filter, returns unreal/engine for every search
-    return streamTitle.includes(name.toLowerCase()) || streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
-    // || (streamTitle.includes("unreal") && streamTitle.includes("engine"))
+    return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
   })
 
   useEffect(() => {
