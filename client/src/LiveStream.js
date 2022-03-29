@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import '@mux-elements/mux-video'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/fontawesome-free-regular';
 
 function LiveStream() {
   // const videoEl = useRef(null);
@@ -27,7 +29,7 @@ function LiveStream() {
       // ref={videoEl}
       />
       <br />
-      <button className="video-follow-button">Follow</button>
+      <button className="video-follow-button"><FontAwesomeIcon icon={faHeart} /> Follow</button>
 
       );
     </div>

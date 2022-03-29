@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import axios from "axios"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/fontawesome-free-regular';
 
 function Stream() {
     const [streams, setStreams] = useState([])
@@ -39,7 +41,7 @@ function Stream() {
                 >
                 </iframe>
                 <br />
-                <button className="stream-follow-button" onClick={addStreamer}>Follow</button>
+                <button className="stream-follow-button" onClick={addStreamer}><FontAwesomeIcon icon={faHeart} /> Follow</button>
             </div>
             <iframe
                 title={id}

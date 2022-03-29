@@ -1,5 +1,7 @@
 import React from 'react'
 import { useParams } from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/fontawesome-free-regular';
 
 function Video() {
   const { id } = useParams()
@@ -16,7 +18,7 @@ function Video() {
       >
       </iframe>
       <br />
-      <button className="video-follow-button">Follow</button>
+      <button className="video-follow-button"><FontAwesomeIcon icon={faHeart} /> Follow</button>
     </div>
   )
 }
