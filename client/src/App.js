@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { BrowserRouter, Switch, Route, useParams } from "react-router-dom"
 import axios from "axios"
 import NavBar from "./NavBar"
 import Homepage from "./Homepage"
@@ -35,7 +35,7 @@ function App() {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
-    });
+    }, []);
 
     const axiosInstance = axios.create({
       headers: {
@@ -99,7 +99,7 @@ function App() {
             <FavoritePage filteredFavorites={filteredFavorites} />
           </Route>
           <Route path="/profile">
-            <AccountPage/>
+            <AccountPage />
           </Route>
           <Route path="/signup">
             <SignUpPage setUser={setUser} />
@@ -111,16 +111,16 @@ function App() {
             <SearchResults searchedStreams={searchedStreams} searchedVideos={searchedVideos} />
           </Route>
           <Route path="/streams/:id">
-            <Stream />
+            <Stream user={user} />
           </Route>
           <Route path="/livestream/:id">
-            <LiveStream />
+            <LiveStream user={user} />
           </Route>
           <Route path="/category/:name">
             <CategoryContent allStreams={allStreams} />
           </Route>
           <Route path="/videos/:id">
-            <Video />
+            <Video user={user} />
           </Route>
         </Switch>
       </div>

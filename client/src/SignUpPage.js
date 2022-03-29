@@ -66,7 +66,7 @@ function SignUpPage({ setUser }) {
 
     doSwitch();
     document.body.addEventListener('keydown', doSwitch);
-  })
+  },[])
 
   return (
     <>
