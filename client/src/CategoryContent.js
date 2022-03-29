@@ -19,10 +19,10 @@ function CategoryContent({ allStreams }) {
     }
   })
 
-  // useEffect(() => {
-  //   axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
-  //   setAllVideos(res.data.items)
-  // }, [])
+  useEffect(async () => {
+    const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
+    setAllVideos(res.data.items)
+  }, [])
 
   return (
     <>

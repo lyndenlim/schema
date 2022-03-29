@@ -12,6 +12,7 @@ import Stream from "./Stream"
 import CategoryContent from "./CategoryContent"
 import Video from './Video'
 import SearchResults from './SearchResults'
+import LiveStream from './LiveStream'
 
 function App() {
   const [streams, setStreams] = useState([])
@@ -74,11 +75,11 @@ function App() {
     setSearchedStreams(filteredStreams)
   }
 
-  if (faves.length === 0) return (
-    <div>
-      <h1 style={{ color: '#fff' }}>LOADING</h1>
-    </div>
-  )
+  // if (faves.length === 0) return (
+  //   <div>
+  //     <h1 style={{ color: '#fff' }}>LOADING</h1>
+  //   </div>
+  // )
 
   return (
     <BrowserRouter>
@@ -111,6 +112,9 @@ function App() {
           </Route>
           <Route path="/streams/:id">
             <Stream />
+          </Route>
+          <Route path="/livestream/:id">
+            <LiveStream />
           </Route>
           <Route path="/category/:name">
             <CategoryContent allStreams={allStreams} />
