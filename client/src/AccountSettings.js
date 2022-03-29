@@ -1,10 +1,15 @@
 import React, { useState } from "react"
+import axios from "axios"
 import Modal from "react-bootstrap/Modal"
 
-function AccountSettings() {
+function AccountSettings({currentUser}) {
   const [usernameShow, setUsernameShow] = useState(false)
   const [emailShow, setEmailShow] = useState(false)
   const [passwordShow, setPasswordShow] = useState(false)
+  const [inputUsername, setInputUsername] = useState("")
+  const [inputEmail, setInputEmail] = useState("")
+  const [inputPassword, setInputPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   const handleUsernameClose = () => setUsernameShow(false)
   const handleUsernameShow = () => setUsernameShow(true)
@@ -13,15 +18,44 @@ function AccountSettings() {
   const handlePasswordClose = () => setPasswordShow(false)
   const handlePasswordShow = () => setPasswordShow(true)
 
+  function handleUsernameChange(e) {
+    // e.preventDefault()
+    handleUsernameClose()
+    axios.patch(`/users/${currentUser.id}`, {
+      username: inputUsername
+    })
+  }
+
+  function handleEmailChange(e) {
+    // e.preventDefault()
+    handleEmailClose()
+    axios.patch(`/users/${currentUser.id}`, {
+      email: inputEmail
+    })
+  }
+
+  function handlePasswordChange(e) {
+    e.preventDefault()
+    handlePasswordClose()
+    axios.patch(`/users/${currentUser.id}`, {
+      password: inputPassword,
+      password_confirmation: confirmPassword
+    })
+  }
+
+  function handleDeleteAccount() {
+    axios.delete(`/users/${currentUser.id}`)
+  }
+
   return (
     <div className="text-white">
       <div>
         <h3>Account Settings</h3>
         <h5>Username</h5>
-        <input disabled={true} value="PlaceholderPatrice" />
+        <input disabled={true} placeholder={currentUser.username} />
         <button onClick={handleUsernameShow}>Change username</button>
         <h5>Email</h5>
-        <input disabled={true} value="Placeholder@Patrice.com" />
+        <input disabled={true} placeholder={currentUser.email} />
         <button onClick={handleEmailShow}>Change email</button> <br />
         <button onClick={handlePasswordShow}>Change Password</button>
       </div>
@@ -30,58 +64,58 @@ function AccountSettings() {
         <Modal.Header closeButton>
           <Modal.Title>Change username</Modal.Title>
         </Modal.Header>
+        <form onSubmit={handleUsernameChange}>
         <Modal.Body>
-          <input />
+          <input onChange={e => setInputUsername(e.target.value)}/>
         </Modal.Body>
         <Modal.Footer>
           <button onClick={handleUsernameClose}>
             Close
           </button>
-          <button onClick={handleUsernameClose}>
-            Save Changes
-          </button>
+          <input type="submit"></input>
         </Modal.Footer>
+        </form>
       </Modal>
 
       <Modal show={emailShow} onHide={handleEmailClose}>
         <Modal.Header closeButton>
           <Modal.Title>Change email</Modal.Title>
         </Modal.Header>
+        <form onSubmit={handleEmailChange}>
         <Modal.Body>
-          <input />
+          <input onChange={e => setInputEmail(e.target.value)}/>
         </Modal.Body>
         <Modal.Footer>
           <button onClick={handleEmailClose}>
             Close
           </button>
-          <button onClick={handleEmailClose}>
-            Save Changes
-          </button>
+          <input type="submit"></input>
         </Modal.Footer>
+        </form>
       </Modal>
 
       <Modal show={passwordShow} onHide={handlePasswordClose}>
         <Modal.Header closeButton>
           <Modal.Title>Change username</Modal.Title>
         </Modal.Header>
+        <form onSubmit={handlePasswordChange}>
         <Modal.Body>
           <label>Old password</label>
           <input type="password" /><br />
           <label>New password</label>
-          <input type="password" /><br />
+          <input type="password" onChange={e => setInputPassword(e.target.value)}/><br />
           <label>Confirm new password</label>
-          <input type="password" />
+          <input type="password" onChange={e => setConfirmPassword(e.target.value)}/>
         </Modal.Body>
         <Modal.Footer>
           <button onClick={handlePasswordClose}>
             Close
           </button>
-          <button onClick={handlePasswordClose}>
-            Save Changes
-          </button>
+          <input type="submit"></input>
         </Modal.Footer>
+        </form>
       </Modal>
-
+      <button onClick={handleDeleteAccount}>Delete Account</button>
     </div>
   );
 }
