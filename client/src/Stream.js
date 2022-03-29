@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/fontawesome-free-regular';
+import technologies from './technologies';
 
-function Stream() {
+function Stream({ user }) {
     const [streams, setStreams] = useState([])
     const { id } = useParams()
 
@@ -24,7 +25,21 @@ function Stream() {
     }, [])
 
     function addStreamer() {
-
+        let selectedTech = technologies.find(technology => {
+            let name = technology.name
+            const streamTitle = streams[0].title.toLowerCase().split(/[ !js\[\]()-]/)
+            if (name.split(" ")[1]) {
+                return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase()) || (streamTitle.includes(name.split(" ")[0].toLowerCase()) && streamTitle.includes(name.split(" ")[1].toLowerCase()))
+            } else {
+                return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
+            }
+        })
+        
+        axios.post("/favorites", {
+            technology_id: selectedTech.id,
+            user_id: user.id,
+            twitch_streamer: streams[0].user_name
+        })
     }
 
     if (!streams[0]) return null
@@ -41,7 +56,7 @@ function Stream() {
                 >
                 </iframe>
                 <br />
-                <button className="stream-follow-button" onClick={addStreamer}><FontAwesomeIcon icon={faHeart} /> Follow</button>
+                {user ? <button className="stream-follow-button" onClick={addStreamer}><FontAwesomeIcon icon={faHeart} /> Follow</button> : null}
             </div>
             <iframe
                 title={id}

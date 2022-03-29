@@ -1,10 +1,37 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/fontawesome-free-regular';
+import axios from 'axios';
+import technologies from './technologies';
 
-function Video() {
+function Video({ user }) {
   const { id } = useParams()
+  const [videoTitle, setVideoTitle] = useState("")
+
+  useEffect(async () => {
+    const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
+    setVideoTitle(res.data.items[0].snippet.title)
+  }, [])
+
+  function addVideo() {
+    let selectedTech = technologies.find(technology => {
+      let name = technology.name
+      const selectedVideoTitle = videoTitle.toLowerCase().split(/[ !js\[\]()-]/)
+      if (name.split(" ")[1]) {
+        return selectedVideoTitle.includes(name.split(" ").join("").toLowerCase()) || selectedVideoTitle.includes(name.split(" ")[0].toLowerCase()) || (selectedVideoTitle.includes(name.split(" ")[0].toLowerCase()) && selectedVideoTitle.includes(name.split(" ")[1].toLowerCase()))
+      } else {
+        return selectedVideoTitle.includes(name.split(" ").join("").toLowerCase()) || selectedVideoTitle.includes(name.split(" ")[0].toLowerCase())
+      }
+    })
+
+    axios.post("/favorites", {
+      technology_id: selectedTech.id,
+      user_id: user.id,
+      video_id: id
+    })
+  }
+
   return (
     <div className="video-player">
       <iframe
@@ -18,7 +45,7 @@ function Video() {
       >
       </iframe>
       <br />
-      <button className="video-follow-button"><FontAwesomeIcon icon={faHeart} /> Follow</button>
+      {user ? <button className="video-follow-button" onClick={addVideo}><FontAwesomeIcon icon={faHeart} /> Favorite</button> : null}
     </div>
   )
 }
