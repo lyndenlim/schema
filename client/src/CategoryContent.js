@@ -27,7 +27,7 @@ function CategoryContent({ allStreams }) {
   return (
     <>
       <div className="centered">
-        <strong className="text-white">{filteredStreams.length > 0 ? "Streams" : "No one is streaming at the moment"}</strong>
+        <strong className="text-white">{filteredStreams.length > 0 ? "Streams" : "No one is currently streaming"}</strong>
       </div>
       <div className="homepage-container">
         {filteredStreams.map(stream => <TwitchThumbnail key={stream.id} stream={stream} />)}

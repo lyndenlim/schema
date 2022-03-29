@@ -48,6 +48,7 @@ function AccountSettings({currentUser}) {
   }
 
   return (
+    <>
     <div className="text-white">
       <div>
         <h3>Account Settings</h3>
@@ -117,6 +118,11 @@ function AccountSettings({currentUser}) {
       </Modal>
       <button onClick={handleDeleteAccount}>Delete Account</button>
     </div>
+    <div className="text-white">
+      Get Stream Key
+      <input disabled={true}></input><button>Generate Key</button>
+    </div>
+    </>
   );
 }
 
