@@ -27,7 +27,7 @@ function SignUpPage({ setUser }) {
     })
   }
 
-  useEffect(async () => {
+  useEffect(() => {
     let play = false;
     let ii = null;
     let colors = ['rgba(0,0,0,0.35)'

@@ -16,7 +16,7 @@ function SearchBar({ onSearch }) {
             })
             //NOTE: or the get request below, the maxResults have to be limited to 1 just in case it burns through the quota
             // axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}+programming&maxResults=1&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
-            // .then(res => setSearchedVideos(res.data.items))
+            // setSearchedVideos(res.data.items)
         }
 
     }

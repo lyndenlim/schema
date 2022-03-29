@@ -17,10 +17,8 @@ function Stream() {
         const scienceAndTechURL = `https://api.twitch.tv/helix/streams?game_id=509670&first=1&user_id=${id}`
         const softwareAndDevelopmentURL = `https://api.twitch.tv/helix/streams?game_id=1469308723&first=1&user_id=${id}`
 
-        await axios.all([axiosInstance.get(scienceAndTechURL), axiosInstance.get(softwareAndDevelopmentURL)])
-            .then(res => {
-                setStreams([...res[0].data.data, res[1].data.data].flat())
-            })
+        const res = await axios.all([axiosInstance.get(scienceAndTechURL), axiosInstance.get(softwareAndDevelopmentURL)])
+        setStreams([...res[0].data.data, res[1].data.data].flat())
     }, [])
 
     if (!streams[0]) return null
@@ -33,7 +31,7 @@ function Stream() {
                 width="1120px"
                 height="600px"
                 allow="fullscreen; autoplay"
-                >
+            >
             </iframe>
             <iframe
                 title={id}

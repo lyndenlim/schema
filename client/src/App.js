@@ -20,16 +20,22 @@ function App() {
   const [searchedVideos, setSearchedVideos] = useState([])
   const [user, setUser] = useState(null)
 
-  useEffect(() => {
-    // auto-login
+  const [faves, setFaves] = useState([])
+  const [userID, setUserID] = useState(null)
+  const [filteredFavorites, setFilteredFavorites] = useState([])
+  const [displayName, setDisplayName] = useState("")
+  const [streamerProfile, setStreamerProfile] = useState("")
+  const [youtubeTitle, setYoutubeTitle] = useState("")
+  const [channelTitle, setChannelTitle] = useState("")
+  const [videoThumbnail, setVideoThumbnail] = useState("")
+
+  useEffect(async () => {
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
     });
-  }, [])
 
-  useEffect(async () => {
     const axiosInstance = axios.create({
       headers: {
         Authorization: "Bearer 6gc86wnfd4e2z6wymi3rzgeczq0ppl",
@@ -43,12 +49,23 @@ function App() {
     const allScienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=100"
     const allSoftwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=100"
 
-    await axios.all([axiosInstance.get(softwareAndDevelopmentURL), axiosInstance.get(scienceAndTechURL),
+    const res = await axios.all([axiosInstance.get(softwareAndDevelopmentURL), axiosInstance.get(scienceAndTechURL),
     axiosInstance.get(allScienceAndTechURL), axiosInstance.get(allSoftwareAndDevelopmentURL)])
-      .then(res => {
-        setStreams([...res[0].data.data, res[1].data.data].flat())
-        setAllStreams([...res[2].data.data, res[3].data.data].flat())
-      })
+    setStreams([...res[0].data.data, res[1].data.data].flat())
+    setAllStreams([...res[2].data.data, res[3].data.data].flat())
+
+    const res1 = await axios.get('/favorites')
+    setFaves(res1.data)
+
+    const res2 = await axios.get("/me")
+    setUserID(res2.data.id)
+
+    setFilteredFavorites(faves.filter(favorite => favorite.user_id === userID))
+    //request1
+    //request2
+    // set all your state
+    // pass EVERYTHING AT ONCE as props to Favorite page
+
   }, [])
 
   function handleSearch(search) {
@@ -56,6 +73,12 @@ function App() {
     const filteredStreams = allStreams.filter(stream => stream.title.toLowerCase().includes(search))
     setSearchedStreams(filteredStreams)
   }
+
+  if (faves.length === 0) return (
+    <div>
+      <h1 style={{ color: '#fff' }}>LOADING</h1>
+    </div>
+  )
 
   return (
     <BrowserRouter>
@@ -72,7 +95,7 @@ function App() {
             <ExplorePage />
           </Route>
           <Route path="/favorites">
-            <FavoritePage />
+            <FavoritePage filteredFavorites={filteredFavorites} />
           </Route>
           <Route path="/profile">
             <AccountPage />
