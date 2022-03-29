@@ -30,7 +30,8 @@ function LiveStream({ user }) {
     <div className="mux-video-container">
       <mux-video
         controls
-        playback-id="z5Jz02Str4dXCV8hhjXjjWSFAUfxDBvhULy00L0073ydCc"
+        // needs to be fetched from mux api
+        playback-id="kEvANw6WPrzwZZUgSKl2Vb01ze01nB17ADe100jXKZiGy00"
         width="1120px"
         height="560px"
       // playsInline
