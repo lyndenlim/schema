@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react"
 import '@mux-elements/mux-video'
 
 function LiveStream() {
-// const videoEl = useRef(null);
+  // const videoEl = useRef(null);
 
   // const attemptPlay = () => {
   //   videoEl &&
@@ -17,18 +17,20 @@ function LiveStream() {
   // }, []);
 
   return (
-    <>
-    <mux-video
-      controls
-      playback-id="z5Jz02Str4dXCV8hhjXjjWSFAUfxDBvhULy00L0073ydCc"
-      width="1120px"
-      height="600px"
+    <div className="mux-video-container">
+      <mux-video
+        controls
+        playback-id="z5Jz02Str4dXCV8hhjXjjWSFAUfxDBvhULy00L0073ydCc"
+        width="1120px"
+        height="560px"
       // playsInline
       // ref={videoEl}
-    />
+      />
+      <br />
+      <button className="video-follow-button">Follow</button>
 
-  );
-    </>
+      );
+    </div>
   )
 }
 

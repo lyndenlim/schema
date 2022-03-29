@@ -21,22 +21,30 @@ function Stream() {
         setStreams([...res[0].data.data, res[1].data.data].flat())
     }, [])
 
+    function addStreamer() {
+
+    }
+
     if (!streams[0]) return null
 
     return (
         <div className="twitch-content">
-            <iframe
-                title={id}
-                src={`https://player.twitch.tv/?channel=${streams[0].user_name}&parent=localhost`}
-                width="1120px"
-                height="600px"
-                allow="fullscreen; autoplay"
-            >
-            </iframe>
+            <div>
+                <iframe
+                    title={id}
+                    src={`https://player.twitch.tv/?channel=${streams[0].user_name}&parent=localhost`}
+                    width="1120px"
+                    height="560px"
+                    allow="fullscreen; autoplay"
+                >
+                </iframe>
+                <br />
+                <button className="stream-follow-button" onClick={addStreamer}>Follow</button>
+            </div>
             <iframe
                 title={id}
                 src={`https://www.twitch.tv/embed/${streams[0].user_name}/chat?parent=localhost`}
-                height="600px"
+                height="560px"
                 width="300px">
             </iframe>
         </div>
