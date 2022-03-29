@@ -1,11 +1,21 @@
 import React, { useState } from "react"
+import axios from "axios"
 import Modal from "react-bootstrap/Modal"
 
-function AccountProfile() {
-  const [show, setShow] = useState(false);
+function AccountProfile({currentUser}) {
+  const [show, setShow] = useState(false)
+  const [inputBio, setInputBio] = useState("")
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
+  function handleBioChange(e) {
+    // e.preventDefault()
+    handleClose()
+    axios.patch(`/users/${currentUser.id}`, {
+      description: inputBio
+    })
+  }
 
   return (
     <div className="text-white">
@@ -18,7 +28,7 @@ function AccountProfile() {
         />
         <button>Add/Edit Profile Picture</button>
         <h5>Bio</h5>
-        <p>Lynden is my soulmate.</p>
+        <p>{currentUser.description}</p>
         <button onClick={handleShow}>Change Bio</button>
       </div>
 
@@ -26,17 +36,17 @@ function AccountProfile() {
         <Modal.Header closeButton>
           <Modal.Title>Change Bio</Modal.Title>
         </Modal.Header>
+        <form onSubmit={handleBioChange}>
         <Modal.Body>
-          <textarea rows="4" cols="50"></textarea>
+            <textarea rows="4" cols="50" onChange={e => setInputBio(e.target.value)}></textarea>
         </Modal.Body>
         <Modal.Footer>
           <button onClick={handleClose}>
             Close
           </button>
-          <button onClick={handleClose}>
-            Save Changes
-          </button>
+        <input type="submit"></input>
         </Modal.Footer>
+        </form>
       </Modal>
     </div>
   );
