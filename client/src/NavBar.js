@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 import SearchBar from "./SearchBar"
 
 function NavBar({ onSearch, user, setUser }) {
-  console.log(user)
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
