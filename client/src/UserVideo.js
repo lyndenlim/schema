@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import '@mux-elements/mux-video'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/fontawesome-free-regular';
@@ -7,14 +7,19 @@ import axios from "axios";
 
 function UserVideo({ user }) {
     const { id } = useParams()
+    const [userID, setUserID] = useState("")
 
-    async function addMuxVideo() {
+    useEffect(async () => {
         const res = await axios.get("/me")
+        setUserID(res.data.id)
+    })
 
+    function addMuxVideo() {
+        console.log(id)
         axios.post("/favorites", {
             technology_id: 23,
             stream_id: id,
-            user_id: res.id
+            user_id: userID
         })
     }
 
