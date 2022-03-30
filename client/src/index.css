@@ -266,7 +266,7 @@ canvas {
   overflow-x: scroll;
 }
 
-.twitch-thumbnail, .youtube-thumbnail {
+.twitch-thumbnail, .youtube-thumbnail, .mux-thumbnail {
   margin: 7px;
   margin-bottom: 10px;
 }
