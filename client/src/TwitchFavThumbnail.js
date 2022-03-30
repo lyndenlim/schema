@@ -5,7 +5,6 @@ function TwitchFavThumbnail({ favorite }) {
     const [streamerData, setStreamerData] = useState([])
 
     useEffect(async () => {
-
         const res3 = await axios.get(`https://api.twitch.tv/helix/search/channels?query=${favorite.twitch_streamer}`, {
             headers: {
                 Authorization: "Bearer 6gc86wnfd4e2z6wymi3rzgeczq0ppl",
