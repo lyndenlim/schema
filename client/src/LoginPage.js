@@ -59,7 +59,7 @@ function LoginPage({ setUser }) {
 
     doSwitch();
     document.body.addEventListener('keydown', doSwitch);
-  },[])
+  }, [])
 
   return (
     <>

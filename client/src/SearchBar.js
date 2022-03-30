@@ -25,7 +25,7 @@ function SearchBar({ onSearch }) {
         <>
             <form onSubmit={handleSubmit}>
                 <input className="searchbar" placeholder="Search for a stream/video" value={search} onChange={e => setSearch(e.target.value)} />
-                <input type="submit" />
+                <button type="submit">Search</button>
             </form>
 
         </>
