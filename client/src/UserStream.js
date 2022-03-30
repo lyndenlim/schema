@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from "react"
 import '@mux-elements/mux-video'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/fontawesome-free-regular';
-import axios from "axios";
 import { useParams } from "react-router-dom";
 
-function LiveStream({ user }) {
+function UserStream({ user }) {
   const { id } = useParams()
   // const videoEl = useRef(null);
 
@@ -20,7 +19,8 @@ function LiveStream({ user }) {
   // useEffect(() => {
   //   attemptPlay();
   // }, []);
-  // function addLiveStream() {
+
+  // function addUserStream() {
   //   axios.post("/favorites", {
   //     stream_id : ""
   //   })
@@ -45,4 +45,4 @@ function LiveStream({ user }) {
   )
 }
 
-export default LiveStream
+export default UserStream

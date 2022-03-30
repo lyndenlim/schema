@@ -12,7 +12,8 @@ import Stream from "./Stream"
 import CategoryContent from "./CategoryContent"
 import Video from './Video'
 import SearchResults from './SearchResults'
-import LiveStream from './LiveStream'
+import UserStream from './UserStream'
+import UserVideo from './UserVideo'
 
 function App() {
   const [streams, setStreams] = useState([])
@@ -20,6 +21,8 @@ function App() {
   const [searchedStreams, setSearchedStreams] = useState([])
   const [searchedVideos, setSearchedVideos] = useState([])
   const [user, setUser] = useState(null)
+  const [streamPlaybackIDs, setStreamPlaybackIDs] = useState([])
+  const [videoPlaybackIDs, setVideoPlaybackIDs] = useState([])
 
   const [faves, setFaves] = useState([])
   const [userID, setUserID] = useState(null)
@@ -29,6 +32,22 @@ function App() {
   const [youtubeTitle, setYoutubeTitle] = useState("")
   const [channelTitle, setChannelTitle] = useState("")
   const [videoThumbnail, setVideoThumbnail] = useState("")
+
+  useEffect(async () => {
+    const axiosInstance = axios.create({
+      headers: {
+        // access: 41356eff-eaee-44ad-b8ad-e9dfda9b5442
+        // secret token: hYFo3kvl6erkHsyYbZphqPsPZSLzvuAyv7sVnEhSTOh2cvOTZrNWFBYditOZk7Gku8zN7Ps1Jws
+        Authorization: "Basic NDEzNTZlZmYtZWFlZS00NGFkLWI4YWQtZTlkZmRhOWI1NDQyOmhZRm8za3ZsNmVya0hzeVliWnBocVBzUFpTTHp2dUF5djdzVm5FaFNUT2gyY3ZPVFpyTldGQllkaXRPWms3R2t1OHpON1BzMUp3cw==",
+        "Content-Type": "application/json"
+      }
+    });
+    const res = await axiosInstance.get("https://api.mux.com/video/v1/live-streams")
+    setStreamPlaybackIDs(res.data.data.map(stream => stream.playback_ids[0].id))
+
+    const res2 = await axiosInstance.get("https://api.mux.com/video/v1/assets")
+    setVideoPlaybackIDs(res2.data.data.map(video => video.playback_ids[0].id))
+  }, [])
 
   useEffect(async () => {
     fetch("/me").then((r) => {
@@ -90,7 +109,7 @@ function App() {
             <h1>Test Route</h1>
           </Route>
           <Route exact path="/">
-            <Homepage streams={streams} />
+            <Homepage streams={streams} streamPlaybackIDs={streamPlaybackIDs} videoPlaybackIDs={videoPlaybackIDs} />
           </Route>
           <Route path="/explore">
             <ExplorePage />
@@ -113,14 +132,17 @@ function App() {
           <Route path="/streams/:id">
             <Stream user={user} />
           </Route>
-          <Route path="/livestream/:id">
-            <LiveStream user={user} />
+          <Route path="/userstreams/:id">
+            <UserStream user={user} />
+          </Route>
+          <Route path="/uservideos/:id">
+            <UserVideo user={user} />
           </Route>
           <Route path="/category/:name">
             <CategoryContent allStreams={allStreams} />
           </Route>
           <Route path="/videos/:id">
-            <Video user={user} />
+            <Video user={user} videoPlaybackIDs={videoPlaybackIDs}/>
           </Route>
         </Switch>
       </div>

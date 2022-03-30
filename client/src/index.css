@@ -263,6 +263,7 @@ canvas {
   text-align: center;
   display: flex;
   padding-bottom: 15px;
+  padding-left: 115px;
   overflow-x: scroll;
 }
 
@@ -325,8 +326,14 @@ canvas {
   float: right;
 }
 
-.stream-header {
+.stream-header, .video-header {
   padding: 20px;
   color: white;
   text-align: center;
+  font-weight: bold;
+}
+
+.category-header {
+  padding-left: 130px;
+  font-weight: bold;
 }
