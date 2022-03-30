@@ -3,13 +3,14 @@ import TwitchThumbnail from "./TwitchThumbnail"
 import TechnologyCard from "./TechnologyCard"
 import technologies from "./technologies"
 import UserVideoThumbnail from './UserVideoThumbnail'
+import UserStreamThumbnail from './UserStreamThumbnail'
 
 function Homepage({ streamPlaybackIDs, videoPlaybackIDs, scienceTechStreams, softwareDevStreams }) {
   return (
     <>
       <h5 className="stream-header">Schema Streams</h5>
       <div className="homepage-container">
-        {streamPlaybackIDs.length > 0 ? streamPlaybackIDs.map(playbackID => <div className="mux-thumbnail" key={playbackID}><img width="290px" height="160px" src={`https://image.mux.com/${playbackID}/thumbnail.png`} /></div>) : "No videos are available at this time"}
+        {streamPlaybackIDs.length > 0 ? streamPlaybackIDs.map(playbackID => <UserStreamThumbnail key={playbackID} playbackID={playbackID} />) : <h6 className="text-white">No one is currently streaming</h6>}
       </div>
       <h5 className="video-header">Schema Videos</h5>
       <div className="homepage-container">
