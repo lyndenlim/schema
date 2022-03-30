@@ -26,7 +26,7 @@ function YoutubeFavThumbnail({ favorite }) {
         alt="video-thumbnail"
       /> : null}
       <p className="text-white">
-       {favorite.video_id ? <strong>
+        {favorite.video_id ? <strong>
           {youtubeTitle.length < 25
             ? youtubeTitle
             : `${youtubeTitle.slice(0, 25)}...`}
