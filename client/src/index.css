@@ -333,3 +333,7 @@ canvas {
   font-weight: bold;
   color: white;
 }
+
+.justify-content {
+  justify-content: center;
+}
