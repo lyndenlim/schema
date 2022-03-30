@@ -74,13 +74,13 @@ function App() {
     setStreams([...res[0].data.data, res[1].data.data].flat())
     setAllStreams([...res[2].data.data, res[3].data.data].flat())
 
-    const res1 = await axios.get('/favorites')
-    setFaves(res1.data)
+    // const res1 = await axios.get('/favorites')
+    // setFaves(res1.data)
 
-    const res2 = await axios.get("/me")
-    setUserID(res2.data.id)
+    // const res2 = await axios.get("/me")
+    // setUserID(res2.data.id)
 
-    setFilteredFavorites(faves.filter(favorite => favorite.user_id === userID))
+    // setFilteredFavorites(faves.filter(favorite => favorite.user_id === userID))
     //request1
     //request2
     // set all your state
@@ -115,7 +115,7 @@ function App() {
             <ExplorePage />
           </Route>
           <Route path="/favorites">
-            <FavoritePage filteredFavorites={filteredFavorites} />
+            <FavoritePage />
           </Route>
           <Route path="/profile">
             <AccountPage />
