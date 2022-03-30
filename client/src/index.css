@@ -236,7 +236,7 @@ canvas {
 .profile-picture {
   border-radius: 50%;
   height: 100px;
-  width: 100px
+  width: 100px;
 }
 
 .searchbar {
@@ -327,7 +327,7 @@ canvas {
 }
 
 .stream-header, .video-header {
-  padding: 20px;
+  padding-top: 20px;
   color: white;
   text-align: center;
   font-weight: bold;
