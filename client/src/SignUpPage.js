@@ -65,7 +65,7 @@ function SignUpPage({ setUser }) {
     };
 
     doSwitch();
-  },[])
+  }, [])
 
   return (
     <>

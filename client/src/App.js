@@ -67,7 +67,6 @@ function App() {
   }, [])
 
   function handleSearch(search) {
-    //filter allStreams so it only contains the streams that the user has searched
     const filteredStreams = allStreams.filter(stream => stream.title.toLowerCase().includes(search))
     setSearchedStreams(filteredStreams)
   }

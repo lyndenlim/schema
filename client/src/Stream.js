@@ -34,7 +34,7 @@ function Stream({ user }) {
                 return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
             }
         })
-        
+
         axios.post("/favorites", {
             technology_id: selectedTech ? selectedTech.id : 23,
             user_id: user.id,

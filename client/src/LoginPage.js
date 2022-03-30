@@ -58,7 +58,7 @@ function LoginPage({ setUser }) {
     };
 
     doSwitch();
-  },[])
+  }, [])
 
   return (
     <>

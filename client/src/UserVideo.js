@@ -28,7 +28,6 @@ function UserVideo({ user }) {
             <div className="mux-video-container">
                 <mux-video
                     controls
-                    // needs to be fetched from mux api
                     playback-id={id}
                     width="1120px"
                     height="560px"
