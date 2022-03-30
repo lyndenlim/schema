@@ -5,7 +5,7 @@ class CreateFavorites < ActiveRecord::Migration[6.1]
       t.belongs_to :user, null: false, foreign_key: true
       t.string :video_id
       t.string :twitch_streamer
-      t.integer :stream_id
+      t.string :stream_id
 
       t.timestamps
     end

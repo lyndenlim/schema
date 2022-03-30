@@ -43,10 +43,6 @@ function FavoritePage({ }) {
 
   }, [])
 
-  console.log(streamerData)
-
-
-
   return (
     <>
       {streamerData.map(stream => <TwitchFavThumbnail key={stream.id} displayName={stream.display_name} streamerProfile={stream.thumbnail_url} />)}
