@@ -3,10 +3,21 @@ import '@mux-elements/mux-video'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/fontawesome-free-regular';
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function UserVideo({ user }) {
     const { id } = useParams()
-    console.log(id)
+
+    async function addMuxVideo() {
+        const res = await axios.get("/me")
+
+        axios.post("/favorites", {
+            technology_id: 23,
+            stream_id: id,
+            user_id: res.id
+        })
+    }
+
     return (
         <>
             <div className="mux-video-container">
@@ -20,7 +31,7 @@ function UserVideo({ user }) {
                 // ref={videoEl}
                 />
                 <br />
-                {user ? <button className="video-follow-button"><FontAwesomeIcon icon={faHeart} /> Follow</button> : null}
+                {user ? <button className="video-follow-button" onClick={addMuxVideo}><FontAwesomeIcon icon={faHeart} /> Favorite</button> : null}
 
                 );
             </div>
