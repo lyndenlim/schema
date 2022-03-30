@@ -3,9 +3,9 @@ import axios from "axios"
 import TwitchFavThumbnail from "./TwitchFavThumbnail"
 import YoutubeFavThumbnail from "./YoutubeFavThumbnail"
 
-function FavoritePage({ filteredFavorites }) {
-  // const [favorites, setFavorites] = useState([])
-  // const [userID, setUserID] = useState(null)
+function FavoritePage({ }) {
+  const [favorites, setFavorites] = useState([])
+  const [userID, setUserID] = useState(null)
   const [displayName, setDisplayName] = useState("")
   const [streamerProfile, setStreamerProfile] = useState("")
   const [youtubeTitle, setYoutubeTitle] = useState("")
@@ -13,13 +13,15 @@ function FavoritePage({ filteredFavorites }) {
   const [videoThumbnail, setVideoThumbnail] = useState("")
 
   useEffect(async () => {
-    // const res1 = await axios.get("/favorites")
-    // setFavorites(res1.data)
+    const res1 = await axios.get("/favorites")
+    setFavorites(res1.data)
 
-    // const res2 = await axios.get("/me")
-    // setUserID(res2.data.id)
+    const res2 = await axios.get("/me")
+    setUserID(res2.data.id)
 
-    // const filteredFavorites = favorites.filter(favorite => favorite.user_id === userID)
+  }, [])
+
+  const filteredFavorites = favorites.filter(favorite => favorite.user_id === userID)
     filteredFavorites.map(async favorite => {
       if (favorite.twitch_streamer && !favorite.video_id && !favorite.stream_id) {
         const res3 = await axios.get(`https://api.twitch.tv/helix/search/channels?query=${favorite.twitch_streamer}`, {
@@ -40,7 +42,6 @@ function FavoritePage({ filteredFavorites }) {
       //   axios.get(`muxstream`)
       // }
     })
-  }, [])
 
   return (
     <>
