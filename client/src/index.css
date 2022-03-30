@@ -245,9 +245,10 @@ canvas {
 
 .homepage-container {
   padding-top: 10px;
-  justify-content: center;
-  display: grid;
-  grid-template-columns: auto auto auto auto; 
+  display: flex;
+  padding-bottom: 15px;
+  padding-left: 115px;
+  overflow-x: scroll;
 }
 
 .explore-category-container {
@@ -326,14 +327,9 @@ canvas {
   float: right;
 }
 
-.stream-header, .video-header {
+.stream-header, .category-header, .video-header {
   padding-top: 20px;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-}
-
-.category-header {
   padding-left: 130px;
   font-weight: bold;
+  color: white;
 }

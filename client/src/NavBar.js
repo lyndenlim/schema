@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import SearchBar from "./SearchBar"
 
 function NavBar({ onSearch, user, setUser }) {
-
+  console.log(user)
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -33,7 +33,7 @@ function NavBar({ onSearch, user, setUser }) {
           {user ? (
             <>
               <button onClick={handleLogoutClick}>Logout</button>
-              <NavLink to="/profile">Account icon</NavLink>
+              <NavLink to="/profile" style={{ textDecoration: "none", color: "black" }}>{<img src={user.profile_image_url ? user.profile_image_url : "stock avatar here"} alt="profile-picture" />}</NavLink>
             </>
           ) : (
             <>

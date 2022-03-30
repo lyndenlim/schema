@@ -6,16 +6,15 @@ function SearchResults({ searchedStreams, searchedVideos }) {
   return (
     <>
       <div className="centered">
-        <strong className="text-white">{searchedStreams.length > 0 ? "Streams" : "No one is streaming at the moment"}</strong>
+        {searchedStreams.length > 0 ? <h4 className="bold text-white">Streams</h4> : <div><h4 className="bold text-white">Streams</h4><h6>No one is currently streaming</h6></div>}
       </div>
       <div className="homepage-container">
         {searchedStreams.map(stream => <TwitchThumbnail key={stream.id} stream={stream} />)}
       </div>
       <div className="centered">
-        <strong className="text-white">Videos</strong>
+        <h4 className="text-white bold">Videos</h4>
       </div>
       <div className="homepage-container">
-        <strong>Videos</strong>
         {searchedVideos.map(video => <YouTubeThumbnail key={video.etag} video={video} />)}
       </div>
     </>
