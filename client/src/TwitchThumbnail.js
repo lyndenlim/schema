@@ -15,6 +15,9 @@ function TwitchThumbnail({ stream }) {
             case "en":
                 setLanguage("English")
                 break;
+            case "uk":
+                setLanguage("English")
+                break;
             case "es":
                 setLanguage("Spanish")
                 break;

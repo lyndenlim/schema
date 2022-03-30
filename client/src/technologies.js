@@ -108,6 +108,11 @@ const technologies = [
         id: 22,
         name: "Kotlin",
         image: "https://cdn.freebiesupply.com/logos/thumbs/2x/kotlin-1-logo.png"
+    },
+    {
+        id: 23,
+        name: "Miscellaneous",
+        image: "https://i.imgur.com/IJZYI5g.png"
     }
 ]
 
