@@ -92,12 +92,12 @@ const technologies = [
     {
         id: 19,
         name: "HTML",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png"
+        image: "https://i.imgur.com/2JCrC9j.png"
     },
     {
         id: 20,
         name: "CSS",
-        image: "https://cdn.freebiesupply.com/logos/large/2x/css3-logo-png-transparent.png"
+        image: "https://i.imgur.com/hhj9XnW.png"
     },
     {
         id: 21,
