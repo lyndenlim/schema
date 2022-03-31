@@ -15,15 +15,13 @@ function FavoritePage() {
 
   const filteredElements = filteredFavorites.map(favorite => {
     if (favorite.stream_id) {
-      return <UserVideoThumbnail key={favorite.id} playbackID={favorite.stream_id} />
+      return <UserVideoThumbnail key={favorite.id} playbackID={favorite.stream_id}/>
     } else if (favorite.video_id) {
       return <YouTubeFavThumbnail key={favorite.id} favorite={favorite} />
     } else {
       return <TwitchFavThumbnail key={favorite.id} favorite={favorite} />
     }
   })
-
-
 
   return (
     <>

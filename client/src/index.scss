@@ -14,7 +14,7 @@ code {
 }
 
 .navbar-link {
-  margin: 5px;
+  margin: 10px;
   text-decoration: none;
 }
 
@@ -49,7 +49,7 @@ code {
   margin-top: 5.5%;
   margin-left: 5%;
   border-radius: 10%;
-  transform: translate(5px); 
+  transform: translate(5px);
   background: #252525;
   z-index: -1;
 }
@@ -157,7 +157,7 @@ canvas {
 
 .television {
   padding-left: 300px;
-  padding-top:15px
+  padding-top: 15px
 }
 
 .sockets {
@@ -171,8 +171,9 @@ canvas {
 .power-button {
   padding-left: 40px;
 }
- 
-.channel-dial, .volume-dial {
+
+.channel-dial,
+.volume-dial {
   padding-top: 40px;
   font-weight: bold;
   font-size: 22px;
@@ -263,16 +264,16 @@ canvas {
   padding-top: 30px;
   justify-content: center;
   display: grid;
-  grid-template-columns: auto auto auto auto auto; 
+  grid-template-columns: auto auto auto auto auto;
   padding-bottom: 15px;
-} 
+}
 
 .favorite-container {
   text-align: center;
   padding-top: 30px;
   justify-content: center;
   display: grid;
-  grid-template-columns: auto auto auto auto; 
+  grid-template-columns: auto auto auto auto;
   padding-bottom: 15px;
 }
 
@@ -284,7 +285,9 @@ canvas {
   overflow-x: scroll;
 }
 
-.twitch-thumbnail, .youtube-thumbnail, .mux-thumbnail {
+.twitch-thumbnail,
+.youtube-thumbnail,
+.mux-thumbnail {
   margin: 7px;
   margin-bottom: 10px;
 }
@@ -315,7 +318,7 @@ canvas {
 }
 
 .rounded-img {
-  border-radius: 15%; 
+  border-radius: 15%;
 }
 
 .video-container {
@@ -348,7 +351,9 @@ canvas {
   float: right;
 }
 
-.stream-header, .category-header, .video-header {
+.stream-header,
+.category-header,
+.video-header {
   padding-top: 20px;
   padding-left: 130px;
   font-weight: bold;
@@ -364,14 +369,91 @@ canvas {
 }
 
 .none-streaming {
-  padding-left: 18px; 
-  padding-top: 40px; 
+  padding-left: 18px;
+  padding-top: 40px;
   padding-bottom: 20px;
 }
 
 .favorite-header {
   text-align: center;
-  /* font-weight: bold; */
   color: white;
   padding-top: 20px;
+}
+
+// Carousel configuration parameters
+$n: 8;
+$item-width: 400px;
+$item-separation: 80px;
+$viewer-distance: 500px;
+
+// Derived variables
+$theta: 2 * 3.141592653589793 / $n; 
+$apothem: 482.842712474619px;
+
+.carousel {
+	padding: 20px;
+
+	perspective: $viewer-distance;
+	overflow: hidden;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	> * {
+		flex: 0 0 auto;
+	}
+	
+	figure {
+		margin: 0;
+		
+		width: $item-width;
+		transform-style: preserve-3d;
+		transition: transform 0.5s;
+		transform-origin: 50% 50% (-$apothem);
+		
+		a {
+			width: 100%;
+			box-sizing: border-box;
+			padding: 0 $item-separation / 20;
+			
+			opacity: 0.9;
+			
+			&:not(:first-of-type) {
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform-origin: 50% 50% (-$apothem);
+			}
+			
+			@for $i from 2 through $n {
+				&:nth-child(#{$i}) {
+					transform: rotateY(#{($i - 1) * $theta}rad);
+				}
+			}
+		}
+	}
+	
+	nav {
+		display: flex;
+		justify-content: center;
+		margin: 20px 0 0;
+		
+		button {
+			flex: 0 0 auto;
+			margin: 0 5px;
+			
+			cursor: pointer;
+			
+			color: #333;
+			background: none;
+			border: 1px solid;
+			letter-spacing: 1px;
+			padding: 5px 10px;
+		}
+	}	
+}
+
+.trending-header {
+  padding-top: 20px;
+  text-align: center;
 }

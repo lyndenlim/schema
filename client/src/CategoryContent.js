@@ -24,16 +24,16 @@ function CategoryContent({ allStreams }) {
     }
   })
 
-  useEffect(async () => {
-    if (name === "C++") {
-      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=c%2B%2B+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
-      setAllVideos(res.data.items)
-    } else {
-      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
-      setAllVideos(res.data.items)
-    }
+  // useEffect(async () => {
+  //   if (name === "C++") {
+  //     const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=c%2B%2B+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
+  //     setAllVideos(res.data.items)
+  //   } else {
+  //     const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
+  //     setAllVideos(res.data.items)
+  //   }
 
-  }, [])
+  // }, [])
 
   return (
     <>

@@ -75,7 +75,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <NavBar onSearch={handleSearch} user={user} setUser={setUser} />
+        <NavBar onSearch={handleSearch} user={user} setUser={setUser} setSearchedVideos={setSearchedVideos} />
         <Switch>
           <Route path="/testing">
             <h1>Test Route</h1>

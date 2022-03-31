@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
+import axios from "axios"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function SearchBar({ onSearch }) {
+function SearchBar({ onSearch, setSearchedVideos }) {
     const [search, setSearch] = useState("")
     const history = useHistory()
 
@@ -15,8 +17,8 @@ function SearchBar({ onSearch }) {
                 pathname: "/results",
             })
             //NOTE: or the get request below, the maxResults have to be limited to 1 just in case it burns through the quota
-            // axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}+programming&maxResults=1&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
-            // setSearchedVideos(res.data.items)
+            axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
+                .then(res => setSearchedVideos(res.data.items))
         }
     }
 
