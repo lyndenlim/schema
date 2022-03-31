@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container"
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import SearchBar from "./SearchBar"
+import default_avatar from "./default_avatar.png"
 
 function NavBar({ onSearch, user, setUser }) {
   function handleLogoutClick() {
@@ -32,7 +33,7 @@ function NavBar({ onSearch, user, setUser }) {
           {user ? (
             <>
               <button onClick={handleLogoutClick}>Logout</button>
-              <NavLink to="/profile" style={{ textDecoration: "none", color: "black" }}>{<img src={user.profile_image_url ? user.profile_image_url : "stock avatar here"} alt="profile-picture" />}</NavLink>
+              <NavLink to="/profile" style={{ textDecoration: "none", color: "black" }}>{<img className="profile-picture-nav" src={user.profile_image_url ? user.profile_image_url : default_avatar} alt="profile-picture" />}</NavLink>
             </>
           ) : (
             <>
