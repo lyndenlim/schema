@@ -10,17 +10,16 @@ function CategoryContent({ allStreams }) {
 
   const filteredStreams = allStreams.filter(stream => {
     const streamTitle = stream.title.toLowerCase().split(/[ !js\[\]()-]/)
-    if (name.split(" ")[1] && name !== "Miscellaneous") {
+    if (name.split(" ")[1]) {
       return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase()) || (streamTitle.includes(name.split(" ")[0].toLowerCase()) && streamTitle.includes(name.split(" ")[1].toLowerCase()))
-    } else if (!name.split(" ")[1] && name !== "Miscellaneous") {
-      return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
-    } else if (!name.split(" ")[1] && (name !== "Java" && name === "Javascript")) {
-      return streamTitle.includes("javascript")
-    } else if (!name.split(" ")[1] && (name !== "C" && name === "C++")) {
-      return streamTitle.includes("c++")
-    }
-    else {
-      return true
+    } else if (name.split(" ")[0].toLowerCase() === "javascript") {
+      return stream.title.toLowerCase().split(" ").includes("javascript")
+    } else if (name.split(" ")[0].toLowerCase() === "java") {
+      return stream.title.toLowerCase().split(" ").includes("java")
+    } else if (name.split(" ")[0].toLowerCase() === "typescript") {
+      return stream.title.toLowerCase().split(" ").includes("typescript")
+    } else {
+        return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
     }
   })
 
