@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 function LoginPage({ setUser }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  let history = useHistory()
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -15,7 +16,10 @@ function LoginPage({ setUser }) {
       body: JSON.stringify({ email, password }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user)
+          history.push("/")
+        });
       }
     })
   }

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function SignUpPage({ setUser }) {
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
+  let history = useHistory()
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,7 +23,10 @@ function SignUpPage({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user))
+        r.json().then((user) => {
+          setUser(user)
+          history.push("/")
+        })
       }
     })
   }
