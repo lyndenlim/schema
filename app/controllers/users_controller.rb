@@ -17,8 +17,10 @@ class UsersController < ApplicationController
 
     def update
       user = @current_user
+      user.update!(params.permit(:email, :username, :image_url))
+      render json: user
       if user.authenticate(params[:old_password])
-      user.update!(user_params)
+      user.update!(params.permit(:password, :password_confirmation))
       render json: user
       else
         render json: { error: "Incorrect old password." }, status: :not_found
