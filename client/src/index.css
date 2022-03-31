@@ -258,7 +258,7 @@ canvas {
   overflow-x: scroll;
 }
 
-.explore-category-container {
+.explore-category-container, .favorite-container {
   text-align: center;
   padding-top: 30px;
   justify-content: center;
@@ -278,6 +278,11 @@ canvas {
 .twitch-thumbnail, .youtube-thumbnail, .mux-thumbnail {
   margin: 7px;
   margin-bottom: 10px;
+}
+
+.favorite-thumbnail {
+  margin-left: 7px;
+  margin-right: 7px;
 }
 
 .text-white {
@@ -353,4 +358,11 @@ canvas {
   padding-left: 18px; 
   padding-top: 40px; 
   padding-bottom: 20px;
+}
+
+.favorite-header {
+  text-align: center;
+  /* font-weight: bold; */
+  color: white;
+  padding-top: 20px;
 }
