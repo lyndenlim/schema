@@ -10,7 +10,7 @@ function Video({ user }) {
   const [videoTitle, setVideoTitle] = useState("")
 
   useEffect(async () => {
-    const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
+    const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
     setVideoTitle(res.data.items[0].snippet.title)
   }, [])
 

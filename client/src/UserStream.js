@@ -30,8 +30,7 @@ function UserStream({ user }) {
     <div className="mux-video-container">
       <mux-video
         controls
-        // needs to be fetched from mux api
-        playback-id="kEvANw6WPrzwZZUgSKl2Vb01ze01nB17ADe100jXKZiGy00"
+        playback-id={id}
         width="1120px"
         height="560px"
       // playsInline

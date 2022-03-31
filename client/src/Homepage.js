@@ -10,11 +10,11 @@ function Homepage({ streamPlaybackIDs, videoPlaybackIDs, scienceTechStreams, sof
     <>
       <h5 className="stream-header">Schema Streams</h5>
       <div className="homepage-container">
-        {streamPlaybackIDs.length > 0 ? streamPlaybackIDs.map(playbackID => <UserStreamThumbnail key={playbackID} playbackID={playbackID} />) : <h6 className="text-white">No one is currently streaming</h6>}
+        {streamPlaybackIDs.length > 0 ? streamPlaybackIDs.map(playbackID => <UserStreamThumbnail key={playbackID} playbackID={playbackID} />) : <div className="none-streaming"><h6 className="text-white">No one is currently streaming</h6></div>}
       </div>
       <h5 className="video-header">Schema Videos</h5>
       <div className="homepage-container">
-        {videoPlaybackIDs.length > 0 ? videoPlaybackIDs.map(playbackID => <UserVideoThumbnail key={playbackID} playbackID={playbackID} />) : "No videos are available at this time"}
+        {videoPlaybackIDs.length > 0 ? videoPlaybackIDs.map(playbackID => <UserVideoThumbnail key={playbackID} playbackID={playbackID} />) : <div className="none-streaming"><h6 className="text-white">No videos are available at this time</h6></div>}
       </div>
       <h5 className="stream-header">Game and Software Development Streams</h5>
       <div className="homepage-container">

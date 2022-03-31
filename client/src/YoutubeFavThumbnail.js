@@ -10,7 +10,7 @@ function YoutubeFavThumbnail({ favorite }) {
       //IF NO IF STATEMENT THIS ERROR OCCURS BUT CODE WORKS:
       // YoutubeFavThumbnail.js:14 Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'snippet')
       const res4 = await axios.get(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${favorite.video_id}&maxResults=1&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`
+        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${favorite.video_id}&maxResults=1&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`
       );
       setYoutubeTitle(res4.data.items[0].snippet.localized.title);
       setChannelTitle(res4.data.items[0].snippet.channelTitle);
