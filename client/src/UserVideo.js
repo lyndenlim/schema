@@ -30,8 +30,7 @@ function UserVideo({ user }) {
                     playback-id={id}
                     width="1120px"
                     height="560px"
-                // playsInline
-                // ref={videoEl}
+                    autoplay={true}
                 />
                 <br />
                 {user ? <button className="video-follow-button" onClick={addMuxVideo}><FontAwesomeIcon icon={faHeart} /> Favorite</button> : null}
