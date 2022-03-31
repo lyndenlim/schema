@@ -6,7 +6,6 @@ import AccountSettings from './AccountSettings'
 function AccountPage() {
   const [currentUser, setCurrentUser] = useState([])
 
-
   useEffect(async () => {
     const res = await axios.get("/me")
     setCurrentUser(res.data)
