@@ -6,25 +6,6 @@ import { useParams } from "react-router-dom";
 
 function UserStream({ user }) {
   const { id } = useParams()
-  // const videoEl = useRef(null);
-
-  // const attemptPlay = () => {
-  //   videoEl &&
-  //     videoEl.current &&
-  //     videoEl.current.play().catch(error => {
-  //       console.error("Error attempting to play", error);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   attemptPlay();
-  // }, []);
-
-  // function addUserStream() {
-  //   axios.post("/favorites", {
-  //     stream_id : ""
-  //   })
-  // }
 
   return (
     <div className="mux-video-container">
@@ -33,8 +14,7 @@ function UserStream({ user }) {
         playback-id={id}
         width="1120px"
         height="560px"
-      // playsInline
-      // ref={videoEl}
+        autoplay={true}
       />
       <br />
       {user ? <button className="video-follow-button"><FontAwesomeIcon icon={faHeart} /> Follow</button> : null}
