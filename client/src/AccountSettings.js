@@ -69,25 +69,22 @@ function AccountSettings({ currentUser }) {
     <>
       <div className="text-white centered">
         <div>
-          <h5>Username</h5>
           <input readOnly={true} placeholder={currentUser.username} />
-          <button onClick={handleUsernameShow}>Change Username</button>
+          <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleUsernameShow}>Change Username</button>
           <br />
           <br />
-          <h5>Email</h5>
           <input readOnly={true} placeholder={currentUser.email} />
-          <button onClick={handleEmailShow}>Change Email</button>
+          <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleEmailShow}>Change Email</button>
           <br />
           <br />
-          <button onClick={handlePasswordShow}>Change Password</button>
+          <button className="setting-button" onClick={handlePasswordShow}>Change Password</button>
           <br />
           <br />
-          <button onClick={handleDeleteAccount}>Delete Account</button>
+          <input className="stream-key-input" readOnly={true} value={streamKey}></input><button className="setting-button" style={{ marginLeft: "6px" }} onClick={generateKey}>Generate Stream Key</button>
           <br />
           <br />
-          <h4>Get Stream Key</h4>
           {/* add copy clipboard button  */}
-          <input className="stream-key-input" readOnly={true} value={streamKey}></input><button onClick={generateKey}>Generate Key</button>
+          <button className="setting-button" style={{ backgroundColor: "red" }} onClick={handleDeleteAccount}>Delete Account</button>
         </div>
 
         <Modal show={usernameShow} onHide={handleUsernameClose}>
@@ -131,7 +128,7 @@ function AccountSettings({ currentUser }) {
           <form onSubmit={handlePasswordChange}>
             <Modal.Body>
               <label>Old password</label>
-              <input type="password" onChange={e => setOldPassword(e.target.value)}/><br />
+              <input type="password" onChange={e => setOldPassword(e.target.value)} /><br />
               <label>New password</label>
               <input type="password" onChange={e => setInputPassword(e.target.value)} /><br />
               <label>Confirm new password</label>
