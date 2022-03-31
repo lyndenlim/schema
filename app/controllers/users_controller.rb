@@ -17,8 +17,12 @@ class UsersController < ApplicationController
 
     def update
       user = @current_user
+      if user.authenticate(params[:old_password])
       user.update!(user_params)
       render json: user
+      else
+        render json: { error: "Incorrect old password." }, status: :not_found
+      end
     end
 
     def destroy
