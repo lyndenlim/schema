@@ -10,6 +10,7 @@ function AccountSettings({ currentUser }) {
   const [inputEmail, setInputEmail] = useState("")
   const [inputPassword, setInputPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [oldPassword, setOldPassword] = useState("")
   const [streamKey, setStreamKey] = useState("")
 
   const handleUsernameClose = () => setUsernameShow(false)
@@ -39,6 +40,7 @@ function AccountSettings({ currentUser }) {
     e.preventDefault()
     handlePasswordClose()
     axios.patch(`/users/${currentUser.id}`, {
+      old_password: oldPassword,
       password: inputPassword,
       password_confirmation: confirmPassword
     })
@@ -124,12 +126,12 @@ function AccountSettings({ currentUser }) {
 
         <Modal show={passwordShow} onHide={handlePasswordClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Change username</Modal.Title>
+            <Modal.Title>Change Password</Modal.Title>
           </Modal.Header>
           <form onSubmit={handlePasswordChange}>
             <Modal.Body>
               <label>Old password</label>
-              <input type="password" /><br />
+              <input type="password" onChange={e => setOldPassword(e.target.value)}/><br />
               <label>New password</label>
               <input type="password" onChange={e => setInputPassword(e.target.value)} /><br />
               <label>Confirm new password</label>
