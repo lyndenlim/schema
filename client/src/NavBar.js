@@ -47,7 +47,7 @@ function NavBar({ onSearch, user, setUser, setSearchedVideos }) {
                     <img className="profile-picture-nav" src={user.profile_image_url ? user.profile_image_url : default_avatar} alt="profile-picture" />
                   </Dropdown.Toggle>
                   <Dropdown.Menu >
-                    <Dropdown.Item ><NavLink to="/profile" style={{ textDecoration: "none", color: "black" }}>Profile Page</NavLink></Dropdown.Item>
+                    <Dropdown.Item ><NavLink to="/profile" style={{ textDecoration: "none", color: "black" }}>Profile page</NavLink></Dropdown.Item>
                     <Dropdown.Item onClick={handleLogoutClick}><strong style={{ color: "red" }}>Logout</strong></Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
