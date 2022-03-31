@@ -20,14 +20,14 @@ function Video({ user }) {
       const selectedVideoTitle = videoTitle.toLowerCase().split(/[ !js\[\]()-]/)
       if (name.split(" ")[1]) {
         return selectedVideoTitle.includes(name.split(" ").join("").toLowerCase()) || selectedVideoTitle.includes(name.split(" ")[0].toLowerCase()) || (selectedVideoTitle.includes(name.split(" ")[0].toLowerCase()) && selectedVideoTitle.includes(name.split(" ")[1].toLowerCase()))
+      } else if (name.split(" ")[0].toLowerCase() === "javascript") {
+        return videoTitle.toLowerCase().split(" ").includes("javascript")
+      } else if (name.split(" ")[0].toLowerCase() === "java") {
+        return videoTitle.toLowerCase().split(" ").includes("java")
+      } else if (name.split(" ")[0].toLowerCase() === "typescript") {
+        return videoTitle.toLowerCase().split(" ").includes("typescript")
       } else {
-        if (selectedVideoTitle.includes("cript") && selectedVideoTitle.includes("ava")) {
-          return videoTitle.toLowerCase().includes("javascript")
-        } else if (selectedVideoTitle.includes("ava") && !selectedVideoTitle.includes("cript")) {
-          return videoTitle.toLowerCase().includes("java")
-        } else {
           return selectedVideoTitle.includes(name.split(" ").join("").toLowerCase()) || selectedVideoTitle.includes(name.split(" ")[0].toLowerCase())
-        }
       }
     })
 
