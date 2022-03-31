@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import Modal from "react-bootstrap/Modal"
+import Button from "react-bootstrap/Button"
 
 function AccountSettings({ currentUser }) {
   const [usernameShow, setUsernameShow] = useState(false)
@@ -69,11 +70,9 @@ function AccountSettings({ currentUser }) {
     <>
       <div className="text-white centered">
         <div>
-          <input readOnly={true} placeholder={currentUser.username} />
           <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleUsernameShow}>Change Username</button>
           <br />
           <br />
-          <input readOnly={true} placeholder={currentUser.email} />
           <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleEmailShow}>Change Email</button>
           <br />
           <br />
@@ -87,58 +86,60 @@ function AccountSettings({ currentUser }) {
           <button className="setting-button" style={{ backgroundColor: "red" }} onClick={handleDeleteAccount}>Delete Account</button>
         </div>
 
-        <Modal show={usernameShow} onHide={handleUsernameClose}>
+        <Modal show={usernameShow} onHide={handleUsernameClose} style={{textAlign:"center"}}>
           <Modal.Header closeButton>
             <Modal.Title>Change username</Modal.Title>
           </Modal.Header>
           <form onSubmit={handleUsernameChange}>
             <Modal.Body>
+            <label>NEW USERNAME:</label>
               <input onChange={e => setInputUsername(e.target.value)} />
             </Modal.Body>
             <Modal.Footer>
-              <button onClick={handleUsernameClose}>
+              <Button variant="secondary" onClick={handleUsernameClose}>
                 Close
-              </button>
-              <input type="submit"></input>
+              </Button>
+              <Button type="submit">Save Changes</Button>
             </Modal.Footer>
           </form>
         </Modal>
 
-        <Modal show={emailShow} onHide={handleEmailClose}>
+        <Modal show={emailShow} onHide={handleEmailClose} style={{textAlign:"center"}}>
           <Modal.Header closeButton>
             <Modal.Title>Change email</Modal.Title>
           </Modal.Header>
           <form onSubmit={handleEmailChange}>
             <Modal.Body>
+              <label>NEW EMAIL:</label>
               <input onChange={e => setInputEmail(e.target.value)} />
             </Modal.Body>
             <Modal.Footer>
-              <button onClick={handleEmailClose}>
+              <Button variant="secondary" onClick={handleEmailClose}>
                 Close
-              </button>
-              <input type="submit"></input>
+              </Button>
+              <Button type="submit">Save Changes</Button>
             </Modal.Footer>
           </form>
         </Modal>
 
-        <Modal show={passwordShow} onHide={handlePasswordClose}>
+        <Modal show={passwordShow} onHide={handlePasswordClose} style={{textAlign:"center"}}>
           <Modal.Header closeButton>
-            <Modal.Title>Change Password</Modal.Title>
+            <Modal.Title>Change password</Modal.Title>
           </Modal.Header>
           <form onSubmit={handlePasswordChange}>
             <Modal.Body>
-              <label>Old password</label>
+              <label>OLD PASSWORD:</label>
               <input type="password" onChange={e => setOldPassword(e.target.value)} /><br />
-              <label>New password</label>
+              <label>NEW PASSWORD:</label>
               <input type="password" onChange={e => setInputPassword(e.target.value)} /><br />
-              <label>Confirm new password</label>
+              <label>CONFIRM NEW PASSWORD:</label>
               <input type="password" onChange={e => setConfirmPassword(e.target.value)} />
             </Modal.Body>
             <Modal.Footer>
-              <button onClick={handlePasswordClose}>
+              <Button variant="secondary" onClick={handlePasswordClose}>
                 Close
-              </button>
-              <input type="submit"></input>
+              </Button>
+              <Button type="submit">Save Changes</Button>
             </Modal.Footer>
           </form>
         </Modal>

@@ -459,14 +459,6 @@ $apothem: 482.842712474619px;
   text-align: center;
 }
 
-// .setting-button {
-//   padding-top: 3px;
-//   padding-bottom: 3px;
-//   border-radius: 10px;
-// }
-
-
-/* CSS */
 .setting-button {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
@@ -494,4 +486,9 @@ $apothem: 482.842712474619px;
   .setting-button {
     padding: 0.25em 0.75em;
   }
+}
+
+label {
+  font-weight: bold;
+  padding-right: 10px;
 }

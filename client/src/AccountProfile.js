@@ -11,6 +11,8 @@ function AccountProfile({ currentUser }) {
           style={{paddingBottom:"5px"}}
         />
         <br />
+        <h4>{currentUser.username}</h4>
+        <h4>{currentUser.email}</h4>
         <button className="setting-button">Add/Edit Profile Picture</button>
       </div>
     </div>
