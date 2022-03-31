@@ -21,12 +21,18 @@ function Video({ user }) {
       if (name.split(" ")[1]) {
         return selectedVideoTitle.includes(name.split(" ").join("").toLowerCase()) || selectedVideoTitle.includes(name.split(" ")[0].toLowerCase()) || (selectedVideoTitle.includes(name.split(" ")[0].toLowerCase()) && selectedVideoTitle.includes(name.split(" ")[1].toLowerCase()))
       } else {
-        return selectedVideoTitle.includes(name.split(" ").join("").toLowerCase()) || selectedVideoTitle.includes(name.split(" ")[0].toLowerCase())
+        if (selectedVideoTitle.includes("cript") && selectedVideoTitle.includes("ava")) {
+          return videoTitle.toLowerCase().includes("javascript")
+        } else if (selectedVideoTitle.includes("ava") && !selectedVideoTitle.includes("cript")) {
+          return videoTitle.toLowerCase().includes("java")
+        } else {
+          return selectedVideoTitle.includes(name.split(" ").join("").toLowerCase()) || selectedVideoTitle.includes(name.split(" ")[0].toLowerCase())
+        }
       }
     })
 
     axios.post("/favorites", {
-      technology_id: selectedTech.id,
+      technology_id: selectedTech ? selectedTech.id : 22,
       user_id: user.id,
       video_id: id
     })

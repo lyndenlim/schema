@@ -36,7 +36,7 @@ function Stream({ user }) {
         })
 
         axios.post("/favorites", {
-            technology_id: selectedTech ? selectedTech.id : 23,
+            technology_id: selectedTech ? selectedTech.id : 22,
             user_id: user.id,
             twitch_streamer: streams[0].user_name
         })
