@@ -19,7 +19,7 @@ function YoutubeFavThumbnail({ favorite }) {
   }, [])
 
   return (
-    <>
+    <div className="favorite-thumbnail">
       {favorite.video_id ? <img
         width="200px"
         height="200px"
@@ -34,7 +34,7 @@ function YoutubeFavThumbnail({ favorite }) {
         </strong> : null}
       </p>
       <p className="text-white">{favorite.video_id ? channelTitle : null}</p>
-    </>
+    </div>
   );
 }
 

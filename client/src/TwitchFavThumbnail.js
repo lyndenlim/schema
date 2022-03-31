@@ -15,14 +15,14 @@ function TwitchFavThumbnail({ favorite }) {
     }, [])
 
     return (
-        <>
+        <div className="favorite-thumbnail">
             {favorite.twitch_streamer ? <img width="200px" height="200px" src={streamerData.thumbnail_url} alt="streamer-profile" /> : null}
             <p className="text-white">
                 <strong>
                     {favorite.twitch_streamer ? streamerData.display_name : null}
                 </strong>
             </p>
-        </>
+        </div>
     )
 }
 
