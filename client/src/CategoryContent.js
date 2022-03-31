@@ -10,7 +10,6 @@ function CategoryContent({ allStreams }) {
 
   const filteredStreams = allStreams.filter(stream => {
     const streamTitle = stream.title.toLowerCase().split(/[ !js\[\]()-]/)
-    console.log(name)
     if (name.split(" ")[1] && name !== "Miscellaneous") {
       return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase()) || (streamTitle.includes(name.split(" ")[0].toLowerCase()) && streamTitle.includes(name.split(" ")[1].toLowerCase()))
     } else if (!name.split(" ")[1] && name !== "Miscellaneous") {
@@ -20,10 +19,10 @@ function CategoryContent({ allStreams }) {
     }
   })
 
-  // useEffect(async () => {
-  //   const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyD9bB2_2ejQSoDyBcT8_6U6jo7g1bMMMwo`)
-  //   setAllVideos(res.data.items)
-  // }, [])
+  useEffect(async () => {
+    const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
+    setAllVideos(res.data.items)
+  }, [])
 
   return (
     <>

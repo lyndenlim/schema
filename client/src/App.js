@@ -59,6 +59,7 @@ function App() {
         "Content-Type": "application/json"
       }
     });
+
     const res2 = await axiosInstance2.get("https://api.mux.com/video/v1/live-streams?status=active")
     setStreamPlaybackIDs(res2.data.data.map(stream => stream.playback_ids[0].id))
 

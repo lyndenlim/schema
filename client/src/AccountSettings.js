@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import axios from "axios"
 import Modal from "react-bootstrap/Modal"
 
@@ -10,6 +10,7 @@ function AccountSettings({ currentUser }) {
   const [inputEmail, setInputEmail] = useState("")
   const [inputPassword, setInputPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [streamKey, setStreamKey] = useState("")
 
   const handleUsernameClose = () => setUsernameShow(false)
   const handleUsernameShow = () => setUsernameShow(true)
@@ -47,17 +48,32 @@ function AccountSettings({ currentUser }) {
     axios.delete(`/users/${currentUser.id}`)
   }
 
+  function generateKey() {
+    fetch("https://api.mux.com/video/v1/live-streams", {
+      body: '{ "playback_policy": "public", "new_asset_settings": { "playback_policy": "public" }, "reconnect_window": 0 }',
+      headers: {
+        Authorization: "Basic NDEzNTZlZmYtZWFlZS00NGFkLWI4YWQtZTlkZmRhOWI1NDQyOmhZRm8za3ZsNmVya0hzeVliWnBocVBzUFpTTHp2dUF5djdzVm5FaFNUT2gyY3ZPVFpyTldGQllkaXRPWms3R2t1OHpON1BzMUp3cw==",
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+      .then(res => res.json())
+      .then(data => {
+        setStreamKey(data.data.stream_key)
+      })
+  }
+
   return (
     <>
       <div className="text-white centered">
         <div>
           <h5>Username</h5>
-          <input disabled={true} placeholder={currentUser.username} />
+          <input readOnly={true} placeholder={currentUser.username} />
           <button onClick={handleUsernameShow}>Change Username</button>
           <br />
           <br />
           <h5>Email</h5>
-          <input disabled={true} placeholder={currentUser.email} />
+          <input readOnly={true} placeholder={currentUser.email} />
           <button onClick={handleEmailShow}>Change Email</button>
           <br />
           <br />
@@ -68,7 +84,8 @@ function AccountSettings({ currentUser }) {
           <br />
           <br />
           <h4>Get Stream Key</h4>
-          <input disabled={true}></input><button>Generate Key</button>
+          {/* add copy clipboard button  */}
+          <input className="stream-key-input" readOnly={true} value={streamKey}></input><button onClick={generateKey}>Generate Key</button>
         </div>
 
         <Modal show={usernameShow} onHide={handleUsernameClose}>
