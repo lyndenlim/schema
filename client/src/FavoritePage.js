@@ -16,8 +16,7 @@ function FavoritePage() {
     <>
       <div className="favorite-header"><h4 className="bold">Favorites</h4></div>
       <div className="favorite-container">
-        {filteredFavorites.map(favorite => <TwitchFavThumbnail key={favorite.id} favorite={favorite} />)}
-        {filteredFavorites.map(favorite => <YoutubeFavThumbnail key={favorite.id} favorite={favorite} />)}
+        {filteredFavorites.map(favorite => favorite.video_id ?<YoutubeFavThumbnail key={favorite.id} favorite={favorite} /> : <TwitchFavThumbnail key={favorite.id} favorite={favorite} />)}
       </div>
     </>
   )
