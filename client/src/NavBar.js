@@ -1,15 +1,18 @@
 import Navbar from "react-bootstrap/Navbar"
 import Container from "react-bootstrap/Container"
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import SearchBar from "./SearchBar"
 import default_avatar from "./default_avatar.png"
 
 function NavBar({ onSearch, user, setUser }) {
+  let history = useHistory()
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
-        setUser(null);
+        setUser(null)
+        history.push("/")
       }
     });
   }
@@ -33,6 +36,7 @@ function NavBar({ onSearch, user, setUser }) {
           {user ? (
             <>
               <button onClick={handleLogoutClick}>Logout</button>
+              <span className="text-white">{user.username}</span>
               <NavLink to="/profile" style={{ textDecoration: "none", color: "black" }}>{<img className="profile-picture-nav" src={user.profile_image_url ? user.profile_image_url : default_avatar} alt="profile-picture" />}</NavLink>
             </>
           ) : (
