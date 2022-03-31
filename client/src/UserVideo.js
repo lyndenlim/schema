@@ -16,7 +16,7 @@ function UserVideo({ user }) {
 
     function addMuxVideo() {
         axios.post("/favorites", {
-            technology_id: 23,
+            technology_id: 22,
             stream_id: id,
             user_id: userID
         })

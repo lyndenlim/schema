@@ -14,14 +14,25 @@ function CategoryContent({ allStreams }) {
       return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase()) || (streamTitle.includes(name.split(" ")[0].toLowerCase()) && streamTitle.includes(name.split(" ")[1].toLowerCase()))
     } else if (!name.split(" ")[1] && name !== "Miscellaneous") {
       return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
-    } else {
+    } else if (!name.split(" ")[1] && (name !== "Java" && name === "Javascript")) {
+      return streamTitle.includes("javascript")
+    } else if (!name.split(" ")[1] && (name !== "C" && name === "C++")) {
+      return streamTitle.includes("c++")
+    }
+    else {
       return true
     }
   })
 
   useEffect(async () => {
-    const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
-    setAllVideos(res.data.items)
+    if (name === "C++") {
+      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=c%2B%2B+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
+      setAllVideos(res.data.items)
+    } else {
+      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
+      setAllVideos(res.data.items)
+    }
+
   }, [])
 
   return (

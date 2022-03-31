@@ -51,66 +51,61 @@ const technologies = [
     },
     {
         id: 11,
-        name: "C#",
-        image: "https://cis.msjc.edu/Tutorials/Programming/Languages/Csharp/images/Csharp_logo.png"
-    },
-    {
-        id: 12,
         name: "C++",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png"
     },
     {
-        id: 13,
+        id: 12,
         name: "TypeScript",
         image: "https://iconape.com/wp-content/png_logo_vector/typescript.png"
     },
     {
-        id: 14,
+        id: 13,
         name: "Rails",
         image: 'https://www.kindpng.com/picc/m/12-120961_logo-ruby-on-rails-hd-png-download.png'
     },
     {
-        id: 15,
+        id: 14,
         name: "Vue",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png"
     },
     {
-        id: 16,
+        id: 15,
         name: "Angular",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/640px-Angular_full_color_logo.svg.png"
     },
     {
-        id: 17,
+        id: 16,
         name: "Node",
         image: "https://cdn.iconscout.com/icon/free/png-256/node-js-1174925.png"
     },
     {
-        id: 18,
+        id: 17,
         name: "Express",
         image: "https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.png"
     },
     {
-        id: 19,
+        id: 18,
         name: "HTML",
         image: "https://i.imgur.com/2JCrC9j.png"
     },
     {
-        id: 20,
+        id: 19,
         name: "CSS",
         image: "https://i.imgur.com/hhj9XnW.png"
     },
     {
-        id: 21,
+        id: 20,
         name: "Swift",
         image: "https://cdn4.iconfinder.com/data/icons/logos-3/504/Swift-2-512.png"
     },
     {
-        id: 22,
+        id: 21,
         name: "Kotlin",
         image: "https://cdn.freebiesupply.com/logos/thumbs/2x/kotlin-1-logo.png"
     },
     {
-        id: 23,
+        id: 22,
         name: "Miscellaneous",
         image: "https://i.imgur.com/IJZYI5g.png"
     }
