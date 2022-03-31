@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 function TwitchFavThumbnail({ favorite }) {
     const [streamerData, setStreamerData] = useState([])
@@ -15,14 +16,16 @@ function TwitchFavThumbnail({ favorite }) {
     }, [])
 
     return (
-        <div className="favorite-thumbnail">
-            {favorite.twitch_streamer ? <img width="200px" height="200px" src={streamerData.thumbnail_url} alt="streamer-profile" /> : null}
-            <p className="text-white">
-                <strong>
-                    {favorite.twitch_streamer ? streamerData.display_name : null}
-                </strong>
-            </p>
-        </div>
+        <Link to={`/streams/${streamerData.id}`} style={{ textDecoration: "none" }}>
+            <div className="favorite-thumbnail">
+                {favorite.twitch_streamer ? <img width="200px" height="200px" src={streamerData.thumbnail_url} alt="streamer-profile" /> : null}
+                <p className="text-white">
+                    <strong>
+                        {favorite.twitch_streamer ? streamerData.display_name : null}
+                    </strong>
+                </p>
+            </div>
+        </Link>
     )
 }
 

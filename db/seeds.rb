@@ -15,7 +15,7 @@ User.create(email: "l@l.com", username: "l", password: "l", password_confirmatio
 User.create(email: "j@j.com", username: "j", password: "j", password_confirmation: "j")
 User.create(email: "p@p.com", username: "p", password: "p", password_confirmation: "p")
 
-Favorite.create(technology_id: 1, user_id: 1, stream_id: "1")
+Favorite.create(technology_id: 1, user_id: 1, stream_id: "98Zhl6ity8fRozwdOtkhLCa6Y6rU1m35p028vBQjgGUU")
 Favorite.create(technology_id: 1, user_id: 1, twitch_streamer: "a_seagull")
 Favorite.create(technology_id: 3, user_id: 2, video_id: "27axs9dO7AE")
 
