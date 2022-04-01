@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeartBroken } from "@fortawesome/free-solid-svg-icons"
 
 function YouTubeFavThumbnail({ favorite, onDelete }) {
   const [youtubeTitle, setYoutubeTitle] = useState("");
@@ -22,28 +24,30 @@ function YouTubeFavThumbnail({ favorite, onDelete }) {
   function handleDelete() {
     axios.delete(`/favorites/${favorite.id}`)
     onDelete(favorite.id)
-}
+  }
 
   return (
-    <Link to={`/videos/${favorite.video_id}`} style={{ textDecoration: "none" }}>
-      <div className="favorite-thumbnail">
-        {favorite.video_id ? <img
-          width="290px"
-          height="200px"
-          src={videoThumbnail}
-          alt="video-thumbnail"
-        /> : null}
-        <p className="text-white">
-          {favorite.video_id ? <strong>
-            {youtubeTitle.length < 25
-              ? youtubeTitle
-              : `${youtubeTitle.slice(0, 25)}...`}
-          </strong> : null}
-        </p>
-        <p className="text-white">{favorite.video_id ? channelTitle : null}</p>
-      </div>
-      <button onClick={handleDelete}>Delete</button>
-    </Link>
+    <div>
+      <Link to={`/videos/${favorite.video_id}`} style={{ textDecoration: "none" }}>
+        <div className="favorite-thumbnail">
+          {favorite.video_id ? <img
+            width="290px"
+            height="200px"
+            src={videoThumbnail}
+            alt="video-thumbnail"
+          /> : null}
+          <p className="text-white">
+            {favorite.video_id ? <strong>
+              {youtubeTitle.length < 25
+                ? youtubeTitle
+                : `${youtubeTitle.slice(0, 25)}...`}
+            </strong> : null}
+          </p>
+          <p className="text-white">{favorite.video_id ? channelTitle : null}</p>
+        </div>
+      </Link>
+      <button onClick={handleDelete} style={{ background: "transparent", border: "none" }}><FontAwesomeIcon icon={faHeartBroken} style={{ color: "#fb5d5e" }} /></button>
+    </div>
   );
 }
 
