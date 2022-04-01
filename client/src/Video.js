@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as farHeart } from "@fortawesome/fontawesome-free-regular"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import axios from 'axios';
 import technologies from './technologies';
@@ -8,6 +9,9 @@ import technologies from './technologies';
 function Video({ user }) {
   const { id } = useParams()
   const [videoTitle, setVideoTitle] = useState("")
+  const [favorited, setFavorited] = useState(false)
+  const favoriteIcon = favorited ? faHeart : farHeart
+  const favoriteColor = favorited ? "#fb5d5e" : "black"
 
   useEffect(async () => {
     const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
@@ -36,6 +40,7 @@ function Video({ user }) {
       user_id: user.id,
       video_id: id
     })
+    setFavorited(true)
   }
 
   return (
@@ -52,7 +57,7 @@ function Video({ user }) {
       </iframe>
       <br />
       <div style={{ paddingTop: "10px" }}>
-        {user ? <button className="video-follow-button" onClick={addVideo}><FontAwesomeIcon icon={faHeart} style={{ color: "#fb5d5e" }} /> Favorite</button> : null}
+        {user ? <button className="video-follow-button" onClick={addVideo}><FontAwesomeIcon icon={favoriteIcon} style={{ color: favoriteColor }} /> Favorite</button> : null}
       </div>
     </div>
   )

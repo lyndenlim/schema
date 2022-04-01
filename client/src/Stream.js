@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as farHeart } from "@fortawesome/fontawesome-free-regular"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import technologies from './technologies';
 
 function Stream({ user }) {
     const [streams, setStreams] = useState([])
     const { id } = useParams()
+    const [favorited, setFavorited] = useState(false)
+    const favoriteIcon = favorited ? faHeart : farHeart
+    const favoriteColor = favorited ? "#fb5d5e" : "black"
 
     useEffect(async () => {
         const axiosInstance = axios.create({
@@ -46,6 +50,7 @@ function Stream({ user }) {
             user_id: user.id,
             twitch_streamer: streams[0].user_name
         })
+        setFavorited(true)
     }
 
     if (!streams[0]) return null
@@ -62,7 +67,7 @@ function Stream({ user }) {
                 >
                 </iframe>
                 <br />
-                {user ? <div style={{ textAlign: "center", paddingTop: "10px" }}><button className="stream-follow-button" onClick={addStreamer}><FontAwesomeIcon icon={faHeart} style={{ color: "#fb5d5e" }} /> FOLLOW</button> </div> : null}
+                {user ? <div style={{ textAlign: "center", paddingTop: "10px" }}><button className="stream-follow-button" onClick={addStreamer}><FontAwesomeIcon icon={favoriteIcon} style={{ color: favoriteColor }} /> FOLLOW</button> </div> : null}
             </div>
             <iframe
                 title={id}

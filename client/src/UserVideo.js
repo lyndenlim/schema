@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import '@mux-elements/mux-video'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as farHeart } from "@fortawesome/fontawesome-free-regular"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -8,6 +9,9 @@ import axios from "axios";
 function UserVideo({ user }) {
     const { id } = useParams()
     const [userID, setUserID] = useState("")
+    const [favorited, setFavorited] = useState(false)
+    const favoriteIcon = favorited ? faHeart : farHeart
+    const favoriteColor = favorited ? "#fb5d5e" : "black"
 
     useEffect(async () => {
         const res = await axios.get("/me")
@@ -20,6 +24,7 @@ function UserVideo({ user }) {
             stream_id: id,
             user_id: userID
         })
+        setFavorited(true)
     }
 
     return (
@@ -34,7 +39,7 @@ function UserVideo({ user }) {
                 />
                 <br />
                 <div style={{ paddingTop: "10px" }}>
-                    {user ? <button className="video-follow-button" onClick={addMuxVideo}><FontAwesomeIcon icon={faHeart} style={{ color: "#fb5d5e" }} /> FAVORITE</button> : null}
+                    {user ? <button className="video-follow-button" onClick={addMuxVideo}><FontAwesomeIcon icon={favoriteIcon} style={{ color: favoriteColor }} /> FAVORITE</button> : null}
                 </div>
                 );
             </div>
