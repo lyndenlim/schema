@@ -67,7 +67,7 @@ function Homepage({ streamPlaybackIDs, videoPlaybackIDs, scienceTechStreams, sof
       </div>
       <h5 className="category-header">Top Categories</h5>
       <div className="homepage-category-container bold">
-        {technologies.map(tech => {
+        {technologies.slice(0,8).map(tech => {
           return (
             <TechnologyCard
               key={tech.name}

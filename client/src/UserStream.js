@@ -16,9 +16,6 @@ function UserStream({ user }) {
         height="560px"
         autoplay={true}
       />
-      <br />
-      {user ? <button className="video-follow-button"><FontAwesomeIcon icon={faHeart} /> Follow</button> : null}
-
       );
     </div>
   )

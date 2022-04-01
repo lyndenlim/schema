@@ -18,6 +18,9 @@ function CategoryContent({ allStreams }) {
       return stream.title.toLowerCase().split(" ").includes("java")
     } else if (name.split(" ")[0].toLowerCase() === "typescript") {
       return stream.title.toLowerCase().split(" ").includes("typescript")
+    } else if (name.split(" ")[0].toLowerCase() === "miscellaneous") {
+      // revisit
+      return true
     } else {
       return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
     }
@@ -35,7 +38,7 @@ function CategoryContent({ allStreams }) {
   // }, [])
 
   return (
-    <>
+    <div style={{ paddingTop: "100px" }}>
       <div className="centered">
         <strong className="text-white">{filteredStreams.length > 0 ? <h4 className="bold">Streams</h4> : <div><h4 className="bold">Streams</h4><br /><br /><h6>No one is currently streaming</h6></div>}</strong>
       </div>
@@ -48,7 +51,7 @@ function CategoryContent({ allStreams }) {
       <div className="homepage-container">
         {allVideos.map(video => <YouTubeThumbnail key={video.etag} video={video} />)}
       </div>
-    </>
+    </div>
   )
 }
 

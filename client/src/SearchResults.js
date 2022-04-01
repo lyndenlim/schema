@@ -4,7 +4,7 @@ import YouTubeThumbnail from './YouTubeThumbnail'
 
 function SearchResults({ searchedStreams, searchedVideos }) {
   return (
-    <>
+    <div style={{paddingTop: "100px"}}>
       <div className="centered">
         {searchedStreams.length > 0 ? <h4 className="bold text-white">Streams</h4> : <div><h4 className="bold text-white">Streams</h4><h6>No one is currently streaming</h6></div>}
       </div>
@@ -17,7 +17,7 @@ function SearchResults({ searchedStreams, searchedVideos }) {
       <div className="homepage-container">
         {searchedVideos.map(video => <YouTubeThumbnail key={video.etag} video={video} />)}
       </div>
-    </>
+    </div>
   )
 }
 
