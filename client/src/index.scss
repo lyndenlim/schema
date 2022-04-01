@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Open Sans", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #202124 !important;
@@ -29,6 +27,7 @@ code {
   background: -moz-radial-gradient(#70532B 55%, #423628);
   background: radial-gradient(#764830 50%, #423628);
   z-index: -1;
+  box-shadow: 20px 20px black;
 }
 
 .screen-border {
@@ -62,6 +61,7 @@ code {
   margin-left: 80%;
   border-radius: 50%;
   background: #6C7073;
+  box-shadow: 10px 10px black;
 }
 
 .volume-dial {
@@ -72,6 +72,7 @@ code {
   margin-left: 80%;
   border-radius: 50%;
   background: #6C7073;
+  box-shadow: 10px 10px black;
 }
 
 .socket-1 {
@@ -212,6 +213,7 @@ canvas {
   height: 400px;
   background-color: white;
   text-align: center;
+  box-shadow: 10px 10px black;
 }
 
 .login-form-content {
@@ -222,16 +224,7 @@ canvas {
   height: 350px;
   background-color: white;
   text-align: center;
-}
-
-.form-button {
-  border-radius: 20px;
-  border-color: #7795a3;
-  height: 50px;
-  width: 185px;
-  background-color: #7795a3;
-  color: white;
-  margin: 8px
+  box-shadow: 10px 10px black;
 }
 
 .profile-picture {
@@ -466,6 +459,23 @@ $apothem: 482.842712474619px;
   text-decoration: none;
   text-transform: uppercase;
   color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.form-button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #94b49f;
   cursor: pointer;
   border: 3px solid;
   padding: 0.25em 0.5em;

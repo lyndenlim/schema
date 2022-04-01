@@ -84,7 +84,7 @@ function SignUpPage({ setUser }) {
             <div className="channel-dial">Sign Up</div>
           </Link>
           <Link to="/login" style={{ color: "black" }}>
-            <div className="volume-dial" >Login</div>
+            <div className="volume-dial" >Log In</div>
           </Link>
           <div className="sockets">
             <span className="socket-1"></span>
@@ -103,7 +103,7 @@ function SignUpPage({ setUser }) {
           <canvas id="tv-screen" />
           <form className="signup" onSubmit={handleSubmit}>
             <div className="signup-form-content">
-              <h3>Sign Up</h3>
+              <h3 className="bold">SIGN UP</h3>
               <br />
               <input className="form-input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
               <br />
@@ -113,7 +113,7 @@ function SignUpPage({ setUser }) {
               <br />
               <input className="form-input" type="password" placeholder="Password Confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} autoComplete="current-password" />
               <br />
-              <input className="form-button" type="submit" />
+              <button className="form-button" type="submit">Sign Up</button>
               <br />
               <p style={{color: "red"}}>{errors.length !== 0 ? errors[0] : null}</p>
             </div>
