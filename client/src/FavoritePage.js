@@ -19,7 +19,7 @@ function FavoritePage() {
 
   const filteredElements = filteredFavorites.map(favorite => {
     if (favorite.stream_id) {
-      return <UserVideoThumbnail key={favorite.id} favorite={favorite} onDelete={handleDelete} />
+      return <UserVideoThumbnail key={favorite.id} favorite={favorite} playbackID={favorite.stream_id} onDelete={handleDelete} />
     } else if (favorite.video_id) {
       return <YouTubeFavThumbnail key={favorite.id} favorite={favorite} onDelete={handleDelete} />
     } else {

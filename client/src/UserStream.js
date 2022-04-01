@@ -8,7 +8,7 @@ function UserStream({ user }) {
   const { id } = useParams()
 
   return (
-    <div className="mux-video-container">
+    <div className="mux-video-container" style={{ paddingTop: "100px" }}>
       <mux-video
         controls
         playback-id={id}
