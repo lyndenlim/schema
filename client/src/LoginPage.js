@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom"
 function LoginPage({ setUser }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [errors, setErrors] = useState([])
   let history = useHistory()
 
   function handleSubmit(e) {
@@ -20,6 +21,8 @@ function LoginPage({ setUser }) {
           setUser(user)
           history.push("/")
         });
+      } else {
+        r.json().then((err) => setErrors(err.errors))
       }
     })
   }
@@ -99,6 +102,8 @@ function LoginPage({ setUser }) {
               <input className="form-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" />
               <br />
               <input className="form-button" type="submit" />
+              <br />
+              <p style={{color: "red"}}>{errors.length !== 0 ? errors[0] : null}</p>
             </div>
           </form>
         </div>
