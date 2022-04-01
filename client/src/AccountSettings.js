@@ -30,7 +30,7 @@ function AccountSettings({ currentUser, user, setUser }) {
 
   async function handleUsernameChange(e) {
     // e.preventDefault()
-    // handleUsernameClose()
+    handleUsernameClose()
     axios.patch(`/users/${currentUser.id}`, {
       username: inputUsername
     })
@@ -38,7 +38,7 @@ function AccountSettings({ currentUser, user, setUser }) {
 
   function handleEmailChange(e) {
     // e.preventDefault()
-    // handleEmailClose()
+    handleEmailClose()
     axios.patch(`/users/${currentUser.id}`, {
       email: inputEmail
     })
@@ -46,7 +46,7 @@ function AccountSettings({ currentUser, user, setUser }) {
 
   function handlePasswordChange(e) {
     e.preventDefault()
-    // handlePasswordClose()
+    handlePasswordClose()
     axios.patch(`/users/${currentUser.id}`, {
       old_password: oldPassword,
       password: inputPassword,
