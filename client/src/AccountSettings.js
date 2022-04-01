@@ -11,6 +11,7 @@ function AccountSettings({ currentUser, user, setUser }) {
   const [usernameShow, setUsernameShow] = useState(false)
   const [emailShow, setEmailShow] = useState(false)
   const [passwordShow, setPasswordShow] = useState(false)
+  const [deleteShow, setDeleteShow] = useState(false)
   const [inputUsername, setInputUsername] = useState("")
   const [inputEmail, setInputEmail] = useState("")
   const [inputPassword, setInputPassword] = useState("")
@@ -27,8 +28,11 @@ function AccountSettings({ currentUser, user, setUser }) {
   const handleEmailShow = () => setEmailShow(true)
   const handlePasswordClose = () => setPasswordShow(false)
   const handlePasswordShow = () => setPasswordShow(true)
+  const handleDeleteClose = () => setDeleteShow(false)
+  const handleDeleteShow = () => setDeleteShow(true)
 
-  async function handleUsernameChange(e) {
+
+  function handleUsernameChange(e) {
     // e.preventDefault()
     handleUsernameClose()
     axios.patch(`/users/${currentUser.id}`, {
@@ -105,7 +109,7 @@ function AccountSettings({ currentUser, user, setUser }) {
           <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}><button className="setting-button" style={{ marginLeft: "6px" }} onClick={generateKey}>Generate Stream Key</button></OverlayTrigger>
           <br />
           <br />
-          <button className="setting-button" style={{ backgroundColor: "red" }} onClick={handleDeleteAccount}>Delete Account</button>
+          <button className="setting-button" style={{ backgroundColor: "red" }} onClick={handleDeleteShow}>Delete Account</button>
         </div>
 
         <Modal show={usernameShow} onHide={handleUsernameClose} style={{ textAlign: "center" }}>
@@ -154,15 +158,15 @@ function AccountSettings({ currentUser, user, setUser }) {
           </Modal.Header>
           <form onSubmit={handlePasswordChange}>
             <Modal.Body>
-              <InputGroup>
+              <InputGroup style={{padding: "10px"}}>
                 <InputGroup.Text>Old Password</InputGroup.Text>
                 <FormControl type="password" onChange={e => setOldPassword(e.target.value)} /><br />
               </InputGroup>
-              <InputGroup>
+              <InputGroup style={{padding: "10px"}}>
                 <InputGroup.Text>New Password</InputGroup.Text>
                 <FormControl type="password" onChange={e => setInputPassword(e.target.value)} /><br />
               </InputGroup>
-              <InputGroup>
+              <InputGroup style={{padding: "10px"}}>
                 <InputGroup.Text>Confirm password</InputGroup.Text>
                 <FormControl type="password" onChange={e => setConfirmPassword(e.target.value)} /><br />
               </InputGroup>
@@ -174,6 +178,18 @@ function AccountSettings({ currentUser, user, setUser }) {
               <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
             </Modal.Footer>
           </form>
+        </Modal>
+
+        <Modal show={deleteShow} onHide={handleDeleteClose} style={{ textAlign: "center" }}>
+          <Modal.Header closeButton>
+            <Modal.Title>Are you sure you want to delete this account?</Modal.Title>
+          </Modal.Header>
+            <Modal.Footer>
+              <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleDeleteClose}>
+                Close
+              </button>
+              <button className="setting-button" style={{ marginLeft: "6px", background: "red" }} onClick={handleDeleteAccount}>Delete Account</button>
+            </Modal.Footer>
         </Modal>
       </div>
     </>
