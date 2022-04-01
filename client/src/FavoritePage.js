@@ -31,7 +31,7 @@ function FavoritePage() {
     <>
       <div className="favorite-header"><h4 className="bold">Favorites</h4></div>
       <div className="favorite-container">
-        {filteredElements.length > 0 ? filteredElements : "You have no favorites."}
+        {filteredElements.length > 0 ? filteredElements : "You don't have any favorites yet"}
       </div>
     </>
   )

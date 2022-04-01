@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeartBroken } from "@fortawesome/free-solid-svg-icons"
 
 function TwitchFavThumbnail({ favorite, onDelete }) {
     const [streamerData, setStreamerData] = useState([])
@@ -45,9 +47,7 @@ function TwitchFavThumbnail({ favorite, onDelete }) {
                     <p className="text-white">OFFLINE</p>
                 </div>
             }
-
-            <br />
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleDelete} style={{ background: "transparent", border: "none" }}><FontAwesomeIcon icon={faHeartBroken} style={{ color: "#fb5d5e" }} /></button>
         </div>
 
 
