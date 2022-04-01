@@ -30,7 +30,7 @@ function AccountProfile({ currentUser }) {
         <img className="profile-picture"
           src={displayImage ? displayImage : default_avatar}
           alt="profile-picture"
-          style={{paddingBottom:"5px", width: "200px", height: "200px"}}
+          style={{paddingBottom:"5px", width: "150px", height: "150px"}}
         />
         <br />
         <h4>{currentUser.username}</h4>

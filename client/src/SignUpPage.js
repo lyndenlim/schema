@@ -111,7 +111,7 @@ function SignUpPage({ setUser }) {
               <br />
               <input className="form-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" />
               <br />
-              <input className="form-input" type="password" placeholder="Password Confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} autoComplete="current-password" />
+              <input className="form-input" type="password" placeholder="Confirm password" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} autoComplete="current-password" />
               <br />
               <button className="form-button" type="submit">Sign Up</button>
               <br />
