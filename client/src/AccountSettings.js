@@ -85,11 +85,8 @@ function AccountSettings({ currentUser }) {
           <input className="stream-key-input" style={{ textAlign: "center" }} readOnly={true} value={streamKey}></input><button className="setting-button" style={{ marginLeft: "6px" }} onClick={generateKey}>Generate Stream Key</button>
           <br />
           <br />
-          {/* add copy clipboard button  */}
           <button className="setting-button" style={{ backgroundColor: "red" }} onClick={handleDeleteAccount}>Delete Account</button>
         </div>
-
-
 
         <Modal show={usernameShow} onHide={handleUsernameClose} style={{ textAlign: "center" }}>
           <Modal.Header closeButton>
