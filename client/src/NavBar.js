@@ -26,7 +26,7 @@ function NavBar({ onSearch, user, setUser, setSearchedVideos }) {
       <Container>
         <div>
           <NavLink to="/" className="navbar-link text-white">
-            <span className="logo-name" style={{fontSize:"25px"}}>sCheMA</span>
+            <span className="logo-name" style={{fontSize:"35px"}}>sCheMA</span>
           </NavLink>
           {user ? <NavLink to="/favorites" className="navbar-link text-white"><FontAwesomeIcon className="heart-icon" icon={faHeart} style={{ fontSize: "30px" }} /></NavLink> : null}
           <NavLink to="/explore" className="navbar-link text-white">

@@ -3,6 +3,7 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeartBroken } from "@fortawesome/free-solid-svg-icons"
+import technologies from './technologies'
 
 function TwitchFavThumbnail({ favorite, onDelete }) {
     const [streamerData, setStreamerData] = useState([])
@@ -33,6 +34,7 @@ function TwitchFavThumbnail({ favorite, onDelete }) {
                                 {favorite.twitch_streamer ? streamerData.display_name : null}
                             </strong>
                         </p>
+                        <p className="text-white">{technologies[favorite.technology_id - 1].name}</p>
                         <p className="text-white">LIVE</p>
                     </div>
                 </Link>
@@ -44,6 +46,7 @@ function TwitchFavThumbnail({ favorite, onDelete }) {
                             {favorite.twitch_streamer ? streamerData.display_name : null}
                         </strong>
                     </p>
+                    <p className="text-white">{technologies[favorite.technology_id - 1].name}</p>
                     <p className="text-white">OFFLINE</p>
                 </div>
             }

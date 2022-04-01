@@ -326,12 +326,24 @@ canvas {
 }
 
 .favorite-container {
-  text-align: center;
+  // text-align: center;
   padding-top: 30px;
   justify-content: center;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
   padding-bottom: 15px;
+  padding-left: 100px;
+}
+
+.favorite-container h5 {
+  margin-left: 100px;
+  padding: 30px;
+}
+
+.favorite-category {
+  text-align: center;
+  display: flex;
+  padding-bottom: 15px;
+  padding-left: 115px;
+  overflow-x: scroll;
 }
 
 .homepage-category-container {
