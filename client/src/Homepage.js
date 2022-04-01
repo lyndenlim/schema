@@ -4,7 +4,6 @@ import TechnologyCard from "./TechnologyCard"
 import technologies from "./technologies"
 import UserVideoThumbnail from './UserVideoThumbnail'
 import UserStreamThumbnail from './UserStreamThumbnail'
-import { Carousel } from 'react-bootstrap'
 import StreamCarousel from "./StreamCarousel"
 
 function Homepage({ streamPlaybackIDs, videoPlaybackIDs, scienceTechStreams, softwareDevStreams }) {
