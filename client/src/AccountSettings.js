@@ -63,6 +63,9 @@ function AccountSettings({ currentUser }) {
       .then(res => res.json())
       .then(data => {
         setStreamKey(data.data.stream_key)
+        // Doesnt function as intended
+        // navigator.clipboard.writeText(streamKey)
+        //   .then(alert("Stream key copied to clipboard"))
       })
   }
 
@@ -79,7 +82,7 @@ function AccountSettings({ currentUser }) {
           <button className="setting-button" onClick={handlePasswordShow}>Change Password</button>
           <br />
           <br />
-          <input className="stream-key-input" readOnly={true} value={streamKey}></input><button className="setting-button" style={{ marginLeft: "6px" }} onClick={generateKey}>Generate Stream Key</button>
+          <input className="stream-key-input" style={{ textAlign: "center" }} readOnly={true} value={streamKey}></input><button className="setting-button" style={{ marginLeft: "6px" }} onClick={generateKey}>Generate Stream Key</button>
           <br />
           <br />
           {/* add copy clipboard button  */}
