@@ -22,7 +22,7 @@ function NavBar({ onSearch, user, setUser, setSearchedVideos }) {
   }
 
   return (
-    <Navbar>
+    <Navbar className="navbar">
       <Container>
         <div>
           <NavLink to="/" className="navbar-link text-white">
@@ -43,7 +43,7 @@ function NavBar({ onSearch, user, setUser, setSearchedVideos }) {
               <span className="text-white bold" >{user.username}</span>
               {
                 <Dropdown className="d-inline mx-2 button-color">
-                  <Dropdown.Toggle id="dropdown-autoclose-true" style={{ backgroundColor: '#202124', color: "#202124", outline: "none", borderColor: "#202124", borderRadius: "50%", boxShadow: "none" }}>
+                  <Dropdown.Toggle id="dropdown-autoclose-true" style={{ backgroundColor: '#2d2f32', color: "#202124", outline: "none", borderColor: "#2d2f32", borderRadius: "50%", boxShadow: "none" }}>
                     <img className="profile-picture-nav" src={user.profile_image_url ? user.profile_image_url : default_avatar} alt="profile-picture" />
                   </Dropdown.Toggle>
                   <Dropdown.Menu >

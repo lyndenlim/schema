@@ -15,6 +15,15 @@ p {
   margin: 0 !important;
 }
 
+.navbar {
+  position: fixed!important;
+  width: 200vh;
+  height: 82px;
+  background: #2d2f32;
+  border-bottom: 2px solid black;
+  z-index: 999;
+}
+
 .navbar-link {
   margin: 10px;
   text-decoration: none;
@@ -179,7 +188,7 @@ canvas {
 
 .television {
   padding-left: 300px;
-  padding-top: 15px
+  padding-top: 115px
 }
 
 .sockets {
@@ -297,7 +306,7 @@ canvas {
 
 .explore-category-container {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 130px;
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
@@ -436,7 +445,7 @@ canvas {
 .favorite-header {
   text-align: center;
   color: white;
-  padding-top: 20px;
+  padding-top: 120px;
 }
 
 .carousel-button {
@@ -526,7 +535,7 @@ $apothem: 482.842712474619px;
 }
 
 .trending-header {
-  padding-top: 20px;
+  padding-top: 120px;
   text-align: center;
 }
 
