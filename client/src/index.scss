@@ -575,14 +575,16 @@ $apothem: 482.842712474619px;
   touch-action: manipulation;
 }
 
-.setting-button:active {
+.setting-button:active, .stream-follow-button:active,
+.video-follow-button:active {
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
   left: 5px;
 }
 
 @media (min-width: 768px) {
-  .setting-button {
+  .setting-button, .stream-follow-button,
+  .video-follow-button {
     padding: 0.25em 0.75em;
   }
 }
