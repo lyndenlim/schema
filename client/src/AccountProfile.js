@@ -52,9 +52,6 @@ function AccountProfile({ currentUser }) {
             </InputGroup>
           </Modal.Body>
           <Modal.Footer>
-            <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleImageClose}>
-              Close
-            </button>
             <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
           </Modal.Footer>
         </form>

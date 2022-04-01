@@ -34,7 +34,6 @@ function AccountSettings({ currentUser, user, setUser }) {
 
   function handleUsernameChange(e) {
     // e.preventDefault()
-    handleUsernameClose()
     axios.patch(`/users/${currentUser.id}`, {
       username: inputUsername
     })
@@ -42,7 +41,6 @@ function AccountSettings({ currentUser, user, setUser }) {
 
   function handleEmailChange(e) {
     // e.preventDefault()
-    handleEmailClose()
     axios.patch(`/users/${currentUser.id}`, {
       email: inputEmail
     })
@@ -124,9 +122,6 @@ function AccountSettings({ currentUser, user, setUser }) {
               </InputGroup>
             </Modal.Body>
             <Modal.Footer>
-              <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleUsernameClose}>
-                Close
-              </button>
               <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
             </Modal.Footer>
           </form>
@@ -144,9 +139,6 @@ function AccountSettings({ currentUser, user, setUser }) {
               </InputGroup>
             </Modal.Body>
             <Modal.Footer>
-              <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleEmailClose}>
-                Close
-              </button>
               <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
             </Modal.Footer>
           </form>
@@ -172,9 +164,7 @@ function AccountSettings({ currentUser, user, setUser }) {
               </InputGroup>
             </Modal.Body>
             <Modal.Footer>
-              <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handlePasswordClose}>
-                Close
-              </button>
+
               <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
             </Modal.Footer>
           </form>
