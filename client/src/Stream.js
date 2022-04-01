@@ -50,6 +50,9 @@ function Stream({ user }) {
             user_id: user.id,
             twitch_streamer: streams[0].user_name
         })
+        .catch(function (error) {
+            alert(error.response.data.errors[0].substring(5));
+          });
         setFavorited(true)
     }
 

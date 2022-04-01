@@ -9,7 +9,7 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        favorite = Favorite.create(params.permit(:technology_id, :user_id, :video_id, :twitch_streamer, :stream_id))
+        favorite = Favorite.create!(params.permit(:technology_id, :user_id, :video_id, :twitch_streamer, :stream_id))
         render json: favorite, status: :created
     end
 
