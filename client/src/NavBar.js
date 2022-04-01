@@ -55,8 +55,8 @@ function NavBar({ onSearch, user, setUser, setSearchedVideos }) {
             </>
           ) : (
             <>
-              <NavLink to="/signup" className="navbar-link text-white bold">Sign Up</NavLink>
-              <NavLink to="/login" className="navbar-link text-white bold">Log In</NavLink>
+              <NavLink to="/signup" className="navbar-link text-white bold"><span className="signup-link">Sign Up</span></NavLink>
+              <NavLink to="/login" className="navbar-link text-white bold"><span className="login-link">Log In</span></NavLink>
             </>
           )}
 

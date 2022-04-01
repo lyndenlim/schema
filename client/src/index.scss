@@ -29,6 +29,18 @@ p {
   text-decoration: none;
 }
 
+.login-link,
+.signup-link,
+.logo-name {
+  transition: 0.5s;
+}
+
+.login-link:hover,
+.signup-link:hover,
+.logo-name:hover {
+  color: rgb(144, 223, 223);
+}
+
 .heart-icon {
   color: #fd5d5d;
   transition: 0.5s;
@@ -575,7 +587,8 @@ $apothem: 482.842712474619px;
   touch-action: manipulation;
 }
 
-.setting-button:active, .stream-follow-button:active,
+.setting-button:active,
+.stream-follow-button:active,
 .video-follow-button:active {
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
@@ -583,7 +596,9 @@ $apothem: 482.842712474619px;
 }
 
 @media (min-width: 768px) {
-  .setting-button, .stream-follow-button,
+
+  .setting-button,
+  .stream-follow-button,
   .video-follow-button {
     padding: 0.25em 0.75em;
   }
