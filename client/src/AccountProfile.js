@@ -47,7 +47,7 @@ function AccountProfile({ currentUser }) {
         <form onSubmit={handleImageChange}>
           <Modal.Body>
             <InputGroup>
-            <InputGroup.Text>NEW PROFILE PICTURE:</InputGroup.Text>
+            <InputGroup.Text>New Profile Picture</InputGroup.Text>
             <FormControl onChange={e => setInputImage(e.target.value)} />
             </InputGroup>
           </Modal.Body>
