@@ -47,7 +47,7 @@ function TwitchFavThumbnail({ favorite, onDelete }) {
                     <p className="text-white">OFFLINE</p>
                 </div>
             }
-            <button onClick={handleDelete} style={{ background: "transparent", border: "none" }}><FontAwesomeIcon icon={faHeartBroken} style={{ color: "#fb5d5e", fontSize:"25px" }} /></button>
+            <button onClick={handleDelete} style={{ background: "transparent", border: "none" }}><FontAwesomeIcon icon={faHeartBroken} style={{ color: "#fb5d5e", fontSize: "25px" }} /></button>
         </div>
 
 

@@ -115,7 +115,7 @@ function SignUpPage({ setUser }) {
               <br />
               <button className="form-button" type="submit">Sign Up</button>
               <br />
-              <p style={{color: "red"}}>{errors.length !== 0 ? errors[0] : null}</p>
+              <p style={{ color: "red" }}>{errors.length !== 0 ? errors[0] : null}</p>
             </div>
           </form>
         </div>

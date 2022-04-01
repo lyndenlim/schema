@@ -24,7 +24,7 @@ function UserVideo({ user }) {
 
     return (
         <>
-            <div className="mux-video-container" style={{paddingTop: "100px"}}>
+            <div className="mux-video-container" style={{ paddingTop: "100px" }}>
                 <mux-video
                     controls
                     playback-id={id}

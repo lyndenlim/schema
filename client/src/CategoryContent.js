@@ -19,7 +19,7 @@ function CategoryContent({ allStreams }) {
     } else if (name.split(" ")[0].toLowerCase() === "typescript") {
       return stream.title.toLowerCase().split(" ").includes("typescript")
     } else {
-        return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
+      return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
     }
   })
 

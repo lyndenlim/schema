@@ -51,7 +51,7 @@ function Stream({ user }) {
     if (!streams[0]) return null
 
     return (
-        <div className="twitch-content" style={{paddingTop: "100px"}}>
+        <div className="twitch-content" style={{ paddingTop: "100px" }}>
             <div>
                 <iframe
                     title={id}

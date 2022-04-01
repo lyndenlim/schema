@@ -28,7 +28,7 @@ function SearchBar({ onSearch, setSearchedVideos }) {
         <>
             <form onSubmit={handleSubmit}>
                 <input className="searchbar" placeholder="Search for a stream/video" value={search} onChange={e => setSearch(e.target.value)} />
-                <button type="submit" className="search-button" style={{ fontSize: "20px" }}><FontAwesomeIcon icon={faSearch}/></button>
+                <button type="submit" className="search-button" style={{ fontSize: "20px" }}><FontAwesomeIcon icon={faSearch} /></button>
             </form>
 
         </>

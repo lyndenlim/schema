@@ -30,7 +30,7 @@ function AccountProfile({ currentUser }) {
         <img className="profile-picture"
           src={displayImage ? displayImage : default_avatar}
           alt="profile-picture"
-          style={{paddingBottom:"5px", width: "150px", height: "150px"}}
+          style={{ paddingBottom: "5px", width: "150px", height: "150px" }}
         />
         <br />
         <h4>{currentUser.username}</h4>
@@ -38,26 +38,26 @@ function AccountProfile({ currentUser }) {
         <button className="setting-button" onClick={handleImageShow}>Add/Edit Profile Picture</button>
       </div>
 
-      <Modal show={imageShow} onHide={handleImageClose} style={{textAlign:"center"}}>
-          <Modal.Header closeButton>
-            <Modal.Title>Change Profile Picture</Modal.Title>
-          </Modal.Header>
-          <form onSubmit={handleImageChange}>
-            <Modal.Body>
+      <Modal show={imageShow} onHide={handleImageClose} style={{ textAlign: "center" }}>
+        <Modal.Header closeButton>
+          <Modal.Title>Change Profile Picture</Modal.Title>
+        </Modal.Header>
+        <form onSubmit={handleImageChange}>
+          <Modal.Body>
             <label>NEW PROFILE PICTURE:</label>
-              <input onChange={e => setInputImage(e.target.value)} />
-            </Modal.Body>
-            <Modal.Footer>
-              <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleImageClose}>
-                Close
-              </button>
-              <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
-            </Modal.Footer>
-          </form>
-        </Modal>
+            <input onChange={e => setInputImage(e.target.value)} />
+          </Modal.Body>
+          <Modal.Footer>
+            <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleImageClose}>
+              Close
+            </button>
+            <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
+          </Modal.Footer>
+        </form>
+      </Modal>
     </div>
 
-    
+
   );
 }
 
