@@ -95,7 +95,7 @@ function App() {
             <FavoritePage />
           </Route>
           <Route path="/profile">
-            <AccountPage />
+            <AccountPage user={user} setUser={setUser}/>
           </Route>
           <Route path="/signup">
             <SignUpPage setUser={setUser} />
