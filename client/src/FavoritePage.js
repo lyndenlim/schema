@@ -26,19 +26,19 @@ function FavoritePage() {
     <>
       <div className="favorite-header"><h4 className="bold">Favorites</h4></div>
       <div className="favorite-container">
-        <h5 className="text-white">User Streams</h5>
+        <h5 className="text-white">Past User Streams</h5>
         <div className="favorite-category">
-          <p className="text-white" style={{paddingLeft: "30px"}}>{filteredUserFav.length > 0 ? null : "No favorites here." }</p>
+          <p className="text-white" style={{paddingLeft: "30px"}}>{filteredUserFav.length > 0 ? null : "You don't have any favorites yet" }</p>
           {filteredUserFav.map(favorite => <UserFavVideoThumbnail key={favorite.id} favorite={favorite} playbackID={favorite.stream_id} onDelete={handleDelete} />)}
         </div>
         <h5 className="text-white">Twitch Streams</h5>
         <div className="favorite-category">
-        <p className="text-white" style={{paddingLeft: "30px"}}>{filteredTwitchFav.length > 0 ? null : "No favorites here." }</p>
+        <p className="text-white" style={{paddingLeft: "30px"}}>{filteredTwitchFav.length > 0 ? null : "You don't have any favorites yet" }</p>
         {filteredTwitchFav.map(favorite => <TwitchFavThumbnail key={favorite.id} favorite={favorite} onDelete={handleDelete}/>)}
         </div>
         <h5 className="text-white">Youtube Videos</h5>
         <div className="favorite-category">
-        <p className="text-white" style={{paddingLeft: "30px"}}>{filteredYoutubeFav.length > 0 ? null : "No favorites here." }</p>
+        <p className="text-white" style={{paddingLeft: "30px"}}>{filteredYoutubeFav.length > 0 ? null : "You don't have any favorites yet" }</p>
         {filteredYoutubeFav.map(favorite => <YouTubeFavThumbnail key={favorite.id} favorite={favorite} onDelete={handleDelete}/>)}
         </div>
       </div>
