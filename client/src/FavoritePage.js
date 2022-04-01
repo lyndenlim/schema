@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import TwitchFavThumbnail from "./TwitchFavThumbnail"
 import YouTubeFavThumbnail from "./YouTubeFavThumbnail"
-import UserVideoThumbnail from "./UserVideoThumbnail"
+import UserFavVideoThumbnail from "./UserFavVideoThumbnail"
 
 function FavoritePage() {
   const [filteredFavorites, setFilteredFavorites] = useState([])
@@ -19,7 +19,7 @@ function FavoritePage() {
 
   const filteredElements = filteredFavorites.map(favorite => {
     if (favorite.stream_id) {
-      return <UserVideoThumbnail key={favorite.id} favorite={favorite} playbackID={favorite.stream_id} onDelete={handleDelete} />
+      return <UserFavVideoThumbnail key={favorite.id} favorite={favorite} playbackID={favorite.stream_id} onDelete={handleDelete} />
     } else if (favorite.video_id) {
       return <YouTubeFavThumbnail key={favorite.id} favorite={favorite} onDelete={handleDelete} />
     } else {
