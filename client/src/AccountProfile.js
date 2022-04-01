@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import default_avatar from "./default_avatar.png"
 import Modal from "react-bootstrap/Modal"
+import InputGroup from "react-bootstrap/InputGroup"
+import FormControl from "react-bootstrap/FormControl"
 
 function AccountProfile({ currentUser }) {
   const [imageShow, setImageShow] = useState(false)
@@ -44,8 +46,10 @@ function AccountProfile({ currentUser }) {
         </Modal.Header>
         <form onSubmit={handleImageChange}>
           <Modal.Body>
-            <label>NEW PROFILE PICTURE:</label>
-            <input onChange={e => setInputImage(e.target.value)} />
+            <InputGroup>
+            <InputGroup.Text>NEW PROFILE PICTURE:</InputGroup.Text>
+            <FormControl onChange={e => setInputImage(e.target.value)} />
+            </InputGroup>
           </Modal.Body>
           <Modal.Footer>
             <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleImageClose}>
