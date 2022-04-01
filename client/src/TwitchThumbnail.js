@@ -63,6 +63,7 @@ function TwitchThumbnail({ stream }) {
                 <p className="text-white"><strong>{stream.title.length < 25 ? stream.title : `${stream.title.slice(0, 30)}...`}</strong></p>
                 <p className="text-white">{stream.user_name}</p>
                 <p className="text-white">{stream.game_name}</p>
+                <br />
                 <p className="text-white">{language}</p>
             </Link>
         </div>

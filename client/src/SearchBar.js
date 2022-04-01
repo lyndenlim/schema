@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 import axios from "axios"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 
 function SearchBar({ onSearch, setSearchedVideos }) {
     const [search, setSearch] = useState("")
@@ -26,7 +28,7 @@ function SearchBar({ onSearch, setSearchedVideos }) {
         <>
             <form onSubmit={handleSubmit}>
                 <input className="searchbar" placeholder="Search for a stream/video" value={search} onChange={e => setSearch(e.target.value)} />
-                <button type="submit">Search</button>
+                <button type="submit" className="search-button" style={{ fontSize: "20px" }}><FontAwesomeIcon icon={faSearch}/></button>
             </form>
 
         </>

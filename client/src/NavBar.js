@@ -28,9 +28,9 @@ function NavBar({ onSearch, user, setUser, setSearchedVideos }) {
           <NavLink to="/" className="navbar-link text-white">
             Schema
           </NavLink>
-          {user ? <NavLink to="/favorites" className="navbar-link text-white"><FontAwesomeIcon icon={faHeart} style={{ fontSize: "30px" }} /></NavLink> : null}
+          {user ? <NavLink to="/favorites" className="navbar-link text-white"><FontAwesomeIcon className="heart-icon" icon={faHeart} style={{ fontSize: "30px" }} /></NavLink> : null}
           <NavLink to="/explore" className="navbar-link text-white">
-            <FontAwesomeIcon icon={faCompass} style={{ fontSize: "30px" }} />
+            <FontAwesomeIcon className="explore-icon" icon={faCompass} style={{ fontSize: "30px" }} />
           </NavLink>
         </div>
         <div>

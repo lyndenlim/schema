@@ -37,6 +37,7 @@ function YouTubeFavThumbnail({ favorite }) {
         </p>
         <p className="text-white">{favorite.video_id ? channelTitle : null}</p>
       </div>
+      <button>Delete</button>
     </Link>
   );
 }

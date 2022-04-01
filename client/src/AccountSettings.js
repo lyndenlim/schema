@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import axios from "axios"
 import Modal from "react-bootstrap/Modal"
-import Button from "react-bootstrap/Button"
 
 function AccountSettings({ currentUser }) {
   const [usernameShow, setUsernameShow] = useState(false)
@@ -13,6 +12,7 @@ function AccountSettings({ currentUser }) {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [oldPassword, setOldPassword] = useState("")
   const [streamKey, setStreamKey] = useState("")
+
 
   const handleUsernameClose = () => setUsernameShow(false)
   const handleUsernameShow = () => setUsernameShow(true)
@@ -86,6 +86,8 @@ function AccountSettings({ currentUser }) {
           <button className="setting-button" style={{ backgroundColor: "red" }} onClick={handleDeleteAccount}>Delete Account</button>
         </div>
 
+ 
+
         <Modal show={usernameShow} onHide={handleUsernameClose} style={{textAlign:"center"}}>
           <Modal.Header closeButton>
             <Modal.Title>Change username</Modal.Title>
@@ -96,10 +98,10 @@ function AccountSettings({ currentUser }) {
               <input onChange={e => setInputUsername(e.target.value)} />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleUsernameClose}>
+              <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleUsernameClose}>
                 Close
-              </Button>
-              <Button type="submit">Save Changes</Button>
+              </button>
+              <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
             </Modal.Footer>
           </form>
         </Modal>
@@ -114,10 +116,10 @@ function AccountSettings({ currentUser }) {
               <input onChange={e => setInputEmail(e.target.value)} />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleEmailClose}>
+              <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleEmailClose}>
                 Close
-              </Button>
-              <Button type="submit">Save Changes</Button>
+              </button>
+              <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
             </Modal.Footer>
           </form>
         </Modal>
@@ -136,10 +138,10 @@ function AccountSettings({ currentUser }) {
               <input type="password" onChange={e => setConfirmPassword(e.target.value)} />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handlePasswordClose}>
+              <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handlePasswordClose}>
                 Close
-              </Button>
-              <Button type="submit">Save Changes</Button>
+              </button>
+              <button className="setting-button" style={{ marginLeft: "6px", background: "#94B49F" }} type="submit">Save Changes</button>
             </Modal.Footer>
           </form>
         </Modal>
