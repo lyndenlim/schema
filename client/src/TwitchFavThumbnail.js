@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { Link } from "react-router-dom"
 
-function TwitchFavThumbnail({ favorite, onDelete}) {
+function TwitchFavThumbnail({ favorite, onDelete }) {
     const [streamerData, setStreamerData] = useState([])
 
     useEffect(async () => {
@@ -22,22 +22,36 @@ function TwitchFavThumbnail({ favorite, onDelete}) {
 
     return (
         <div>
-        <Link to={`/streams/${streamerData.id}`} style={{ textDecoration: "none" }}>
-            <div className="favorite-thumbnail">
-                {favorite.twitch_streamer ? <img width="200px" height="200px" src={streamerData.thumbnail_url} alt="streamer-profile" /> : null}
-                <p className="text-white">
-                    <strong>
-                        {favorite.twitch_streamer ? streamerData.display_name : null}
-                    </strong>
-                </p>
-            </div>
-        </Link>
-        <br />
-        <button onClick={handleDelete}>Delete</button>
+            {streamerData.is_live ?
+                <Link to={`/streams/${streamerData.id}`} style={{ textDecoration: "none" }}>
+                    <div className="favorite-thumbnail">
+                        {favorite.twitch_streamer ? <img width="200px" height="200px" src={streamerData.thumbnail_url} alt="streamer-profile" /> : null}
+                        <p className="text-white">
+                            <strong>
+                                {favorite.twitch_streamer ? streamerData.display_name : null}
+                            </strong>
+                        </p>
+                        <p className="text-white">LIVE</p>
+                    </div>
+                </Link>
+                :
+                <div className="favorite-thumbnail">
+                    {favorite.twitch_streamer ? <img width="200px" height="200px" src={streamerData.thumbnail_url} alt="streamer-profile" /> : null}
+                    <p className="text-white">
+                        <strong>
+                            {favorite.twitch_streamer ? streamerData.display_name : null}
+                        </strong>
+                    </p>
+                    <p className="text-white">OFFLINE</p>
+                </div>
+            }
+
+            <br />
+            <button onClick={handleDelete}>Delete</button>
         </div>
 
 
-        
+
     )
 }
 
