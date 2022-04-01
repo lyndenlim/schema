@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { Link } from "react-router-dom"
 
-function TwitchFavThumbnail({ favorite }) {
+function TwitchFavThumbnail({ favorite, onDelete}) {
     const [streamerData, setStreamerData] = useState([])
 
     useEffect(async () => {
@@ -15,8 +15,13 @@ function TwitchFavThumbnail({ favorite }) {
         setStreamerData(res3.data.data[0])
     }, [])
 
+    function handleDelete() {
+        axios.delete(`/favorites/${favorite.id}`)
+        onDelete(favorite.id)
+    }
+
     return (
-        <>
+        <div>
         <Link to={`/streams/${streamerData.id}`} style={{ textDecoration: "none" }}>
             <div className="favorite-thumbnail">
                 {favorite.twitch_streamer ? <img width="200px" height="200px" src={streamerData.thumbnail_url} alt="streamer-profile" /> : null}
@@ -28,8 +33,8 @@ function TwitchFavThumbnail({ favorite }) {
             </div>
         </Link>
         <br />
-        <button>Delete</button>
-        </>
+        <button onClick={handleDelete}>Delete</button>
+        </div>
 
 
         

@@ -13,13 +13,17 @@ function FavoritePage() {
     setFilteredFavorites(res1.data.filter(favorite => favorite.user_id === res2.data.id))
   }, [])
 
+  function handleDelete (id) {
+    setFilteredFavorites(filteredFavorites.filter(favorite => favorite.id !== id))
+  }
+
   const filteredElements = filteredFavorites.map(favorite => {
     if (favorite.stream_id) {
-      return <UserVideoThumbnail key={favorite.id} playbackID={favorite.stream_id}/>
+      return <UserVideoThumbnail key={favorite.id} favorite={favorite} onDelete={handleDelete}/>
     } else if (favorite.video_id) {
-      return <YouTubeFavThumbnail key={favorite.id} favorite={favorite} />
+      return <YouTubeFavThumbnail key={favorite.id} favorite={favorite} onDelete={handleDelete}/>
     } else {
-      return <TwitchFavThumbnail key={favorite.id} favorite={favorite} />
+      return <TwitchFavThumbnail key={favorite.id} favorite={favorite} onDelete={handleDelete} />
     }
   })
 

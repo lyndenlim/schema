@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :technologies, through: :favorites
+  has_many :streams, dependent: :destroy
 
   has_secure_password
 
