@@ -4,7 +4,8 @@ import Modal from "react-bootstrap/Modal"
 import { useHistory } from "react-router-dom"
 import OverlayTrigger from "react-bootstrap/OverlayTrigger"
 import Tooltip from "react-bootstrap/Tooltip"
-import Button from "react-bootstrap/Button"
+import InputGroup from "react-bootstrap/InputGroup"
+import FormControl from "react-bootstrap/FormControl"
 
 function AccountSettings({ currentUser, user, setUser }) {
   const [usernameShow, setUsernameShow] = useState(false)
@@ -29,7 +30,7 @@ function AccountSettings({ currentUser, user, setUser }) {
 
   function handleUsernameChange(e) {
     // e.preventDefault()
-    handleUsernameClose()
+    // handleUsernameClose()
     axios.patch(`/users/${currentUser.id}`, {
       username: inputUsername
     })
@@ -37,7 +38,7 @@ function AccountSettings({ currentUser, user, setUser }) {
 
   function handleEmailChange(e) {
     // e.preventDefault()
-    handleEmailClose()
+    // handleEmailClose()
     axios.patch(`/users/${currentUser.id}`, {
       email: inputEmail
     })
@@ -45,7 +46,7 @@ function AccountSettings({ currentUser, user, setUser }) {
 
   function handlePasswordChange(e) {
     e.preventDefault()
-    handlePasswordClose()
+    // handlePasswordClose()
     axios.patch(`/users/${currentUser.id}`, {
       old_password: oldPassword,
       password: inputPassword,
@@ -113,8 +114,10 @@ function AccountSettings({ currentUser, user, setUser }) {
           </Modal.Header>
           <form onSubmit={handleUsernameChange}>
             <Modal.Body>
-              <label>NEW USERNAME:</label>
-              <input onChange={e => setInputUsername(e.target.value)} />
+              <InputGroup>
+                <InputGroup.Text>New Username</InputGroup.Text>
+                <FormControl onChange={e => setInputUsername(e.target.value)} />
+              </InputGroup>
             </Modal.Body>
             <Modal.Footer>
               <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleUsernameClose}>
@@ -131,8 +134,10 @@ function AccountSettings({ currentUser, user, setUser }) {
           </Modal.Header>
           <form onSubmit={handleEmailChange}>
             <Modal.Body>
-              <label>NEW EMAIL:</label>
-              <input onChange={e => setInputEmail(e.target.value)} />
+              <InputGroup>
+                <InputGroup.Text>New Email</InputGroup.Text>
+                <FormControl onChange={e => setInputEmail(e.target.value)} />
+              </InputGroup>
             </Modal.Body>
             <Modal.Footer>
               <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleEmailClose}>
@@ -149,12 +154,18 @@ function AccountSettings({ currentUser, user, setUser }) {
           </Modal.Header>
           <form onSubmit={handlePasswordChange}>
             <Modal.Body>
-              <label>OLD PASSWORD:</label>
-              <input type="password" onChange={e => setOldPassword(e.target.value)} /><br />
-              <label>NEW PASSWORD:</label>
-              <input type="password" onChange={e => setInputPassword(e.target.value)} /><br />
-              <label>CONFIRM NEW PASSWORD:</label>
-              <input type="password" onChange={e => setConfirmPassword(e.target.value)} />
+              <InputGroup>
+                <InputGroup.Text>Old Password</InputGroup.Text>
+                <FormControl type="password" onChange={e => setOldPassword(e.target.value)} /><br />
+              </InputGroup>
+              <InputGroup>
+                <InputGroup.Text>New Password</InputGroup.Text>
+                <FormControl type="password" onChange={e => setInputPassword(e.target.value)} /><br />
+              </InputGroup>
+              <InputGroup>
+                <InputGroup.Text>Confirm password</InputGroup.Text>
+                <FormControl type="password" onChange={e => setConfirmPassword(e.target.value)} /><br />
+              </InputGroup>
             </Modal.Body>
             <Modal.Footer>
               <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handlePasswordClose}>
