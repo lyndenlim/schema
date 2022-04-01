@@ -180,7 +180,7 @@ function AccountSettings({ currentUser, user, setUser }) {
           </form>
         </Modal>
 
-        <Modal show={deleteShow} onHide={handleDeleteClose} style={{ textAlign: "center" }}>
+        <Modal show={deleteShow} onHide={handleDeleteClose} style={{ textAlign: "center" }} centered={true}>
           <Modal.Header closeButton>
             <Modal.Title>Are you sure you want to delete this account?</Modal.Title>
           </Modal.Header>
