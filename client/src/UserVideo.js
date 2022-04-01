@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import '@mux-elements/mux-video'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/fontawesome-free-regular';
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -24,17 +24,18 @@ function UserVideo({ user }) {
 
     return (
         <>
-            <div className="mux-video-container">
+            <div className="mux-video-container" style={{paddingTop: "100px"}}>
                 <mux-video
                     controls
                     playback-id={id}
                     width="1120px"
-                    height="560px"
+                    height="500px"
                     autoplay={true}
                 />
                 <br />
-                {user ? <button className="video-follow-button" onClick={addMuxVideo}><FontAwesomeIcon icon={faHeart} /> Favorite</button> : null}
-
+                <div style={{ paddingTop: "10px" }}>
+                    {user ? <button className="video-follow-button" onClick={addMuxVideo}><FontAwesomeIcon icon={faHeart} style={{ color: "#fb5d5e" }} /> FAVORITE</button> : null}
+                </div>
                 );
             </div>
         </>

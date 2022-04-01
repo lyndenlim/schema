@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/fontawesome-free-regular';
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import technologies from './technologies';
 
 function Stream({ user }) {
@@ -30,15 +30,15 @@ function Stream({ user }) {
             const streamTitle = streams[0].title.toLowerCase().split(/[ !js\[\]()-]/)
             if (name.split(" ")[1]) {
                 return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase()) || (streamTitle.includes(name.split(" ")[0].toLowerCase()) && streamTitle.includes(name.split(" ")[1].toLowerCase()))
-              } else if (name.split(" ")[0].toLowerCase() === "javascript") {
+            } else if (name.split(" ")[0].toLowerCase() === "javascript") {
                 return streams[0].title.toLowerCase().split(" ").includes("javascript")
-              } else if (name.split(" ")[0].toLowerCase() === "java") {
+            } else if (name.split(" ")[0].toLowerCase() === "java") {
                 return streams[0].title.toLowerCase().split(" ").includes("java")
-              } else if (name.split(" ")[0].toLowerCase() === "typescript") {
+            } else if (name.split(" ")[0].toLowerCase() === "typescript") {
                 return streams[0].title.toLowerCase().split(" ").includes("typescript")
-              } else {
-                  return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
-              }
+            } else {
+                return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
+            }
         })
 
         axios.post("/favorites", {
@@ -51,23 +51,23 @@ function Stream({ user }) {
     if (!streams[0]) return null
 
     return (
-        <div className="twitch-content">
+        <div className="twitch-content" style={{paddingTop: "100px"}}>
             <div>
                 <iframe
                     title={id}
                     src={`https://player.twitch.tv/?channel=${streams[0].user_name}&parent=localhost`}
                     width="1120px"
-                    height="560px"
+                    height="500px"
                     allow="fullscreen; autoplay"
                 >
                 </iframe>
                 <br />
-                {user ? <button className="stream-follow-button" onClick={addStreamer}><FontAwesomeIcon icon={faHeart} /> Follow</button> : null}
+                {user ? <div style={{ textAlign: "center", paddingTop: "10px" }}><button className="stream-follow-button" onClick={addStreamer}><FontAwesomeIcon icon={faHeart} style={{ color: "#fb5d5e" }} /> FOLLOW</button> </div> : null}
             </div>
             <iframe
                 title={id}
                 src={`https://www.twitch.tv/embed/${streams[0].user_name}/chat?parent=localhost`}
-                height="560px"
+                height="500px"
                 width="300px">
             </iframe>
         </div>

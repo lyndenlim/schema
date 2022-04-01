@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/fontawesome-free-regular';
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import axios from 'axios';
 import technologies from './technologies';
 
@@ -27,7 +27,7 @@ function Video({ user }) {
       } else if (name.split(" ")[0].toLowerCase() === "typescript") {
         return videoTitle.toLowerCase().split(" ").includes("typescript")
       } else {
-          return selectedVideoTitle.includes(name.split(" ").join("").toLowerCase()) || selectedVideoTitle.includes(name.split(" ")[0].toLowerCase())
+        return selectedVideoTitle.includes(name.split(" ").join("").toLowerCase()) || selectedVideoTitle.includes(name.split(" ")[0].toLowerCase())
       }
     })
 
@@ -39,19 +39,21 @@ function Video({ user }) {
   }
 
   return (
-    <div className="video-player">
+    <div className="video-player" style={{ paddingTop: "100px" }}>
       <iframe
         title={id}
         src={`https://www.youtube.com/embed/${id}?enablejsapi=1&autoplay=1`}
         width="1120px"
-        height="560px"
+        height="500px"
         allow="fullscreen; autoplay"
         frameBorder="0"
         style={{ border: "solid 4px #37474F" }}
       >
       </iframe>
       <br />
-      {user ? <button className="video-follow-button" onClick={addVideo}><FontAwesomeIcon icon={faHeart} /> Favorite</button> : null}
+      <div style={{ paddingTop: "10px" }}>
+        {user ? <button className="video-follow-button" onClick={addVideo}><FontAwesomeIcon icon={faHeart} style={{ color: "#fb5d5e" }} /> Favorite</button> : null}
+      </div>
     </div>
   )
 }
