@@ -624,3 +624,11 @@ label {
 .logo-name {
   font-family: 'Major Mono Display', monospace !important;
 }
+
+.carousel-streams {
+  transition: 0.5s;
+}
+
+.carousel-streams:hover {
+  color:rgb(144, 223, 223) !important;
+}

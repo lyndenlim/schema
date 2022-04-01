@@ -11,7 +11,7 @@ function StreamCarousel({ stream }) {
 
   return (
     <>
-      <Link to={`/streams/${stream.user_id}`} style={{ textDecoration: "none", color: "white" }}>
+      <Link to={`/streams/${stream.user_id}`} className="carousel-streams" style={{ textDecoration: "none", color: "white" }}>
         <img src={thumbnail} />
         <p className="bold">{stream.title}</p>
         <p>{stream.user_name}</p>
