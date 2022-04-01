@@ -16,6 +16,7 @@ function TwitchFavThumbnail({ favorite }) {
     }, [])
 
     return (
+        <>
         <Link to={`/streams/${streamerData.id}`} style={{ textDecoration: "none" }}>
             <div className="favorite-thumbnail">
                 {favorite.twitch_streamer ? <img width="200px" height="200px" src={streamerData.thumbnail_url} alt="streamer-profile" /> : null}
@@ -26,6 +27,12 @@ function TwitchFavThumbnail({ favorite }) {
                 </p>
             </div>
         </Link>
+        <br />
+        <button>Delete</button>
+        </>
+
+
+        
     )
 }
 

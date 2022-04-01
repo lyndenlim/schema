@@ -45,8 +45,8 @@ function Homepage({ streamPlaybackIDs, videoPlaybackIDs, scienceTechStreams, sof
           {softwareDevStreams.slice(0, 8).map(stream => <StreamCarousel key={stream.id} stream={stream} />)}
         </figure>
         <nav>
-          <button className="nav prev text-white">Prev</button>
-          <button className="nav next text-white">Next</button>
+          <button className="nav prev text-white carousel-button">Prev</button>
+          <button className="nav next text-white carousel-button">Next</button>
         </nav>
       </div>
       <h5 className="stream-header">Schema Streams</h5>
