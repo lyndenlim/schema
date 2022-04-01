@@ -12,7 +12,7 @@ function AccountPage() {
   }, [])
 
   return (
-    <div>
+    <div style={{paddingTop: "100px"}}>
       <AccountProfile currentUser={currentUser} />
       <AccountSettings currentUser={currentUser} />
     </div>
