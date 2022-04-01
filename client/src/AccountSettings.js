@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 import Modal from "react-bootstrap/Modal"
+import { useHistory } from "react-router-dom"
 
 function AccountSettings({ currentUser }) {
   const [usernameShow, setUsernameShow] = useState(false)
@@ -12,6 +13,7 @@ function AccountSettings({ currentUser }) {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [oldPassword, setOldPassword] = useState("")
   const [streamKey, setStreamKey] = useState("")
+  const history = useHistory()
 
 
   const handleUsernameClose = () => setUsernameShow(false)
@@ -49,6 +51,7 @@ function AccountSettings({ currentUser }) {
 
   function handleDeleteAccount() {
     axios.delete(`/users/${currentUser.id}`)
+    history.push("/")
   }
 
   function generateKey() {
