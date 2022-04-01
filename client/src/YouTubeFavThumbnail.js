@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeartBroken } from "@fortawesome/free-solid-svg-icons"
+import technologies from "./technologies";
 
 function YouTubeFavThumbnail({ favorite, onDelete }) {
   const [youtubeTitle, setYoutubeTitle] = useState("");
@@ -44,6 +45,7 @@ function YouTubeFavThumbnail({ favorite, onDelete }) {
             </strong> : null}
           </p>
           <p className="text-white">{favorite.video_id ? channelTitle : null}</p>
+          <p className="text-white">{technologies[favorite.technology_id - 1].name}</p>
         </div>
       </Link>
       <button onClick={handleDelete} style={{ background: "transparent", border: "none" }}><FontAwesomeIcon icon={faHeartBroken} style={{ color: "#fb5d5e" }} /></button>
