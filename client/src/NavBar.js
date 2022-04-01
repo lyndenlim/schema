@@ -48,15 +48,15 @@ function NavBar({ onSearch, user, setUser, setSearchedVideos }) {
                   </Dropdown.Toggle>
                   <Dropdown.Menu >
                     <Dropdown.Item ><NavLink to="/profile" style={{ textDecoration: "none", color: "black" }}>Profile page</NavLink></Dropdown.Item>
-                    <Dropdown.Item onClick={handleLogoutClick}><strong style={{ color: "red" }}>Logout</strong></Dropdown.Item>
+                    <Dropdown.Item onClick={handleLogoutClick}><strong style={{ color: "red" }}>Log Out</strong></Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               }
             </>
           ) : (
             <>
-              <NavLink to="/signup" className="navbar-link text-white">Signup</NavLink>
-              <NavLink to="/login" className="navbar-link text-white">Login</NavLink>
+              <NavLink to="/signup" className="navbar-link text-white bold">Sign Up</NavLink>
+              <NavLink to="/login" className="navbar-link text-white bold">Log In</NavLink>
             </>
           )}
 
