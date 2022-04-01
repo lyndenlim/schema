@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"
 
-function YouTubeFavThumbnail({ favorite }) {
+function YouTubeFavThumbnail({ favorite, onDelete }) {
   const [youtubeTitle, setYoutubeTitle] = useState("");
   const [channelTitle, setChannelTitle] = useState("");
   const [videoThumbnail, setVideoThumbnail] = useState("");
@@ -18,6 +18,11 @@ function YouTubeFavThumbnail({ favorite }) {
     setVideoThumbnail(res4.data.items[0].snippet.thumbnails.high.url);
 
   }, [])
+
+  function handleDelete() {
+    axios.delete(`/favorites/${favorite.id}`)
+    onDelete(favorite.id)
+}
 
   return (
     <Link to={`/videos/${favorite.video_id}`} style={{ textDecoration: "none" }}>
@@ -37,7 +42,7 @@ function YouTubeFavThumbnail({ favorite }) {
         </p>
         <p className="text-white">{favorite.video_id ? channelTitle : null}</p>
       </div>
-      <button>Delete</button>
+      <button onClick={handleDelete}>Delete</button>
     </Link>
   );
 }
