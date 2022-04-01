@@ -3,7 +3,7 @@ import axios from "axios"
 import AccountProfile from './AccountProfile'
 import AccountSettings from './AccountSettings'
 
-function AccountPage() {
+function AccountPage({user, setUser}) {
   const [currentUser, setCurrentUser] = useState([])
 
   useEffect(async () => {
@@ -14,7 +14,7 @@ function AccountPage() {
   return (
     <div style={{ paddingTop: "100px" }}>
       <AccountProfile currentUser={currentUser} />
-      <AccountSettings currentUser={currentUser} />
+      <AccountSettings currentUser={currentUser} user={user} setUser={setUser} />
     </div>
   )
 }

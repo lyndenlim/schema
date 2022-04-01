@@ -2,8 +2,11 @@ import React, { useState } from "react"
 import axios from "axios"
 import Modal from "react-bootstrap/Modal"
 import { useHistory } from "react-router-dom"
+import OverlayTrigger from "react-bootstrap/OverlayTrigger"
+import Tooltip from "react-bootstrap/Tooltip"
+import Button from "react-bootstrap/Button"
 
-function AccountSettings({ currentUser }) {
+function AccountSettings({ currentUser, user, setUser }) {
   const [usernameShow, setUsernameShow] = useState(false)
   const [emailShow, setEmailShow] = useState(false)
   const [passwordShow, setPasswordShow] = useState(false)
@@ -13,6 +16,7 @@ function AccountSettings({ currentUser }) {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [oldPassword, setOldPassword] = useState("")
   const [streamKey, setStreamKey] = useState("")
+  const [clipboard, setClipboard] = useState("Click to copy to clipboard!")
   const history = useHistory()
 
 
@@ -51,7 +55,12 @@ function AccountSettings({ currentUser }) {
 
   function handleDeleteAccount() {
     axios.delete(`/users/${currentUser.id}`)
-    history.push("/")
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null)
+        history.push("/")
+      }
+    })
   }
 
   function generateKey() {
@@ -66,11 +75,17 @@ function AccountSettings({ currentUser }) {
       .then(res => res.json())
       .then(data => {
         setStreamKey(data.data.stream_key)
-        // Doesnt function as intended
-        // navigator.clipboard.writeText(streamKey)
-        //   .then(alert("Stream key copied to clipboard"))
+        navigator.clipboard.writeText(data.data.stream_key)
+        setClipboard("Copied!")
+        setTimeout(() => setClipboard("Click to copy to clipboard!"), 3000)
       })
   }
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {clipboard}
+    </Tooltip>
+  );
 
   return (
     <>
@@ -85,7 +100,8 @@ function AccountSettings({ currentUser }) {
           <button className="setting-button" onClick={handlePasswordShow}>Change Password</button>
           <br />
           <br />
-          <input className="stream-key-input" style={{ textAlign: "center" }} readOnly={true} value={streamKey}></input><button className="setting-button" style={{ marginLeft: "6px" }} onClick={generateKey}>Generate Stream Key</button>
+          <input className="stream-key-input" style={{ textAlign: "center" }} readOnly={true} value={streamKey}></input>
+          <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}><button className="setting-button" style={{ marginLeft: "6px" }} onClick={generateKey}>Generate Stream Key</button></OverlayTrigger>
           <br />
           <br />
           <button className="setting-button" style={{ backgroundColor: "red" }} onClick={handleDeleteAccount}>Delete Account</button>
