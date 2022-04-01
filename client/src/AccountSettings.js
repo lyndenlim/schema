@@ -28,7 +28,7 @@ function AccountSettings({ currentUser, user, setUser }) {
   const handlePasswordClose = () => setPasswordShow(false)
   const handlePasswordShow = () => setPasswordShow(true)
 
-  function handleUsernameChange(e) {
+  async function handleUsernameChange(e) {
     // e.preventDefault()
     // handleUsernameClose()
     axios.patch(`/users/${currentUser.id}`, {
