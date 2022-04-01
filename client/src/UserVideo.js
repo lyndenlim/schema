@@ -24,6 +24,9 @@ function UserVideo({ user }) {
             stream_id: id,
             user_id: userID
         })
+        .catch(function (error) {
+            alert(error.response.data.errors[0].substring(5));
+          })
         setFavorited(true)
     }
 
