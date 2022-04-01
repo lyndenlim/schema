@@ -15,6 +15,7 @@ function StreamCarousel({ stream }) {
         <img src={thumbnail} />
         <p className="bold">{stream.title}</p>
         <p>{stream.user_name}</p>
+        <p>{stream.game_name}</p>
       </Link>
     </>
   )

@@ -38,10 +38,11 @@ function Homepage({ streamPlaybackIDs, videoPlaybackIDs, scienceTechStreams, sof
 
   return (
     <>
-      <div className="trending-header"><h5 className="text-white bold" style={{ fontSize: "30px" }}>Trending Game and Software Development Streams</h5></div>
+      <div className="trending-header"><h5 className="text-white bold" style={{ fontSize: "30px" }}>Trending Streams</h5></div>
       <div className="carousel">
         <figure >
-          {softwareDevStreams.slice(0, 8).map(stream => <StreamCarousel key={stream.id} stream={stream} />)}
+          {softwareDevStreams.slice(0, 4).map(stream => <StreamCarousel key={stream.id} stream={stream} />)}
+          {scienceTechStreams.slice(0, 4).map(stream => <StreamCarousel key={stream.id} stream={stream} />)}
         </figure>
         <nav>
           <button className="nav prev text-white carousel-button">Prev</button>
