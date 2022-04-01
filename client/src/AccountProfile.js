@@ -40,7 +40,7 @@ function AccountProfile({ currentUser }) {
         <button className="setting-button" onClick={handleImageShow}>Add/Edit Profile Picture</button>
       </div>
 
-      <Modal show={imageShow} onHide={handleImageClose} style={{ textAlign: "center" }}>
+      <Modal show={imageShow} onHide={handleImageClose} style={{ textAlign: "center" }} centered={true}>
         <Modal.Header closeButton>
           <Modal.Title>Change Profile Picture</Modal.Title>
         </Modal.Header>

@@ -112,7 +112,7 @@ function AccountSettings({ currentUser, user, setUser }) {
           <button className="setting-button" style={{ backgroundColor: "red" }} onClick={handleDeleteShow}>Delete Account</button>
         </div>
 
-        <Modal show={usernameShow} onHide={handleUsernameClose} style={{ textAlign: "center" }}>
+        <Modal show={usernameShow} onHide={handleUsernameClose} style={{ textAlign: "center" }} centered={true}>
           <Modal.Header closeButton>
             <Modal.Title>Change username</Modal.Title>
           </Modal.Header>
@@ -132,7 +132,7 @@ function AccountSettings({ currentUser, user, setUser }) {
           </form>
         </Modal>
 
-        <Modal show={emailShow} onHide={handleEmailClose} style={{ textAlign: "center" }}>
+        <Modal show={emailShow} onHide={handleEmailClose} style={{ textAlign: "center" }} centered={true}>
           <Modal.Header closeButton>
             <Modal.Title>Change email</Modal.Title>
           </Modal.Header>
@@ -152,7 +152,7 @@ function AccountSettings({ currentUser, user, setUser }) {
           </form>
         </Modal>
 
-        <Modal show={passwordShow} onHide={handlePasswordClose} style={{ textAlign: "center" }}>
+        <Modal show={passwordShow} onHide={handlePasswordClose} style={{ textAlign: "center" }} centered={true}>
           <Modal.Header closeButton>
             <Modal.Title>Change password</Modal.Title>
           </Modal.Header>
