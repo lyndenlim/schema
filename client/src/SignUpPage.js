@@ -6,6 +6,7 @@ function SignUpPage({ setUser }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
+  const [errors, setErrors] = useState([])
   let history = useHistory()
 
   function handleSubmit(e) {
@@ -27,9 +28,12 @@ function SignUpPage({ setUser }) {
           setUser(user)
           history.push("/")
         })
+      } else {
+        r.json().then((err) => setErrors(err.errors))
       }
     })
   }
+  console.log(errors)
 
   useEffect(() => {
     let play = false;
@@ -110,6 +114,8 @@ function SignUpPage({ setUser }) {
               <input className="form-input" type="password" placeholder="Password Confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} autoComplete="current-password" />
               <br />
               <input className="form-button" type="submit" />
+              <br />
+              <p style={{color: "red"}}>{errors.length !== 0 ? errors[0] : null}</p>
             </div>
           </form>
         </div>
