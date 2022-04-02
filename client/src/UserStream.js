@@ -1,7 +1,5 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import '@mux-elements/mux-video'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/fontawesome-free-regular';
 import { useParams } from "react-router-dom";
 
 function UserStream({ user }) {

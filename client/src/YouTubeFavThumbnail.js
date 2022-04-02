@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeartBroken } from "@fortawesome/free-solid-svg-icons"
 import technologies from "./technologies";
+import secret from "./secret";
 
 function YouTubeFavThumbnail({ favorite, onDelete }) {
   const [youtubeTitle, setYoutubeTitle] = useState("");
@@ -11,10 +12,8 @@ function YouTubeFavThumbnail({ favorite, onDelete }) {
   const [videoThumbnail, setVideoThumbnail] = useState("");
 
   useEffect(async () => {
-    //IF NO IF STATEMENT THIS ERROR OCCURS BUT CODE WORKS:
-    // YouTubeFavThumbnail.js:14 Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'snippet')
     const res4 = await axios.get(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${favorite.video_id}&maxResults=1&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${favorite.video_id}&maxResults=1&key=${secret.youTubeKey}`
     );
     setYoutubeTitle(res4.data.items[0].snippet.localized.title);
     setChannelTitle(res4.data.items[0].snippet.channelTitle);

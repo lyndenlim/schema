@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeartBroken } from "@fortawesome/free-solid-svg-icons"
 import technologies from './technologies'
+import secret from './secret'
 
 function TwitchFavThumbnail({ favorite, onDelete }) {
     const [streamerData, setStreamerData] = useState([])
@@ -11,8 +12,8 @@ function TwitchFavThumbnail({ favorite, onDelete }) {
     useEffect(async () => {
         const res3 = await axios.get(`https://api.twitch.tv/helix/search/channels?query=${favorite.twitch_streamer}`, {
             headers: {
-                Authorization: "Bearer 6gc86wnfd4e2z6wymi3rzgeczq0ppl",
-                "Client-Id": "yj62jo4k7wcs8xjg6xder4torg8m41"
+                Authorization: `Bearer ${secret.twitchAccessToken}`,
+                "Client-Id": secret.twitchClientID
             }
         })
         setStreamerData(res3.data.data[0])

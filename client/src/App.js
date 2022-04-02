@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Switch, Route, useParams } from "react-router-dom"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
 import axios from "axios"
 import NavBar from "./NavBar"
 import Homepage from "./Homepage"
@@ -14,6 +14,7 @@ import Video from './Video'
 import SearchResults from './SearchResults'
 import UserStream from './UserStream'
 import UserVideo from './UserVideo'
+import secret from "./secret"
 
 function App() {
   const [allStreams, setAllStreams] = useState([])
@@ -34,14 +35,13 @@ function App() {
 
     const axiosInstance1 = axios.create({
       headers: {
-        Authorization: "Bearer 6gc86wnfd4e2z6wymi3rzgeczq0ppl",
-        "Client-Id": "yj62jo4k7wcs8xjg6xder4torg8m41"
+        Authorization: `Bearer ${secret.twitchAccessToken}`,
+        "Client-Id": secret.twitchClientID
       }
     });
 
     const scienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=25"
     const softwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=25"
-    //NOTE: the bottom two urls fetches a 100 (max queries) of the streams each so they can be filtered to the search terms
     const allScienceAndTechURL = "https://api.twitch.tv/helix/streams?game_id=509670&first=100"
     const allSoftwareAndDevelopmentURL = "https://api.twitch.tv/helix/streams?game_id=1469308723&first=100"
 
@@ -53,9 +53,7 @@ function App() {
 
     const axiosInstance2 = axios.create({
       headers: {
-        // access: 41356eff-eaee-44ad-b8ad-e9dfda9b5442
-        // secret token: hYFo3kvl6erkHsyYbZphqPsPZSLzvuAyv7sVnEhSTOh2cvOTZrNWFBYditOZk7Gku8zN7Ps1Jws
-        Authorization: "Basic NDEzNTZlZmYtZWFlZS00NGFkLWI4YWQtZTlkZmRhOWI1NDQyOmhZRm8za3ZsNmVya0hzeVliWnBocVBzUFpTTHp2dUF5djdzVm5FaFNUT2gyY3ZPVFpyTldGQllkaXRPWms3R2t1OHpON1BzMUp3cw==",
+        Authorization: `Basic ${secret.muxKey}`,
         "Content-Type": "application/json"
       }
     });
@@ -95,7 +93,7 @@ function App() {
             <FavoritePage />
           </Route>
           <Route path="/profile">
-            <AccountPage user={user} setUser={setUser}/>
+            <AccountPage user={user} setUser={setUser} />
           </Route>
           <Route path="/signup">
             <SignUpPage setUser={setUser} />

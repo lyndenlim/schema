@@ -5,6 +5,7 @@ import { faHeart as farHeart } from "@fortawesome/fontawesome-free-regular"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import axios from 'axios';
 import technologies from './technologies';
+import secret from './secret';
 
 function Video({ user }) {
   const { id } = useParams()
@@ -14,7 +15,7 @@ function Video({ user }) {
   const favoriteColor = favorited ? "#fb5d5e" : "black"
 
   useEffect(async () => {
-    const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
+    const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${secret.youTubeKey}`)
     setVideoTitle(res.data.items[0].snippet.title)
   }, [])
 

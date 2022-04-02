@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart } from "@fortawesome/fontawesome-free-regular"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import technologies from './technologies';
+import secret from './secret';
 
 function Stream({ user }) {
     const [streams, setStreams] = useState([])
@@ -16,8 +17,8 @@ function Stream({ user }) {
     useEffect(async () => {
         const axiosInstance = axios.create({
             headers: {
-                Authorization: "Bearer 6gc86wnfd4e2z6wymi3rzgeczq0ppl",
-                "Client-Id": "yj62jo4k7wcs8xjg6xder4torg8m41"
+                Authorization: `Bearer ${secret.twitchAccessToken}`,
+                "Client-Id": secret.twitchClientID
             }
         });
 

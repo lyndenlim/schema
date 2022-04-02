@@ -18,8 +18,6 @@ function UserVideo({ user }) {
         setUserID(res.data.id)
     })
 
-    console.log(id)
-
     function addMuxVideo() {
         axios.post("/favorites", {
             technology_id: 22,

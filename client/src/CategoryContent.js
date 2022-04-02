@@ -3,6 +3,7 @@ import axios from "axios"
 import { useParams } from "react-router-dom"
 import TwitchThumbnail from './TwitchThumbnail'
 import YouTubeThumbnail from './YouTubeThumbnail'
+import secret from "./secret"
 
 function CategoryContent({ allStreams }) {
   const [allVideos, setAllVideos] = useState([])
@@ -19,7 +20,6 @@ function CategoryContent({ allStreams }) {
     } else if (name.split(" ")[0].toLowerCase() === "typescript") {
       return stream.title.toLowerCase().split(" ").includes("typescript")
     } else if (name.split(" ")[0].toLowerCase() === "miscellaneous") {
-      // revisit
       return true
     } else {
       return streamTitle.includes(name.split(" ").join("").toLowerCase()) || streamTitle.includes(name.split(" ")[0].toLowerCase())
@@ -28,10 +28,10 @@ function CategoryContent({ allStreams }) {
 
   useEffect(async () => {
     if (name === "C++") {
-      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=c%2B%2B+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
+      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=c%2B%2B+programming&maxResults=20&key=${secret.youTubeKey}`)
       setAllVideos(res.data.items)
     } else {
-      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=AIzaSyAP_e37kjSD1mbasiA3YoA24_y14uaDBgU`)
+      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=${secret.youTubeKey}`)
       setAllVideos(res.data.items)
     }
 
