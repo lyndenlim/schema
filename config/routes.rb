@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/mux_streams", to:"streams#mux_streams"
   get "/mux_videos", to:"streams#mux_videos"
-  # post "/get_stream_key", to:"streams#get_stream_key"
+  get "/get_stream_key", to:"streams#get_stream_key"
 
-  get '*path',
-      to: 'fallback#index',
-      constraints: ->(req) { !req.xhr? && req.format.html? }
+  # get '*path',
+  #     to: 'fallback#index',
+  #     constraints: ->(req) { !req.xhr? && req.format.html? }
 end

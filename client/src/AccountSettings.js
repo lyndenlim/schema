@@ -67,14 +67,7 @@ function AccountSettings({ currentUser, user, setUser }) {
   }
 
   function generateKey() {
-    fetch("https://api.mux.com/video/v1/live-streams", {
-      body: '{ "playback_policy": "public", "new_asset_settings": { "playback_policy": "public" }, "reconnect_window": 0 }',
-      headers: {
-        Authorization: `Basic ${process.env.REACT_APP_MUX_KEY}`,
-        "Content-Type": "application/json"
-      },
-      method: "POST"
-    })
+    fetch(`/get_stream_key?api_key=${process.env.REACT_APP_MUX_KEY}`)
       .then(res => res.json())
       .then(data => {
         setStreamKey(data.data.stream_key)
@@ -103,7 +96,7 @@ function AccountSettings({ currentUser, user, setUser }) {
           <button className="setting-button" onClick={handlePasswordShow}>Change Password</button>
           <br />
           <br />
-          <input className="stream-key-input" style={{ textAlign: "center" }} readOnly={true} value={streamKey}></input>
+          <input className="stream-key-input" style={{ textAlign: "center" }} readOnly={true} defaultValue={streamKey}></input>
           <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}><button className="setting-button" style={{ marginLeft: "6px" }} onClick={generateKey}>Generate Stream Key</button></OverlayTrigger>
           <br />
           <br />
@@ -150,15 +143,15 @@ function AccountSettings({ currentUser, user, setUser }) {
           </Modal.Header>
           <form onSubmit={handlePasswordChange}>
             <Modal.Body>
-              <InputGroup style={{padding: "10px"}}>
+              <InputGroup style={{ padding: "10px" }}>
                 <InputGroup.Text>Old Password</InputGroup.Text>
                 <FormControl type="password" onChange={e => setOldPassword(e.target.value)} /><br />
               </InputGroup>
-              <InputGroup style={{padding: "10px"}}>
+              <InputGroup style={{ padding: "10px" }}>
                 <InputGroup.Text>New Password</InputGroup.Text>
                 <FormControl type="password" onChange={e => setInputPassword(e.target.value)} /><br />
               </InputGroup>
-              <InputGroup style={{padding: "10px"}}>
+              <InputGroup style={{ padding: "10px" }}>
                 <InputGroup.Text>Confirm password</InputGroup.Text>
                 <FormControl type="password" onChange={e => setConfirmPassword(e.target.value)} /><br />
               </InputGroup>
@@ -174,12 +167,12 @@ function AccountSettings({ currentUser, user, setUser }) {
           <Modal.Header closeButton>
             <Modal.Title>Are you sure you want to delete this account?</Modal.Title>
           </Modal.Header>
-            <Modal.Footer>
-              <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleDeleteClose}>
-                Close
-              </button>
-              <button className="setting-button" style={{ marginLeft: "6px", background: "red" }} onClick={handleDeleteAccount}>Delete Account</button>
-            </Modal.Footer>
+          <Modal.Footer>
+            <button className="setting-button" style={{ marginLeft: "6px" }} onClick={handleDeleteClose}>
+              Close
+            </button>
+            <button className="setting-button" style={{ marginLeft: "6px", background: "red" }} onClick={handleDeleteAccount}>Delete Account</button>
+          </Modal.Footer>
         </Modal>
       </div>
     </>
