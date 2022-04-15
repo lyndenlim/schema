@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hosted on Heroku: https://schema-project.herokuapp.com/
 
-Things you may want to cover:
+<strong>FEATURES</strong>
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- User authentication
+- Can view live streams and videos about a variety of technology/science topics
+- Ability to favorite/unfavorite content to either view at a later time or have easier access to future live streams
+- Search for specific videos or streams
+- Able to stream with third party tool after generating a key
