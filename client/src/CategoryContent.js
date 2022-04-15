@@ -3,7 +3,6 @@ import axios from "axios"
 import { useParams } from "react-router-dom"
 import TwitchThumbnail from './TwitchThumbnail'
 import YouTubeThumbnail from './YouTubeThumbnail'
-import secret from "./secret"
 
 function CategoryContent({ allStreams }) {
   const [allVideos, setAllVideos] = useState([])
@@ -28,10 +27,10 @@ function CategoryContent({ allStreams }) {
 
   useEffect(async () => {
     if (name === "C++") {
-      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=c%2B%2B+programming&maxResults=20&key=${secret.youTubeKey}`)
+      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=c%2B%2B+programming&maxResults=20&key=${process.env.REACT_APP_YOUTUBE_KEY}`)
       setAllVideos(res.data.items)
     } else {
-      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=${secret.youTubeKey}`)
+      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}+programming&maxResults=20&key=${process.env.REACT_APP_YOUTUBE_KEY}`)
       setAllVideos(res.data.items)
     }
 
