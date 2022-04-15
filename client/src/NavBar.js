@@ -39,7 +39,6 @@ function NavBar({ onSearch, user, setUser, setSearchedVideos }) {
         <div>
           {user ? (
             <>
-              {/* span cant appear here */}
               <span className="text-white bold" >{user.username}</span>
               {
                 <Dropdown className="d-inline mx-2 button-color">
@@ -47,7 +46,7 @@ function NavBar({ onSearch, user, setUser, setSearchedVideos }) {
                     <img className="profile-picture-nav" src={user.profile_image_url ? user.profile_image_url : default_avatar} alt="profile-picture" />
                   </Dropdown.Toggle>
                   <Dropdown.Menu >
-                    <Dropdown.Item ><NavLink to="/profile" style={{ textDecoration: "none", color: "black" }}>Profile page</NavLink></Dropdown.Item>
+                    <Dropdown.Item onClick={() => history.push("/profile")}>Profile page</Dropdown.Item>
                     <Dropdown.Item onClick={handleLogoutClick}><strong style={{ color: "red" }}>Log Out</strong></Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

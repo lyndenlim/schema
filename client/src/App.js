@@ -50,17 +50,10 @@ function App() {
     setScienceTechStreams(res[1].data.data)
     setAllStreams([...res[2].data.data, res[3].data.data].flat())
 
-    const axiosInstance2 = axios.create({
-      headers: {
-        Authorization: `Basic ${process.env.REACT_APP_MUX_KEY}`,
-        "Content-Type": "application/json"
-      }
-    });
-
-    const res2 = await axiosInstance2.get("https://api.mux.com/video/v1/live-streams?status=active")
+    const res2 = await axios.get(`/mux_streams?api_key=${process.env.REACT_APP_MUX_KEY}`)
     setStreamPlaybackIDs(res2.data.data.map(stream => stream.playback_ids[0].id))
 
-    const res3 = await axiosInstance2.get("https://api.mux.com/video/v1/assets")
+    const res3 = await axios.get(`/mux_videos?api_key=${process.env.REACT_APP_MUX_KEY}`)
     setVideoPlaybackIDs(res3.data.data.map(video => video.playback_ids[0].id))
   }, [])
 
