@@ -63,7 +63,7 @@ function Stream({ user }) {
             <div>
                 <iframe
                     title={id}
-                    src={`https://player.twitch.tv/?channel=${streams[0].user_name}&parent=https://schema-project.herokuapp.com`}
+                    src={`https://player.twitch.tv/?channel=${streams[0].user_name}&parent=localhost&parent=schema-project.herokuapp.com`}
                     width="1120px"
                     height="500px"
                     allow="fullscreen; autoplay"
@@ -74,7 +74,7 @@ function Stream({ user }) {
             </div>
             <iframe
                 title={id}
-                src={`https://www.twitch.tv/embed/${streams[0].user_name}/chat?parent=https://schema-project.herokuapp.com`}
+                src={`https://www.twitch.tv/embed/${streams[0].user_name}/chat?parent=localhost&parent=schema-project.herokuapp.com`}
                 height="500px"
                 width="300px">
             </iframe>
