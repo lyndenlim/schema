@@ -6,7 +6,6 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger"
 import Tooltip from "react-bootstrap/Tooltip"
 import InputGroup from "react-bootstrap/InputGroup"
 import FormControl from "react-bootstrap/FormControl"
-import secret from "./secret"
 
 function AccountSettings({ currentUser, user, setUser }) {
   const [usernameShow, setUsernameShow] = useState(false)
@@ -71,7 +70,7 @@ function AccountSettings({ currentUser, user, setUser }) {
     fetch("https://api.mux.com/video/v1/live-streams", {
       body: '{ "playback_policy": "public", "new_asset_settings": { "playback_policy": "public" }, "reconnect_window": 0 }',
       headers: {
-        Authorization: `Basic ${secret.muxKey}`,
+        Authorization: `Basic ${process.env.REACT_APP_MUX_KEY}`,
         "Content-Type": "application/json"
       },
       method: "POST"

@@ -14,7 +14,6 @@ import Video from './Video'
 import SearchResults from './SearchResults'
 import UserStream from './UserStream'
 import UserVideo from './UserVideo'
-import secret from "./secret"
 
 function App() {
   const [allStreams, setAllStreams] = useState([])
@@ -35,8 +34,8 @@ function App() {
 
     const axiosInstance1 = axios.create({
       headers: {
-        Authorization: `Bearer ${secret.twitchAccessToken}`,
-        "Client-Id": secret.twitchClientID
+        Authorization: `Bearer ${process.env.REACT_APP_TWITCH_ACCESS_TOKEN}`,
+        "Client-Id": process.env.REACT_APP_TWITCH_CLIENT_ID
       }
     });
 
@@ -53,7 +52,7 @@ function App() {
 
     const axiosInstance2 = axios.create({
       headers: {
-        Authorization: `Basic ${secret.muxKey}`,
+        Authorization: `Basic ${process.env.REACT_APP_MUX_KEY}`,
         "Content-Type": "application/json"
       }
     });

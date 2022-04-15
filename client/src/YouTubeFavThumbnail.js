@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeartBroken } from "@fortawesome/free-solid-svg-icons"
 import technologies from "./technologies";
-import secret from "./secret";
 
 function YouTubeFavThumbnail({ favorite, onDelete }) {
   const [youtubeTitle, setYoutubeTitle] = useState("");
@@ -13,7 +12,7 @@ function YouTubeFavThumbnail({ favorite, onDelete }) {
 
   useEffect(async () => {
     const res4 = await axios.get(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${favorite.video_id}&maxResults=1&key=${secret.youTubeKey}`
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${favorite.video_id}&maxResults=1&key=${process.env.REACT_APP_YOUTUBE_KEY}`
     );
     setYoutubeTitle(res4.data.items[0].snippet.localized.title);
     setChannelTitle(res4.data.items[0].snippet.channelTitle);

@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom"
 import axios from "axios"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import secret from "./secret"
 
 function SearchBar({ onSearch, setSearchedVideos }) {
     const [search, setSearch] = useState("")
@@ -19,7 +18,7 @@ function SearchBar({ onSearch, setSearchedVideos }) {
                 pathname: "/results",
             })
 
-            axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}+programming&maxResults=20&key=${secret.youTubeKey}`)
+            axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}+programming&maxResults=20&key=${process.env.REACT_APP_YOUTUBE_KEY}`)
                 .then(res => setSearchedVideos(res.data.items))
         }
     }
