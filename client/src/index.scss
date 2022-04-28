@@ -631,11 +631,25 @@ label {
 }
 
 .carousel-streams:hover {
-  color:rgb(144, 223, 223) !important;
+  color: rgb(144, 223, 223) !important;
 }
 
-.login-wrapper, .signup-wrapper {
+.login-wrapper,
+.signup-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: teal;
+  border-radius: 10px;
 }
