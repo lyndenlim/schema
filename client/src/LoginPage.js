@@ -68,7 +68,7 @@ function LoginPage({ setUser }) {
   }, [])
 
   return (
-    <>
+    <div className="login-wrapper">
       <div className="television">
         <div className="tv-border">
           <div className="screen-border"></div>
@@ -108,7 +108,7 @@ function LoginPage({ setUser }) {
           </form>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

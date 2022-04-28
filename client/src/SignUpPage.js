@@ -75,7 +75,7 @@ function SignUpPage({ setUser }) {
   }, [])
 
   return (
-    <>
+    <div className="signup-wrapper">
       <div className="television">
         <div className="tv-border">
           <div className="screen-border"></div>
@@ -119,7 +119,7 @@ function SignUpPage({ setUser }) {
           </form>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

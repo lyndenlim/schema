@@ -199,7 +199,8 @@ canvas {
 }
 
 .television {
-  padding-left: 300px;
+  display: flex;
+  justify-content: center;
   padding-top: 115px
 }
 
@@ -631,4 +632,10 @@ label {
 
 .carousel-streams:hover {
   color:rgb(144, 223, 223) !important;
+}
+
+.login-wrapper, .signup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
