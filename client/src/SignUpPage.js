@@ -75,7 +75,7 @@ function SignUpPage({ setUser }) {
   }, [])
 
   return (
-    <div className="signup-wrapper">
+    <div className='signup-wrapper'>
       <div className="television">
         <div className="tv-border">
           <div className="screen-border"></div>
@@ -114,7 +114,7 @@ function SignUpPage({ setUser }) {
               <br />
               <button className="form-button" type="submit">Sign Up</button>
               <br />
-              <p style={{ color: "red", paddingTop:"10px" }}>{errors.length !== 0 ? errors[0] : null}</p>
+              <p style={{ color: "red", paddingTop: "10px" }}>{errors.length !== 0 ? errors[0] : null}</p>
             </div>
           </form>
         </div>

@@ -201,7 +201,10 @@ canvas {
 .television {
   display: flex;
   justify-content: center;
-  padding-top: 115px
+  align-items: center;
+  padding-top: 170px;
+  height: 90vh;
+  z-index: 1;
 }
 
 .sockets {
@@ -634,13 +637,6 @@ label {
   color: rgb(144, 223, 223) !important;
 }
 
-.login-wrapper,
-.signup-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -652,4 +648,11 @@ label {
 ::-webkit-scrollbar-thumb {
   background: teal;
   border-radius: 10px;
+}
+
+.login-wrapper, .signup-wrapper {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
 }
