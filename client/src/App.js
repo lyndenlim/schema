@@ -30,7 +30,7 @@ function App() {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
-    }, []);
+    });
 
     const axiosInstance1 = axios.create({
       headers: {
