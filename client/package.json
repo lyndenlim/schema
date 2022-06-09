@@ -5,7 +5,7 @@
   "proxy": "http://localhost:3000",
   "engines": {
     "node": "16.15.1"
-  },
+},
   "dependencies": {
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
